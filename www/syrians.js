@@ -1,4 +1,4 @@
-$(document).on('click', '[rel="external"]', function (e) {
+$(document).on('click', '[rel="external"],.linksource', function (e) {
     e.preventDefault();
     var targetURL = $(this).attr("href");
 
