@@ -6,13 +6,11 @@
         id        = "com.alayham.syrians"
         version   = "0.0.1">
 
-    <name>دليل المغتربين السوريين</name>
+    <name>Syrians - Syrian Expat Guide - دليل المغتربين السوريين </name>
 
     <description>معلومات مهمة للمغتربين السوريين في العالم من تجميع الأيهم صالح www.alayham.com</description>
 
-    <author href="http://www.alayham.com" email="alayham@alayham.com">
-        الأيهم صالح
-    </author>
+    <author href="http://www.alayham.com" email="alayham@alayham.com"> الأيهم صالح</author>
 
     <!--
         If you do not want any permissions to be added to your app, add the
