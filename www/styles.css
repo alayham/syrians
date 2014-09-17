@@ -2,12 +2,20 @@
 	direction:rtl;
 	text-align:right;	
 }
+.ltr{direction:ltr;}
 .ui-collapsible-heading .ui-btn{
   text-align:right;		
 }
 .ui-listview > li > a.ui-btn{
 	text-align:right;
 }
+
+.embassy .ui-collapsible-content{
+	text-align: right;
+	white-space: normal;
+}
+
+
 @media (min-width:750px), ((min-height: 750px) and  (orientation: landscape)){
 	.split .ui-collapsible-content:after{
 	   display:block;
