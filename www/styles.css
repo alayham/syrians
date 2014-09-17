@@ -8,3 +8,23 @@
 .ui-listview > li > a.ui-btn{
 	text-align:right;
 }
+@media (min-width:750px){
+	.split .ui-collapsible-content:after{
+	   display:block;
+	   content:" ";
+	   clear:both;
+	}
+	.split .ui-collapsible-content a.ui-btn:nth-child(2n+1) {
+    width: 40%;
+    float: left;
+  }
+	
+  .split .ui-collapsible-content a.ui-btn:nth-child(2n) {
+    width: 40%;
+    float: right;
+    clear:both;
+  }
+	.split{
+	 clear:both;
+	}
+}
