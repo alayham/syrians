@@ -10,6 +10,9 @@
 	text-align:right;
 }
 
+.ui-listview > li p , .ui-btn{
+	white-space:normal;	
+}
 .embassy .ui-collapsible-content{
 	text-align: right;
 	white-space: normal;
