@@ -32,6 +32,9 @@ tr:nth-child(2n){
 tr:nth-child(2n+1){
 	background-color:#eee;
 }
+div.ngologo{
+	text-align:center;
+}
 @media (min-width:750px), ((min-height: 750px) and  (orientation: landscape)){
 	.split .ui-collapsible-content:after{
 	   display:block;
@@ -50,5 +53,9 @@ tr:nth-child(2n+1){
   }
 	.split{
 	 clear:both;
+	}
+	div.ngologo{
+	 float:left;
+	 margin:0 10px 10px 0;  
 	}
 }
