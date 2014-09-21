@@ -35,6 +35,10 @@ tr:nth-child(2n+1){
 div.ngologo{
 	text-align:center;
 }
+.ui-icon-share {
+  background: url("images/share.png") no-repeat rgba(0, 0, 0, 0.4) !important;
+}
+
 @media (min-width:750px), ((min-height: 750px) and  (orientation: landscape)){
 	.split .ui-collapsible-content:after{
 	   display:block;
