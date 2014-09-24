@@ -39,23 +39,37 @@
 <div data-role="page" data-dom-cache="true" id="home">
   	<div data-role="header" data-position="fixed">
 
-    	<h1>دليل المغتربين السوريين</h1>
+    	<h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
   	</div>
   	<div data-role="content">
-      <a data-role="button" href="live_syrian_tv.html">البث الحي</a>
-      <a data-role="button" href="directory.html">دليل المواقع السورية <sup>(محدّث)</sup></a>
- 	    <a data-role="button" href="counsular_services_outside.html">دليل خدمات السفارات</a>
-      <a data-role="button" href="military_service.html">شؤون التجنيد <sup>(محدّث)</sup></a>
-      <a data-role="button" href="syria_embassy.html">دليل السفارات السورية</a>
-      <a data-role="button" href="expat_associations.html">الجمعيات والنوادي السوري في العالم</a>
-      <a data-role="button" href="invest_in_syria.html">دليل الاستثمار في سوريا</a>
-      <a data-role="button" href="donate_to_syria.html">إرسال التبرعات إلى سوريا</a>
-      <a data-role="button" href="about_syria.html">معلومات ومراجع عن سوريا</a>
-      <a data-role="button" href="schoolbag.html">الحقيبة الالكترونية للكتب المدرسية <sup>(جديد)</sup></a>
- 
-    <div data-role="collapsible" data-mini="false" >
+  	  <div class="homecontainer" data-role="collapsible" data-inset="false" data-mini="true" data-collapsed="false">
+  	    <legend>السوريون في العالم</legend>
+  	    <div data-role="controlgroup">
+        <a class="homebutton" data-mini="true" data-role="button" href="syria_embassy.html">دليل السفارات السورية</a>
+        <a class="homebutton" data-mini="true" data-role="button" href="counsular_services_outside.html">دليل خدمات السفارات</a>
+        <a class="homebutton" data-mini="true" data-role="button" href="military_service.html">شؤون التجنيد <sup>(محدّث)</sup></a>
+        <a class="homebutton" data-mini="true" data-role="button" href="expat_associations.html">الجمعيات والنوادي السوري في العالم</a>
+  	   </div>
+  	  </div>
+      <div class="homecontainer" data-role="collapsible" data-inset="false" data-mini="true" data-collapsed="false">
+        <legend>التواصل مع سوريا</legend>
+        <div data-role="controlgroup">
+        <a class="homebutton" data-mini="true" data-role="button" href="live_syrian_tv.html">التلفزيون والإذاعة</a>
+        <a class="homebutton" data-mini="true" data-role="button" href="directory.html">دليل المواقع السورية <sup>(محدّث)</sup></a>
+        <a class="homebutton" data-mini="true" data-role="button" href="invest_in_syria.html">دليل الاستثمار في سوريا</a>      
+        <a class="homebutton" data-mini="true" data-role="button" href="donate_to_syria.html">إرسال التبرعات إلى سوريا</a>         
+        </div>
+      </div> 
+      <div class="homecontainer" data-role="collapsible" data-inset="false" data-mini="true" data-collapsed="false">
+        <legend>ثقافة وتعليم</legend>
+        <div data-role="controlgroup">
+        <a class="homebutton" data-mini="true" data-inset="false" data-role="button" href="about_syria.html">معلومات ومراجع عن سوريا</a>
+        <a class="homebutton" data-mini="true" data-inset="false" data-role="button" href="schoolbag.html">الحقيبة الالكترونية للكتب المدرسية <sup>(جديد)</sup></a>
+        </div>
+      </div>
+    <div data-role="collapsible" data-mini="true" data-inset="false">
        <legend>عن التطبيق</legend>
-        <div data-role="collapsible" data-mini="false" >
+        <div data-role="collapsible" data-mini="true" >
            <legend>ما الجديد</legend>
            <p>الإصدار الحالي هو الإصدار 0.2.0 هو إصدار تجريبي مخصص لاختبار التطبيق واستقراء ردود الفعل عليه.
            </p>
@@ -78,7 +92,7 @@
             </ul>
            </p>
         </div> 
-     <div data-role="collapsible" data-mini="false" >
+     <div data-role="collapsible" data-mini="true" >
         <legend>عن التطبيق</legend>
        <h2>تحديث التطبيق</h2>
        <p>يمكنك تحديث التطبيق باستخدام إحدى الطرق التالية:</p>
