@@ -42,7 +42,10 @@ div.ngologo{
   background-image: url("images/share.png");
   background-repeat: no-repeat;
 }
-
+.ui-controlgroup-horizontal .ui-controlgroup-controls {
+	padding:0px 3px;
+	
+}
 @media (min-width:750px), ((min-height: 750px) and  (orientation: landscape)){
 	.split .ui-collapsible-content:after{
 	   display:block;
