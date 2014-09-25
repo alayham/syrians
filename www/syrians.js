@@ -13,7 +13,7 @@ $(document).on('click', '[rel="external"],.linksource', function (e) {
     window.open(targetURL, "_system");
 });
 
-if (localStorage.getItem('apptheme').length<3){
+if (!localStorage.getItem('apptheme')){
   localStorage.setItem('apptheme','syria');
 }
 $("<link/>", {
