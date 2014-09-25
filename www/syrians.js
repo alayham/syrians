@@ -13,10 +13,8 @@ $(document).on('click', '[rel="external"],.linksource', function (e) {
     window.open(targetURL, "_system");
 });
 
-var themestylesheet=localStorage.getItem('apptheme');
-if (themestylesheet.length<3){
-  localStorage.setItem(apptheme,'syria');
-  themestylesheet=localStorage.getItem(apptheme);
+if (localStorage.getItem('apptheme').length<3){
+  localStorage.setItem('apptheme','syria');
 }
 $("<link/>", {
      rel: "stylesheet",
