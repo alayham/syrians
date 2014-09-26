@@ -7,10 +7,17 @@ function updatetheme(){
 	  location.reload();
 }
 
+$(document).on('click', '[rel="external"],.linksource', function (e) {
+    e.preventDefault();
+    var targetURL = $(this).attr("href");
+
+    window.open(targetURL, "_system");
+});
+/*
 $(document).ready(function(){
 	$('.pagefooter').load('includes/footer.html');
 });
-
+*/
 if (!localStorage.getItem('apptheme')){
   localStorage.setItem('apptheme','syria');
 }
