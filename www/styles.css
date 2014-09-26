@@ -16,6 +16,27 @@
 	content:" ";
 	clear:both;
 }
+#page1,#page2,#page3,#page4{
+	background-size:cover;
+	background-position:50% 50%;
+}
+#page1{
+	background-image:url('images/back1.jpg');
+}
+#page2{
+  background-image:url('images/back2.jpg');
+}
+#page3{
+  background-image:url('images/back3.jpg');
+}
+#page4{
+  background-image:url('images/back4.jpg');
+}
+.homebutton{
+	display:block;
+	text-decoration:none;
+}
+
 .ui-listview > li p , .ui-btn{
 	white-space:normal;	
 }
