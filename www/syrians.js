@@ -7,10 +7,6 @@ function updatetheme(){
 	  location.reload();
 }
 
-function showpage(){
-	
-}
-
 $(document).on('click', '[rel="external"],.linksource', function (e) {
     e.preventDefault();
     var targetURL = $(this).attr("href");
@@ -19,7 +15,7 @@ $(document).on('click', '[rel="external"],.linksource', function (e) {
 });
 
 $(document).ready(function(){
-	$('.pagefooter').load('includes/footer.html');
+	//$('.pagefooter').load('includes/footer.html');
 });
 
 if (!localStorage.getItem('apptheme')){
