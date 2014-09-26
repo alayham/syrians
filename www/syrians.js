@@ -13,11 +13,12 @@ $(document).on('click', '[rel="external"],.linksource', function (e) {
 
     window.open(targetURL, "_system");
 });
-/*
+
+
 $(document).ready(function(){
 	$('.pagefooter').load('includes/footer.html');
 });
-*/
+
 if (!localStorage.getItem('apptheme')){
   localStorage.setItem('apptheme','syria');
 }
