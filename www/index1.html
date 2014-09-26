@@ -36,39 +36,74 @@
 
 </head>
 <body>
-<div data-role="page" data-dom-cache="true" id="home">
+<div data-role="page" data-dom-cache="true" id="page1">
   	<div data-role="header" data-position="fixed">
-
     	<h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
   	</div>
   	<div data-role="content">
-  	  <div class="homecontainer" data-role="collapsible" data-inset="false" data-mini="true" data-collapsed="false">
-  	    <legend>السوريون في العالم</legend>
+  	    <div  class="clearfix">
+  	      <a data-role="button" data-inline="true" data-inline="true" href="#page4" data-icon="carat-l" class="floatleft"></a>
+         السوريون في العالم
+          <a data-role="button" data-mini="true" data-inline="true" href="#page2" data-icon="carat-r" class="floatright"></a>
+  	    </div>
   	    <div data-role="controlgroup">
         <a class="homebutton" data-mini="true" data-role="button" href="syria_embassy.html">دليل السفارات السورية</a>
         <a class="homebutton" data-mini="true" data-role="button" href="counsular_services_outside.html">دليل خدمات السفارات</a>
         <a class="homebutton" data-mini="true" data-role="button" href="military_service.html">شؤون التجنيد <sup>(محدّث)</sup></a>
         <a class="homebutton" data-mini="true" data-role="button" href="expat_associations.html">الجمعيات والنوادي السوري في العالم</a>
   	   </div>
-  	  </div>
-      <div class="homecontainer" data-role="collapsible" data-inset="false" data-mini="true" data-collapsed="false">
-        <legend>التواصل مع سوريا</legend>
+    </div>
+    <div class="pagefooter" data-role="footer" data-position="fixed">
+    </div>
+  </div>
+  <div data-role="page" data-dom-cache="true" id="page2">
+    <div data-role="header" data-position="fixed">
+      <h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
+    </div>
+    <div data-role="content">
+        <div  class="clearfix">
+          <a data-role="button" data-inline="true" data-inline="true" href="#page1" data-icon="carat-l" class="floatleft"></a>
+          التواصل مع سوريا
+          <a data-role="button" data-mini="true" data-inline="true" href="#page3" data-icon="carat-r" class="floatright"></a>
+        </div>
         <div data-role="controlgroup">
         <a class="homebutton" data-mini="true" data-role="button" href="live_syrian_tv.html">التلفزيون والإذاعة</a>
         <a class="homebutton" data-mini="true" data-role="button" href="directory.html">دليل المواقع السورية <sup>(محدّث)</sup></a>
         <a class="homebutton" data-mini="true" data-role="button" href="invest_in_syria.html">دليل الاستثمار في سوريا</a>      
         <a class="homebutton" data-mini="true" data-role="button" href="donate_to_syria.html">إرسال التبرعات إلى سوريا</a>         
         </div>
-      </div> 
-      <div class="homecontainer" data-role="collapsible" data-inset="false" data-mini="true" data-collapsed="false">
-        <legend>ثقافة وتعليم</legend>
+    </div>
+    <div class="pagefooter" data-role="footer" data-position="fixed">
+    </div>
+  </div>
+  <div data-role="page" data-dom-cache="true" id="page3">
+    <div data-role="header" data-position="fixed">
+      <h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
+    </div>
+    <div data-role="content">
+        <div  class="clearfix">
+          <a data-role="button" data-inline="true" data-inline="true" href="#page2" data-icon="carat-l" class="floatleft"></a>
+            ثقافة وتعليم  
+          <a data-role="button" data-mini="true" data-inline="true" href="#page4" data-icon="carat-r" class="floatright"></a>
+        </div>
         <div data-role="controlgroup">
         <a class="homebutton" data-mini="true" data-inset="false" data-role="button" href="about_syria.html">معلومات ومراجع عن سوريا</a>
         <a class="homebutton" data-mini="true" data-inset="false" data-role="button" href="schoolbag.html">الحقيبة الالكترونية للكتب المدرسية <sup>(جديد)</sup></a>
         </div>
-      </div>
-    <div data-role="collapsible" data-mini="true" data-inset="false">
-       <legend>عن التطبيق</legend>
+    </div>
+     <div class="pagefooter" data-role="footer" data-position="fixed">
+    </div>
+  </div>
+  <div data-role="page" data-dom-cache="true" id="page4">
+    <div data-role="header" data-position="fixed">
+      <h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
+    </div>
+    <div data-role="content">
+        <div  class="clearfix">
+          <a data-role="button" data-inline="true" data-inline="true" href="#page3" data-icon="carat-l" class="floatleft"></a>
+       عن التطبيق
+          <a data-role="button" data-mini="true" data-inline="true" href="#page1" data-icon="carat-r" class="floatright"></a>
+        </div>
         <div data-role="collapsible" data-mini="true" >
            <legend>ما الجديد</legend>
            <p>الإصدار الحالي هو الإصدار 0.2.0 هو إصدار تجريبي مخصص لاختبار التطبيق واستقراء ردود الفعل عليه.
@@ -82,7 +117,6 @@
           <p>الصفحات الجديدة
             <ul>
               <li><a href="schoolbag.html">الحقيبة الالكترونية للكتب المدرسية</a></li>
-              <li><a href="index1.html">قيد التطوير: الصفحة الرئيسية</a>
             </ul>
            </p>
            <p>
@@ -115,17 +149,10 @@
        <p>هذا التطبيق مفتوح المصدر ويمكن تصفح النص البرمجي له على موقع github على العنوان <a href="https://github.com/alayham/syrians" rel="external">https://github.com/alayham/syrians</a></p>
        <p>المطورون الراغبون بالمساهمة في تطوير التطبيق يمكنهم المشاركة في موقع github مثل العادة</p>
 		    </div>
-		    </div> 
-    <div data-role="footer" data-position="fixed">
-      <div data-role="controlgroup" data-type="horizontal"  data-mini="false" data-corners="false">
-        <a data-role="button" href="options.html" data-icon="bullets">خيارات</a>
-        <a data-role="button"rel="external" data-icon="home" href="http://syrians.alayham.com" rel="external">الموقع</a>
-        <a data-role="button"rel="external" data-icon="action" href="https://m.facebook.com/groups/syrianexpats/" rel="external">المجموعة</a>
-	      <a data-role="button" href="" data-icon="share" onclick="syrians_share_app(); return false;">مشاركة</a>
-      </div>
+    </div>
+    <div class="pagefooter" data-role="footer" data-position="fixed">
     </div>
  	  
- 	  </div>
  </div>
 </body>
 </html>

@@ -6,11 +6,20 @@ function updatetheme(){
 	  localStorage.setItem('apptheme',$( "input:radio[name=apptheme]:checked" ).val());
 	  location.reload();
 }
+
+function showpage(){
+	
+}
+
 $(document).on('click', '[rel="external"],.linksource', function (e) {
     e.preventDefault();
     var targetURL = $(this).attr("href");
 
     window.open(targetURL, "_system");
+});
+
+$(document).ready(function(){
+	$('.pagefooter').load('includes/footer.html');
 });
 
 if (!localStorage.getItem('apptheme')){

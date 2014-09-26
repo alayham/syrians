@@ -6,10 +6,16 @@
 .ui-collapsible-heading .ui-btn{
   text-align:right;		
 }
+.floatleft{float:left;}
+.floatright{float:right;}
 .ui-listview > li > a.ui-btn{
 	text-align:right;
 }
-
+.clearfix:after{
+	display:block;
+	content:" ";
+	clear:both;
+}
 .ui-listview > li p , .ui-btn{
 	white-space:normal;	
 }
