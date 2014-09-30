@@ -71,8 +71,9 @@
        <legend>عن التطبيق</legend>
         <div data-role="collapsible" data-mini="true" >
            <legend>ما الجديد</legend>
-           <p>الإصدار الحالي هو الإصدار 0.3.0 هو إصدار تجريبي مخصص لاختبار التطبيق واستقراء ردود الفعل عليه.
+           <p>الإصدار المستخدم حاليا هو الإصدار <span id="appversion">0.3.0</span> هو إصدار تجريبي مخصص لاختبار التطبيق واستقراء ردود الفعل عليه.
            </p>
+           <p>آخر إصدار للتطبيق هو الإصدار<span id="latestappversion"></span>
            <p>الميزات والتصحيحات الجديدة
            <ul>
             <li>إمكانية اختيار شكل جديد للتطبيق، وثلاثة أشكال إضافية مبيتة مع التطبيق.</li>
@@ -122,5 +123,12 @@
  	  
  	  </div>
  </div>
+ <script type="text/javascript">
+ $(document).ready(function(){
+	    $('#appversion').load('includes/version.txt');
+	    $('#latestappversion').load('https://raw.githubusercontent.com/alayham/syrians/master/www/includes/version.txt');
+	});
+
+ </script>
 </body>
 </html>
