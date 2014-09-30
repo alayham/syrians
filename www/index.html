@@ -71,10 +71,7 @@
        <legend>عن التطبيق</legend>
         <div data-role="collapsible" data-mini="true" >
            <legend>ما الجديد</legend>
-           <p>الإصدار المستخدم حاليا هو الإصدار <span id="appversion">0.3.0</span> هو إصدار تجريبي مخصص لاختبار التطبيق واستقراء ردود الفعل عليه.
-           </p>
-           <p>آخر إصدار للتطبيق هو الإصدار<span id="latestappversion"></span>
-           <p>الميزات والتصحيحات الجديدة
+            <p>الميزات والتصحيحات الجديدة
            <ul>
             <li>إمكانية اختيار شكل جديد للتطبيق، وثلاثة أشكال إضافية مبيتة مع التطبيق.</li>
             <li>تصحيحات بسيطة متنوعة</li>
@@ -94,9 +91,16 @@
             </ul>
            </p>
  -->
+        <p>للمبرمجين: يمكن تصفح آخر التحديثات على النص البرمجي من هنا: <br />
+        <a href="https://github.com/alayham/syrians/commits/master" data-ajax="false" rel="external">https://github.com/alayham/syrians/commits/master</a>
         </div> 
      <div data-role="collapsible" data-mini="true" >
         <legend>عن التطبيق</legend>
+       <h2>الإصدار</h2>
+          <p>الإصدار المستخدم حاليا هو الإصدار <span id="appversion">0.3.0</span> هو إصدار تجريبي مخصص لاختبار التطبيق واستقراء ردود الفعل عليه.
+           </p>
+           <p>آخر إصدار للتطبيق هو الإصدار: <span id="latestappversion">فشل التحقق من الإصدار. الرجاء التأكد من وصلة الإنترنت</span>
+
        <h2>تحديث التطبيق</h2>
        <p>يمكنك تحديث التطبيق باستخدام إحدى الطرق التالية:</p>
        <ol>
@@ -126,7 +130,7 @@
  <script type="text/javascript">
  $(document).ready(function(){
 	    $('#appversion').load('includes/version.txt');
-	    $('#latestappversion').load('https://raw.githubusercontent.com/alayham/syrians/master/www/includes/version.txt');
+	    $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
 	});
 
  </script>
