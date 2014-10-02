@@ -77,49 +77,9 @@ div.ngologo{
 }
 .ui-controlgroup-horizontal .ui-controlgroup-controls {
 	padding:0px 3px;
-	
-}
-/*
-.homecontainer .ui-collapsible-content a.homebutton:nth-child(2n+2){
-  float: right;
-  width:45%;
-  clear:both;
-  max-width:45% !important;
 }
 
-.homecontainer .ui-collapsible-content a.homebutton:nth-child(2n+1){
-  float: left;
-  width:45%;
-  max-width:45% !important;
-}
-.homecontainer{
-	clear:both;
-}
-.homecontainer .ui-collapsible-content:after{
-	display:block;
-	content:" ";
-	clear:both;
-}
-*/
 @media (min-width:750px), ((min-height: 750px) and  (orientation: landscape)){
-	.split .ui-collapsible-content:after{
-	   display:block;
-	   content:" ";
-	   clear:both;
-	}
-	.split .ui-collapsible-content a.ui-btn:nth-child(2n+1) {
-    width: 40%;
-    float: left;
-  }
-	
-  .split .ui-collapsible-content a.ui-btn:nth-child(2n) {
-    width: 40%;
-    float: right;
-    clear:both;
-  }
-	.split{
-	 clear:both;
-	}
 	div.ngologo{
 	 float:left;
 	 margin:0 10px 10px 0;  
