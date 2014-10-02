@@ -16,6 +16,12 @@
 	content:" ";
 	clear:both;
 }
+
+.ui-grid-a .ui-block-a,
+.ui-grid-a .ui-block-b{
+	padding:1em;
+}
+
 #page1,#page2,#page3,#page4{
 	background-size:cover;
 	background-position:50% top;
