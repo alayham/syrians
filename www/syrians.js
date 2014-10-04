@@ -1,3 +1,17 @@
+function onAndroid(){
+	return( /android/i.test(navigator.userAgent.toLowerCase()) );
+}
+function backhome(){
+	
+	this.render = function(){
+		if(onAndroid()){
+			return('<a class="ui-link ui-btn-left ui-btn ui-icon-home ui-btn-icon-left ui-shadow ui-corner-all" href="#" data-icon="home"  data-role="button" data-ajax="false" data-rel="back">الرئيسية</a>');
+		}else{
+			return('<a class="ui-link ui-btn-left ui-btn ui-icon-home ui-btn-icon-left ui-shadow ui-corner-all" href="index.html" data-icon="home"  data-role="button" data-ajax="false">الرئيسية</a>');
+		}
+	};
+}
+
 function syrians_share_app(){
 	navigator.share('أدعوك للاطلاع على دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
 }
