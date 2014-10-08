@@ -115,6 +115,8 @@ sectionlist[1].addlink('counsular_services_outside.html','دليل الخدما�
 sectionlist[1].addlink('military_service.html','شؤون التجنيد');
 sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم');
 sectionlist[2].addlink('live_syrian_tv.html','التلفزيون والإذاعة');
+sectionlist[2].addlink('news_tishreen.html','الأخبار: جريدة تشرين');
+sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا');
 sectionlist[2].addlink('directory.html','دليل المواقع السورية');
 sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال');
 sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات');
