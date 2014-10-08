@@ -22,21 +22,8 @@
 	padding:1em;
 }
 
-#page1,#page2,#page3,#page4{
-	background-size:cover;
-	background-position:50% top;
-}
-#page1{
-	background-image:url('images/back1.jpg');
-}
-#page2{
-  background-image:url('images/back2.jpg');
-}
-#page3{
-  background-image:url('images/back3.jpg');
-}
-#page4{
-  background-image:url('images/back4.jpg');
+.sublinks{
+	margin-left:3em;
 }
 .homebutton{
 	display:block;
