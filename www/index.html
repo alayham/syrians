@@ -44,11 +44,20 @@
   	<div data-role="content">
   	
   	      <script type="text/javascript">
-             document.write( sectionlist[0].rendersection() );
-             document.write( sectionlist[1].rendersection() );
-             document.write( sectionlist[2].rendersection() );
-             document.write( sectionlist[3].rendersection() );
-             document.write( sectionlist[4].rendersection() );
+  	         var homehtml = sectionlist[0].rendersection() + 
+  	                        sectionlist[1].rendersection() + 
+  	                        sectionlist[2].rendersection() + 
+  	                        sectionlist[3].rendersection() + 
+  	                        sectionlist[4].rendersection();
+  	         if(homehtml.length > 0){
+  	        	 document.write(homehtml);
+  	         }else{
+  	        	 document.write('<h2>الصفحة الأولى فارغة</h2>');
+  	           document.write('<p>يمكنك اختيار مكونات الصفحة الأولى التي ترغب بها من صفحة الخيارات</p>');
+               document.write('<a data-role="button" data-icon="bullets" data-ajax="false" href="options.html">الخيارات</a>');
+
+
+  	         }
 
           </script>      
   	
