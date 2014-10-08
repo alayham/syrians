@@ -85,7 +85,8 @@ var themelist = [
         <div data-role="controlgroup" data-mini="true">
 		      <script type="text/javascript">
 		        for (i = 0; i < sectionlist.length; i++) {
-		          document.write( sectionlist[i].renderoption() );
+		        	if(sectionlist[i])
+		        		  document.write( sectionlist[i].renderoption() );
 		        }      
 		      </script>      
           
