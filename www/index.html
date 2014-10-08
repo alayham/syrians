@@ -44,11 +44,14 @@
   	<div data-role="content">
   	
   	      <script type="text/javascript">
-  	         var homehtml = sectionlist[0].rendersection() + 
-  	                        sectionlist[1].rendersection() + 
-  	                        sectionlist[2].rendersection() + 
-  	                        sectionlist[3].rendersection() + 
-  	                        sectionlist[4].rendersection();
+  	      
+  	         
+  	         var homehtml = "";
+  	         console.log(sectionlist.length);
+  	         for(secnum=0;secnum<sectionlist.length;secnum++){
+  	        	 if(sectionlist[secnum])
+  	        		  homehtml += sectionlist[secnum].rendersection();
+  	         }
   	         if(homehtml.length > 0){
   	        	 document.write(homehtml);
   	         }else{
