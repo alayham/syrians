@@ -103,13 +103,13 @@ function updatesections(){
 }
 var sectionlist = [];
 
-sectionlist[0]=	new homesection("tv", "التلفزيون السوري");
+//sectionlist[0]=	new homesection("tv", "التلفزيون السوري");
 sectionlist[1]=	new homesection("intheworld", "السوريون في العالم");
 sectionlist[2]=	new homesection("connectsyria", "التواصل مع سوريا");
 sectionlist[3]=	new homesection("culture", "تقافة وتعليم");
 sectionlist[4]=	new homesection("about", "عن التطبيق");
 
-sectionlist[0].html ='<iframe width="100%" height="250" src="http://www.youtube.com/embed/videoseries?list=PLdnH0tm73Ekm5yvRzmWNbj7e-1ffaAaML" frameborder="0" allowfullscreen></iframe>';
+//sectionlist[0].html ='<iframe width="100%" height="250" src="http://www.youtube.com/embed/videoseries?list=PLdnH0tm73Ekm5yvRzmWNbj7e-1ffaAaML" frameborder="0" allowfullscreen></iframe>';
 sectionlist[1].addlink('syria_embassy.html','دليل السفارات السورية');
 sectionlist[1].addlink('counsular_services_outside.html','دليل الخدمات القنصلية');
 sectionlist[1].addlink('military_service.html','شؤون التجنيد');
