@@ -1,0 +1,98 @@
+<!doctype html>
+<html dir="rtl">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+<link rel="shortcut icon" href="http://www.alayham.com/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="generator" content="Eclipse Luna, Supported by EGHNA (http://www.eghna.com)">
+<meta name="rights" content="جميع الحقوق محفوظة لأصحابها الأصليين. الجميع مدعو للمشاركة مع حقظ حقوق الملكية الفكرية لأصحابها الأصليين">
+<link rel="image_src" href="http://syrians.alayham.com/images/flag.jpg">
+<link rel="publisher" href="http://www.eghna.com">
+<link rel="author" href="http://www.alayham.com">
+
+<meta property="fb:admins" content="532377104">
+<meta property="fb:app_id" content="306540782743883">
+<meta property="og:site_name" content="دليل المغتربين السوريين">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://www.alayham.com/">
+<meta property="og:image" content="http://syrians.alayham.com/images/flag.jpg">
+
+<link rel="canonical" href="http://syrians.alayham.com/news_tishreen.html">
+<link rel="shortlink" href="http://syrians.alayham.com/news_tishreen.html">
+<meta property="og:title" content="أخبار سوريا من موقع جريدة تشرين">
+<meta property="og:description" content="أخبار سوريا من موقع جريدة تشرين">
+<meta name="description" content="أخبار سوريا من موقع جريدة تشرين">
+<title>الأخبار: جريدة تشرين</title>
+
+<script src="phonegap.js"></script>
+
+<link rel="stylesheet" href="jquery-mobile/themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile.structure-1.4.4.min.css" />
+<script src="jquery-mobile/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<script src="syrians.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript">
+
+function newsitems(){
+	var items = [];
+  this.fetch = function(){
+	    $.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=66497acae540477b268d1796e590b3d6&_render=json',
+	          function(data){
+	    	      var refreshDate = new Date();
+	            localStorage.setItem('newsitems',JSON.stringify(data.value.items));
+	            localStorage.setItem('refreshdate', refreshDate.valueOf())
+	            console.log("fetched and saved new items")
+	          }
+	    );
+	}
+	this.load = function(){
+		var now = new Date();
+		var refreshDate = new Date(parseInt(localStorage.getItem('refreshdate')));
+		if(now.valueOf() - refreshDate.valueOf() >= 1800000 ){
+			this.fetch();
+		}else{
+			console.log("Using news items from the local storage")
+		}
+		var txt = localStorage.getItem('newsitems');
+		if (txt == null){
+			this.fetch();
+			txt = localStorage.getItem('newsitems');
+		}
+		this.items=JSON.parse(txt);
+	}
+	this.render = function(){
+		var txt="";
+    for(i=0;i<this.items.length;i++){
+        txt += '<li><a rel="external" data-ajax="false" href="' + this.items[i].link  + '"><h3>' + this.items[i].title + '</h3>' + ( this.items[i].description == null ? '' : '<p>' + this.items[i].description + '</p>') + '</a></li>';
+    }
+    return(txt);	
+	}
+}
+</script>
+</head>
+<body>
+<div data-role="page" data-dom-cache="true" id="home">
+  <div data-role="header" data-position="fixed">
+    <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>
+    <h1>الأخبار: جريدة تشرين</h1>
+  </div>
+  <div data-role="content">    
+    <form>
+      <ul id="newslist" data-inset="false" data-mini="true" data-icon="carat-l">
+      </ul>
+    </form>
+  </div>
+  <div class="pagefooter" data-role="footer" data-position="fixed">
+  </div>
+</div>   
+</body>
+<script type="text/javascript">
+var news=new newsitems();
+news.load();
+$('#newslist').append(news.render());
+$('#newslist').listview();
+</script>
+
+</html>
