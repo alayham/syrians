@@ -6,8 +6,8 @@ function onAndroid(){
 	return( /android/i.test(navigator.userAgent.toLowerCase()) );
 }
 function onDeviceReady() {
+	alert("DeviceReady");
 	if(onAndroid()){
-		alert("DeviceReady");
 	    gaPlugin = window.plugins.gaPlugin;
 	    toast = window.plugins.toast;
 	    gaPlugin.init(function(){tracking=true;}, function(){tracking=false;}, "UA-55575592-1", 30);
