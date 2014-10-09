@@ -33,8 +33,6 @@ function onDeviceReady() {
     gaPlugin 	= window.plugins.gaPlugin;
     gaPlugin.init(successHandler, errorHandler, "UA-55575592-1", 30);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
-	gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
-	alert(window.location.pathname.substring(url.lastIndexOf('/')+1));
 }
 
 function backhome(){	
@@ -165,6 +163,7 @@ sectionlist[4].addlink('about.html','عن التطبيق');
 
 $(document).ready(function(){
 	$('.pagefooter').load('includes/footer.html');
+
 	$('.linkvisibility').click(function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 	});
@@ -178,8 +177,10 @@ $(document).ready(function(){
 
 	    window.open(targetURL, "_system");
 	});
-	
-	showDebugInfo();
+	if(tracking){
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
+		alert(window.location.pathname.substring(url.lastIndexOf('/')+1));
+	}
 });
 
 if (!localStorage.getItem('apptheme')){
