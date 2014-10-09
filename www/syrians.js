@@ -2,10 +2,20 @@ var gaPlugin;
 var toast;
 var tracking = false;
 var debugmessage="";
+
 function onAndroid(){
 	return( /android/i.test(navigator.userAgent.toLowerCase()) );
 }
-
+function showDebugInfo(){
+	if(debugmessage.length > 0){
+		$('<div/>',{
+			id: "debuginfo",
+			"data-role": "page",
+			
+		})html(debugmessage).appendto('body');
+		$.mobile.changePage( "#debuginfo", { role: "dialog" } );
+	}
+}
 function onDeviceReady() {
 	if(onAndroid()){
 		console.log("DeviceReady")
@@ -143,12 +153,6 @@ sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال')
 sectionlist[4].addlink('whatsnew.html','ما الجديد');
 sectionlist[4].addlink('about.html','عن التطبيق');
 
-$(document).on('click', '[rel="external"],.linksource', function (e) {
-    e.preventDefault();
-    var targetURL = $(this).attr("href");
-
-    window.open(targetURL, "_system");
-});
 
 
 $(document).ready(function(){
@@ -161,8 +165,14 @@ $(document).ready(function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 		$('#' + $(this).attr('id') + "sublinks").toggle();
 	});
-	if(debugmessage.length>0)
-		$('.pagefooter').append(debugmessage);
+	$(document).on('click', '[rel="external"],.linksource', function (e) {
+	    e.preventDefault();
+	    var targetURL = $(this).attr("href");
+
+	    window.open(targetURL, "_system");
+	});
+	
+	showDebugInfo();
 });
 
 if (!localStorage.getItem('apptheme')){
