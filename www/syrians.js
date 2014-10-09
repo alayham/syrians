@@ -2,38 +2,31 @@ var gaPlugin;
 var toast;
 var tracking = false;
 var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/"));
+var onAndroid = false;
 
 if (!localStorage.getItem('apptheme')){
 	  localStorage.setItem('apptheme','syria');
 	}
 
-function onAndroid(){
-	return( /android/i.test(navigator.userAgent.toLowerCase()) );
+
+function successHandler(){tracking=true;}
+
+function nativePluginResultHandler(){
+	//alert("tracking " + pagename);
 }
 
-function successHandler()
-{
-    tracking=true;
-}
-
-function errorHandler()
-{
-    alert("Tracking init failed");
-}
-
-function nativePluginResultHandler(){alert("tracking " + pagename);}
-
-function nativePluginErrorHandler(){alert("tracking failed");}
+function nativePluginErrorHandler(){}
 
 function onDeviceReady() {
-    gaPlugin 	= window.plugins.gaPlugin;
-    gaPlugin.init(successHandler, errorHandler, "UA-55575592-1", 30);
+	onAndroid = true;
+    gaPlugin = window.plugins.gaPlugin;
+    gaPlugin.init(successHandler, nativePluginErrorHandler, "UA-55575592-1", 30);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 }
 
 function backhome(){	
 	this.render = function(){
-		if(onAndroid()){
+		if(onAndroid){
 			return('<a class="ui-link ui-btn-left ui-btn ui-icon-home ui-btn-icon-left ui-shadow ui-corner-all" href="#" data-icon="carat-l"  data-role="button" data-ajax="false" data-rel="back">عودة</a>');
 		}else{
 			return('<a class="ui-link ui-btn-left ui-btn ui-icon-home ui-btn-icon-left ui-shadow ui-corner-all" href="index.html" data-icon="home"  data-role="button" data-ajax="false">الرئيسية</a>');
@@ -172,6 +165,11 @@ $(document).ready(function(){
 	    var targetURL = $(this).attr("href");
 
 	    window.open(targetURL, "_system");
+	});
+	$( window ).unload(function() {
+		  if(tracking){
+			  gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+		  }
 	});
 	if(tracking){
 		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pagename);
