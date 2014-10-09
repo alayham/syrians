@@ -12,7 +12,7 @@ function showDebugInfo(){
 			id: "debuginfo",
 			"data-role": "page",
 			
-		})html(debugmessage).appendto('body');
+		}).html(debugmessage).appendto('body');
 		$.mobile.changePage( "#debuginfo", { role: "dialog" } );
 	}
 }
