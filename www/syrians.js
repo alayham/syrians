@@ -1,7 +1,10 @@
 var gaPlugin;
 var toast;
 var tracking = false;
-var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf('/')+1);
+var pagename = window.location.pathname;
+if (!localStorage.getItem('apptheme')){
+	  localStorage.setItem('apptheme','syria');
+	}
 
 function onAndroid(){
 	return( /android/i.test(navigator.userAgent.toLowerCase()) );
@@ -9,27 +12,18 @@ function onAndroid(){
 
 function successHandler()
 {
-//    alert("init success");
     tracking=true;
 }
 
 function errorHandler()
 {
-//    alert("init failed");
-    tracking=false;
+    alert("Tracking init failed");
 }
 
-function nativePluginResultHandler()
-{
-//    alert("tracking success");
-    tracking=true;
-}
+function nativePluginResultHandler(){alert("tracking " + pagename);}
 
-function nativePluginErrorHandler()
-{
-//    alert("tracking failed");
-    tracking=false;
-}
+function nativePluginErrorHandler(){alert("tracking failed");}
+
 function onDeviceReady() {
     gaPlugin 	= window.plugins.gaPlugin;
     gaPlugin.init(successHandler, errorHandler, "UA-55575592-1", 30);
@@ -180,13 +174,8 @@ $(document).ready(function(){
 	});
 	if(tracking){
 		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pagename);
-		alert(pagename);
 	}
 });
-
-if (!localStorage.getItem('apptheme')){
-  localStorage.setItem('apptheme','syria');
-}
 
 
 $("<link/>", {
