@@ -26,6 +26,9 @@
 <title>إرسال تبرعات إلى سوريا</title>
 
 <script src="phonegap.js"></script>
+<script type="text/javascript" charset="utf-8">
+function onLoad() { document.addEventListener("deviceready", onDeviceReady, false);}
+</script>
 
 <link rel="stylesheet" href="jquery-mobile/themes/jquery.mobile.icons.min.css" />
 <link rel="stylesheet" href="jquery-mobile/jquery.mobile.structure-1.4.4.min.css" />
@@ -35,7 +38,7 @@
 <link rel="stylesheet" type="text/css" href="styles.css" />
 
 </head>
-<body>
+<body onload="onLoad();">
 <div data-role="page" data-dom-cache="true" id="home">
   <div data-role="header" data-position="fixed">
     <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>

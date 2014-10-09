@@ -1,8 +1,19 @@
+var gaPlugin;
+var tracking = false;
+
 function onAndroid(){
 	return( /android/i.test(navigator.userAgent.toLowerCase()) );
 }
-function backhome(){
-	
+
+function onDeviceReady() {
+	console.log("DeviceReady")
+	if(onAndroid){
+	    gaPlugin = window.plugins.gaPlugin;
+	    gaPlugin.init(function(){tracking=true;}, function(){tracking=false;}, "UA-55575592-1", 30);
+	}
+}
+
+function backhome(){	
 	this.render = function(){
 		if(onAndroid()){
 			return('<a class="ui-link ui-btn-left ui-btn ui-icon-home ui-btn-icon-left ui-shadow ui-corner-all" href="#" data-icon="carat-l"  data-role="button" data-ajax="false" data-rel="back">عودة</a>');
@@ -142,12 +153,14 @@ $(document).ready(function(){
 	$('.sectionvisibility').change(function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 		$('#' + $(this).attr('id') + "sublinks").toggle();
-	})
+	});
+	if(tracking) gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 });
 
 if (!localStorage.getItem('apptheme')){
   localStorage.setItem('apptheme','syria');
 }
+
 
 $("<link/>", {
      rel: "stylesheet",

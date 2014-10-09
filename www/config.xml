@@ -55,7 +55,7 @@
     <gap:plugin name="org.apache.cordova.vibration" />
 -->
     <gap:plugin name="org.apache.cordova.inappbrowser" />
-<!-- 	  <gap:plugin name="nl.x-services.plugins.socialsharing" />  -->
+    <gap:plugin name="com.adobe.plugins.gaplugin" />
     <gap:plugin name="nl.madebymark.share" />
 	
     <!-- Third party plugins -->
