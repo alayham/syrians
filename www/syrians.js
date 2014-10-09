@@ -1,7 +1,8 @@
 var gaPlugin;
 var toast;
 var tracking = false;
-var pagename = window.location.pathname;
+var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/"));
+
 if (!localStorage.getItem('apptheme')){
 	  localStorage.setItem('apptheme','syria');
 	}
