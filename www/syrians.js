@@ -5,10 +5,12 @@ var tracking = false;
 function onAndroid(){
 	return( /android/i.test(navigator.userAgent.toLowerCase()) );
 }
+
 function onDeviceReady() {
     gaPlugin 	= window.plugins.gaPlugin;
     toast 		= window.plugins.toast;
     gaPlugin.init(function(){tracking=true;}, function(){tracking=false;}, "UA-55575592-1", 30);
+    alert(tracking);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 //	gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
     gaPlugin.trackPage( function(){alert("Success Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, function(){alert("Error Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, window.location.pathname.substring(url.lastIndexOf('/')+1));
