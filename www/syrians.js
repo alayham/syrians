@@ -1,31 +1,19 @@
 var gaPlugin;
 var toast;
 var tracking = false;
-var debugmessage="";
 
 function onAndroid(){
 	return( /android/i.test(navigator.userAgent.toLowerCase()) );
 }
-function showDebugInfo(){
-	if(debugmessage.length > 0){
-		$('<div/>',{
-			id: "debuginfo",
-			"data-role": "page",
-			
-		}).html(debugmessage).appendto('body');
-		$.mobile.changePage( "#debuginfo", { role: "dialog" } );
-	}
-}
 function onDeviceReady() {
 	if(onAndroid()){
-		console.log("DeviceReady")
+		alert("DeviceReady");
 	    gaPlugin = window.plugins.gaPlugin;
 	    toast = window.plugins.toast;
 	    gaPlugin.init(function(){tracking=true;}, function(){tracking=false;}, "UA-55575592-1", 30);
 	    gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 	//	gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
 	    gaPlugin.trackPage( function(){toast.show("Success Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, function(){toast.show("Error Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, window.location.pathname.substring(url.lastIndexOf('/')+1));
-	    debugmessage += "<p>Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1) + "</p>";
 	}
 }
 
@@ -156,7 +144,7 @@ sectionlist[4].addlink('about.html','عن التطبيق');
 
 
 $(document).ready(function(){
-	onDeviceReady();  //Not firing normally, will check why later;
+	//onDeviceReady();  //Not firing normally, will check why later;
 	$('.pagefooter').load('includes/footer.html');
 	$('.linkvisibility').click(function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
