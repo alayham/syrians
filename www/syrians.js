@@ -1,4 +1,5 @@
 var gaPlugin;
+var toast;
 var tracking = false;
 
 function onAndroid(){
@@ -9,9 +10,12 @@ function onDeviceReady() {
 	console.log("DeviceReady")
 	if(onAndroid){
 	    gaPlugin = window.plugins.gaPlugin;
+	    toast = window.plugins.toast;
 	    gaPlugin.init(function(){tracking=true;}, function(){tracking=false;}, "UA-55575592-1", 30);
 	    gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
-	    gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
+//	    gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
+	    gaPlugin.trackPage( function(){toast.show("Success Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, function(){toast.show("Error Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, window.location.pathname.substring(url.lastIndexOf('/')+1));
+	    
 	}
 }
 
