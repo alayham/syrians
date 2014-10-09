@@ -8,35 +8,33 @@ function onAndroid(){
 
 function successHandler()
 {
-    alert("init success");
+//    alert("init success");
     tracking=true;
 }
 
 function errorHandler()
 {
-    alert("init failed");
+//    alert("init failed");
     tracking=false;
 }
 
 function nativePluginResultHandler()
 {
-    alert("tracking success");
+//    alert("tracking success");
     tracking=true;
 }
 
 function nativePluginErrorHandler()
 {
-    alert("tracking failed");
+//    alert("tracking failed");
     tracking=false;
 }
 function onDeviceReady() {
     gaPlugin 	= window.plugins.gaPlugin;
-    toast 		= window.plugins.toast;
     gaPlugin.init(successHandler, errorHandler, "UA-55575592-1", 30);
-    alert(tracking);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 	gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
-//    gaPlugin.trackPage( function(){alert("Success Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, function(){alert("Error Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, window.location.pathname.substring(url.lastIndexOf('/')+1));
+	alert(window.location.pathname.substring(url.lastIndexOf('/')+1));
 }
 
 function backhome(){	
