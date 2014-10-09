@@ -1,6 +1,7 @@
 var gaPlugin;
 var toast;
 var tracking = false;
+var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf('/')+1);
 
 function onAndroid(){
 	return( /android/i.test(navigator.userAgent.toLowerCase()) );
@@ -178,8 +179,8 @@ $(document).ready(function(){
 	    window.open(targetURL, "_system");
 	});
 	if(tracking){
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
-		alert(window.location.pathname.substring(url.lastIndexOf('/')+1));
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pagename);
+		alert(pagename);
 	}
 });
 
