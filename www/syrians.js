@@ -10,6 +10,8 @@ function onDeviceReady() {
 	if(onAndroid){
 	    gaPlugin = window.plugins.gaPlugin;
 	    gaPlugin.init(function(){tracking=true;}, function(){tracking=false;}, "UA-55575592-1", 30);
+	    gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
+	    gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
 	}
 }
 
@@ -154,7 +156,6 @@ $(document).ready(function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 		$('#' + $(this).attr('id') + "sublinks").toggle();
 	});
-	if(tracking) gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 });
 
 if (!localStorage.getItem('apptheme')){
