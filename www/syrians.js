@@ -15,7 +15,7 @@ function onDeviceReady() {
 	    gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 //	    gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, window.location.pathname.substring(url.lastIndexOf('/')+1));
 	    gaPlugin.trackPage( function(){toast.show("Success Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, function(){toast.show("Error Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","bottom")}, window.location.pathname.substring(url.lastIndexOf('/')+1));
-	    
+	    toast.show("Tracking page: " + window.location.pathname.substring(url.lastIndexOf('/')+1),"long","top");
 	}
 }
 
