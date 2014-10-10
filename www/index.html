@@ -41,37 +41,26 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 <body onload="onLoad();">
 <div data-role="page" data-dom-cache="true" id="home">
   	<div data-role="header" data-position="fixed">
-
     	<h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
   	</div>
-  	<div data-role="content">
-  	
-  	      <script type="text/javascript">
-  	      
-  	         
-  	         var homehtml = "";
-  	         for(secnum=0;secnum<sectionlist.length;secnum++){
-  	        	 if(sectionlist[secnum])
-  	        		  homehtml += sectionlist[secnum].rendersection();
-  	         }
-  	         if(homehtml.length > 0){
-  	        	 document.write(homehtml);
-  	         }else{
-  	        	 document.write('<h2>الصفحة الأولى فارغة</h2>');
-  	           document.write('<p>يمكنك اختيار مكونات الصفحة الأولى التي ترغب بها من صفحة الخيارات</p>');
-               document.write('<a data-role="button" data-icon="bullets" data-ajax="false" href="options.html">الخيارات</a>');
-
-
-  	         }
-
-          </script>      
-  	
-
+  	<div data-role="content">  	
+      <script type="text/javascript">
+         var homehtml = "";
+         for(secnum=0;secnum<sectionlist.length;secnum++){
+        	 if(sectionlist[secnum])
+        		  homehtml += sectionlist[secnum].rendersection();
+         }
+         if(homehtml.length > 0){
+        	 document.write(homehtml);
+         }else{
+        	 document.write('<h2>الصفحة الأولى فارغة</h2>');
+           document.write('<p>يمكنك اختيار مكونات الصفحة الأولى التي ترغب بها من صفحة الخيارات</p>');
+           document.write('<a data-role="button" data-icon="bullets" data-ajax="false" href="options.html">الخيارات</a>');
+         }
+       </script>      
 		</div> 
     <div class="pagefooter" data-role="footer" data-position="fixed">
     </div>
- 	  
-
  </div>
 </body>
 </html>
