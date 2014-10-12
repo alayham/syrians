@@ -66,9 +66,63 @@ div.ngologo{
 	padding:0px 3px;
 }
 
-@media (min-width:750px), ((min-height: 750px) and  (orientation: landscape)){
+ .responsive-2{
+  margin:0;
+  padding:0;
+ }
+ .responsive-2:after{
+  content:" ";
+  display:block;
+  clear:both;
+ }
+ .responsive-2>:nth-child(n){
+    display:block;
+ }
+
+
+ .responsive-3{
+  margin:0;
+  padding:0;
+ }
+ .responsive-3:after{
+  content:" ";
+  display:block;
+  clear:both;
+ }
+ .responsive-3>:nth-child(n){
+    display:block;
+ }
+
+
+
+@media (min-width:35em){
 	div.ngologo{
 	 float:left;
 	 margin:0 10px 10px 0;  
 	}
+	.responsive-2>:nth-child(odd){
+		 width:49.5%;
+		 float: right;
+		 clear: right;
+	}
+  .responsive-2>:nth-child(even){
+     width:49.5%;
+     float: left;
+     clear: left;
+  }
+  .responsive-3>:nth-child(3n+1){
+     width:33.33%;
+     float: right;
+     clear: both;
+  }
+  .responsive-3>:nth-child(3n+2){
+     width:33.33%;
+     float: right;
+  }
+  .responsive-3>:nth-child(3n+3){
+     width:33.33%;
+     float: left;
+     clear: left;
+  }
+
 }
