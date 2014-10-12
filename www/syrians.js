@@ -20,7 +20,7 @@ function nativePluginErrorHandler(){}
 function onDeviceReady() {
 	onAndroid = true;
     gaPlugin = window.plugins.gaPlugin;
-    gaPlugin.init(successHandler, nativePluginErrorHandler, "UA-55575592-1", 30);
+    gaPlugin.init(successHandler, nativePluginErrorHandler, "UA-55575592-1", 10);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 }
 
