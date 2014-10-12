@@ -60,8 +60,11 @@ function homesection(sectionid,sectiontitle){
 			localStorage.setItem(this.varname,'1');
 		}
 	}
-	this.addlink=function(linkurl,linktitle){
-		this.links[this.links.length] = [linkurl,linktitle,linkurl.replace(/[^a-z0-9]/gi,'')]
+	this.addlink=function(linkurl,linktitle,linkimage){
+		var defaultlinkimage = "flag.jpg";
+		if(!linkimage)
+			linkimage = defaultlinkimage;
+		this.links[this.links.length] = [linkurl,linktitle,linkurl.replace(/[^a-z0-9]/gi,''),linkimage]
 	}
 	this.renderoption=function(){
 		var txt = '';
@@ -103,18 +106,20 @@ function homesection(sectionid,sectiontitle){
 		var txt = "";
 		txt += '<div id="' + this.varname + '" class="homecontainer" data-role="collapsible" data-inset="false" data-mini="true" data-collapsed="false">' +
 	  	    	'<legend>' + this.title + '</legend>' +
-	  	    	'<div class="ui-grid-a ui-responsive collapsiblecontent">';
+	  	    	'<div class="collapsiblecontent">';
 		txt += this.html;
-		var linknum=0;
+		txt += '<ul class="sectionlinks responsive-2-4">';
 		for(i=0; i<this.links.length; i++){
 			if(localStorage.getItem(this.links[i][2]) == 0){
 				
 			}else{
-				txt += '<a id="' + this.links[i][2]  +   '" class="ui-block-' + (linknum % 2 == 0 ? "a" : "b") + ' homebutton" data-mini="true" data-role="button" data-ajax="false" href="' + this.links[i][0] +  '">' + this.links[i][1] + '</a>'
-				linknum++;
+				txt += '<li><a id="' + this.links[i][2]  +   '" data-ajax="false" href="' + this.links[i][0] +  '">'  + 
+						'<div class="linkimage"><img src="images/' + this.links[i][3] + '" title="الانتقال إلى قسم ' +  this.links[i][1] + '" /></div>' +
+						'<div class="linktext">' + this.links[i][1] + '</div>' +
+						'</a></li>'
 			}
 		}
-	  	txt += '</div></div>';
+	  	txt += '</ul></div></div>';
 	  	return(txt);
 	}
 }
@@ -132,19 +137,19 @@ sectionlist[3]=	new homesection("culture", "تقافة وتعليم");
 sectionlist[4]=	new homesection("about", "عن التطبيق");
 
 //sectionlist[0].html ='<iframe width="100%" height="250" src="http://www.youtube.com/embed/videoseries?list=PLdnH0tm73Ekm5yvRzmWNbj7e-1ffaAaML" frameborder="0" allowfullscreen></iframe>';
-sectionlist[1].addlink('syria_embassy.html','دليل السفارات السورية');
+sectionlist[1].addlink('syria_embassy.html','دليل السفارات السورية','Syria_coat_of_arms.png');
 sectionlist[1].addlink('counsular_services_outside.html','دليل الخدمات القنصلية');
-sectionlist[1].addlink('military_service.html','شؤون التجنيد');
-sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم');
-sectionlist[2].addlink('live_syrian_tv.html','التلفزيون والإذاعة');
-sectionlist[2].addlink('news_tishreen.html','الأخبار: جريدة تشرين');
-sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا');
-sectionlist[2].addlink('directory.html','دليل المواقع السورية');
-sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال');
-sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات');
-sectionlist[3].addlink('about_syria.html','معلومات عن سوريا');
-sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية للكتب المدرسية');
-sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال');
+sectionlist[1].addlink('military_service.html','شؤون التجنيد','Syria_Armed_Forces_Emblem.png');
+sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم','syrians_abroad.png');
+sectionlist[2].addlink('live_syrian_tv.html','التلفزيون والإذاعة','Syriatvlogo.png');
+sectionlist[2].addlink('news_tishreen.html','الأخبار: جريدة تشرين','tishreen.jpg');
+sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا','syria_phone.png');
+sectionlist[2].addlink('directory.html','دليل المواقع السورية','sy_tld_logo.png');
+sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال','syrecon.png');
+sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات','daam.png');
+sectionlist[3].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
+sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
+sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال','colors.png');
 sectionlist[4].addlink('whatsnew.html','ما الجديد');
 sectionlist[4].addlink('about.html','عن التطبيق');
 

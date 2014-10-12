@@ -65,36 +65,64 @@ div.ngologo{
   background-image: url("images/share.png");
   background-repeat: no-repeat;
 }
+
 .ui-controlgroup-horizontal .ui-controlgroup-controls {
 	padding:0px 3px;
 }
 
- .responsive-2{
+.sectionlinks{
+	margin:1em;
+	padding:0;
+}
+
+.sectionlinks li{
+	text-align:center;
+	margin-bottom:1em;
+}
+.sectionlinks a{
+	text-decoration:none;
+}
+.sectionlinks img{
+	width:100px;
+	height:100px;
+}
+
+.responsive-2-4{
+  margin:0;
+  padding:0;
+}
+
+.responsive-2-4>:nth-child(odd){
+	display:block;
+  width:49.5%;
+  float: right;
+  clear: right;
+}
+.responsive-2-4>:nth-child(even){
+  display:block;
+  width:49.5%;
+  float: left;
+  clear: left;
+}
+
+.responsive-3,
+.responsive-2{
   margin:0;
   padding:0;
  }
- .responsive-2:after{
+
+.responsive-2>:nth-child(n),
+.responsive-3>:nth-child(n){
+  display:block;
+}
+ 
+.responsive-2-4:after,
+.responsive-2:after,
+.responsive-3:after{
   content:" ";
   display:block;
   clear:both;
- }
- .responsive-2>:nth-child(n){
-    display:block;
- }
-
-
- .responsive-3{
-  margin:0;
-  padding:0;
- }
- .responsive-3:after{
-  content:" ";
-  display:block;
-  clear:both;
- }
- .responsive-3>:nth-child(n){
-    display:block;
- }
+}
 
 
 
@@ -127,5 +155,24 @@ div.ngologo{
      float: left;
      clear: left;
   }
-
+  .responsive-2-4>:nth-child(4n+1){
+    width: 24.99%;
+    float: right;
+    clear: both;
+  }
+  .responsive-2-4>:nth-child(4n+2){
+    width: 24.99%;
+    float: right;
+    clear: none;
+  }
+  .responsive-2-4>:nth-child(4n+3){
+    width: 24.99%;
+    float: right;
+    clear: none;
+  }
+  .responsive-2-4>:nth-child(4n+4){
+    width: 24.99%;
+    float: right;
+    clear: none;
+  }
 }
