@@ -41,6 +41,14 @@
 	margin-left:5px;
 	margin-right:5px;
 }
+.newsdate{
+	
+	float:left;
+	font-weight:bold;
+	text-align:center;
+  padding:0em 1em 0em 0;
+  margin:0px;
+}
 table{
 	width:100%;
 }
