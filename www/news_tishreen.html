@@ -38,41 +38,60 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript">
 
-function newsitems(){
-	var items = [];
-  this.fetch = function(){
-	    $.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=66497acae540477b268d1796e590b3d6&_render=json',
-	          function(data){
-	    	      var refreshDate = new Date();
-	            localStorage.setItem('newsitems',JSON.stringify(data.value.items));
-	            localStorage.setItem('refreshdate', refreshDate.valueOf())
-	            console.log("fetched and saved new items")
-	          }
-	    );
-	}
-	this.load = function(){
-		var now = new Date();
-		var refreshDate = new Date(parseInt(localStorage.getItem('refreshdate')));
-		if(now.valueOf() - refreshDate.valueOf() >= 1800000 ){
-			this.fetch();
-		}else{
-			console.log("Using news items from the local storage")
-		}
-		var txt = localStorage.getItem('newsitems');
-		if (txt == null){
-			this.fetch();
-			txt = localStorage.getItem('newsitems');
-		}
-		this.items=JSON.parse(txt);
-	}
-	this.render = function(){
-		var txt="";
-    for(i=0;i<this.items.length;i++){
-        txt += '<li><a rel="external" data-ajax="false" href="' + this.items[i].link  + '"><h3>' + this.items[i].title + '</h3>' + ( this.items[i].description == null ? '' : '<p>' + this.items[i].description + '</p>') + '</a></li>';
-    }
-    return(txt);	
-	}
+var refreshInterval= 1000 * 60 * 30;
+var newsitems = [];
+
+
+function shownews(renderedhtml){
+  $('#newslist').html(renderedhtml);
+  $('#newslist').listview();  
 }
+
+function renderItems(){
+    var txt="";
+    var i=0;
+    if(newsitems){
+      for(i=0;i<newsitems.length;i++){
+        txt += '<li><a rel="external" data-ajax="false" href="' + newsitems[i].link  + '"><h3>' + newsitems[i].title + '</h3>' + ( newsitems[i].description == null ? '<div class="newsdate">' + newsitems[i]["y:published"].day + "<br />" + newsitems[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + newsitems[i]["y:published"].day + "<br />" + newsitems[i]["y:published"].month_name + '</div><p>' + newsitems[i].description + '</p>') + '</a></li>';
+      }
+    }else{
+      txt = "<li>فشل تحديث الأخبار</li>"      
+    }
+    return(txt);
+}
+function fetchItems(){
+  $.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=66497acae540477b268d1796e590b3d6&_render=json',
+          function(data,status){
+            if(status=="success"){
+              var refreshDate = new Date();
+              var jsontxt = JSON.stringify(data.value.items);
+              localStorage.setItem('newsitems',jsontxt);
+              newsitems=JSON.parse(jsontxt);
+              localStorage.setItem('refreshdate', refreshDate.valueOf());
+            }else{
+              
+            }
+          }
+   );	
+}
+
+function loadItems(){
+  var now = new Date();
+  var refreshDate = new Date(parseInt(localStorage.getItem('refreshdate')));
+  if(now.valueOf() - refreshDate.valueOf() >= refreshInterval ){
+  	fetchItems();
+  }else{
+    var jsontxt = localStorage.getItem('newsitems');
+    if (jsontxt == null){
+  	  fetchItems();
+    }else{
+      newsitems=JSON.parse(jsontxt);
+    }
+  }
+  shownews(renderItems());
+
+}
+
 </script>
 </head>
 <body onload="onLoad();">
@@ -83,19 +102,20 @@ function newsitems(){
   </div>
   <div data-role="content">    
     <form>
-      <ul id="newslist" data-inset="false" data-mini="true" data-icon="carat-l">
-      </ul>
+      <input type="text" data-type="search" id="news-filter">
     </form>
+    <ul id="newslist" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#news-filter">
+    <li>يتم تحديث الأخبار حاليا، تستغرق هذه العملية حوالي 60 ثانية وتحتاج وصلة إنترنت، وتنفذ كل 30 دقيقة تقريبا</li>   
+    </ul>
   </div>
   <div class="pagefooter" data-role="footer" data-position="fixed">
   </div>
 </div>   
 </body>
 <script type="text/javascript">
-var news=new newsitems();
-news.load();
-$('#newslist').append(news.render());
-$('#newslist').listview();
+loadItems();
+//$('#newslist').html(news.render());
+//$('#newslist').listview();
 </script>
 
 </html>
