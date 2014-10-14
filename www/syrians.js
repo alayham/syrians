@@ -142,6 +142,7 @@ sectionlist[1].addlink('counsular_services_outside.html','دليل الخدما�
 sectionlist[1].addlink('military_service.html','شؤون التجنيد','Syria_Armed_Forces_Emblem.png');
 sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم','syrians_abroad.png');
 sectionlist[2].addlink('live_syrian_tv.html','التلفزيون والإذاعة','Syriatvlogo.png');
+sectionlist[2].addlink('news_sana.html','الأخبار: سانا','sana.png');
 sectionlist[2].addlink('news_tishreen.html','الأخبار: جريدة تشرين','tishreen.jpg');
 sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا','syria_phone.png');
 sectionlist[2].addlink('directory.html','دليل المواقع السورية','sy_tld_logo.png');

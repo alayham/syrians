@@ -1,0 +1,121 @@
+<!doctype html>
+<html dir="rtl">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+<link rel="shortcut icon" href="http://www.alayham.com/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="generator" content="Eclipse Luna, Supported by EGHNA (http://www.eghna.com)">
+<meta name="rights" content="جميع الحقوق محفوظة لأصحابها الأصليين. الجميع مدعو للمشاركة مع حقظ حقوق الملكية الفكرية لأصحابها الأصليين">
+<link rel="image_src" href="http://syrians.alayham.com/images/flag.jpg">
+<link rel="publisher" href="http://www.eghna.com">
+<link rel="author" href="http://www.alayham.com">
+
+<meta property="fb:admins" content="532377104">
+<meta property="fb:app_id" content="306540782743883">
+<meta property="og:site_name" content="دليل المغتربين السوريين">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://www.alayham.com/">
+<meta property="og:image" content="http://syrians.alayham.com/images/flag.jpg">
+
+<link rel="canonical" href="http://syrians.alayham.com/news_sana.html">
+<link rel="shortlink" href="http://syrians.alayham.com/news_sana.html">
+<meta property="og:title" content="أخبار سوريا من موقع وكالة الأنباء العربية السورية سانا">
+<meta property="og:description" content="أخبار سوريا من موقع وكالة الأنباء العربية السورية سانا">
+<meta name="description" content="أخبار سوريا من موقع وكالة الأنباء العربية السورية سانا">
+<title>الأخبار: سانا</title>
+
+<script src="phonegap.js"></script>
+<script type="text/javascript" charset="utf-8">
+function onLoad() { document.addEventListener("deviceready", onDeviceReady, false);}
+</script>
+
+<link rel="stylesheet" href="jquery-mobile/themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile.structure-1.4.4.min.css" />
+<script src="jquery-mobile/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<script src="syrians.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript">
+
+var refreshInterval= 1000 * 60 * 30;
+var newsitems = [];
+
+
+function shownews(renderedhtml){
+  $('#newslist').html(renderedhtml);
+  $('#newslist').listview();  
+}
+
+function renderItems(){
+    var txt="";
+    var i=0;
+    if(newsitems){
+      for(i=0;i<newsitems.length;i++){
+        txt += '<li><a rel="external" data-ajax="false" href="' + newsitems[i].link  + '"><h3>' + newsitems[i].title + '</h3>' + ( newsitems[i].description == null ? '<div class="newsdate">' + newsitems[i]["y:published"].day + "<br />" + newsitems[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + newsitems[i]["y:published"].day + "<br />" + newsitems[i]["y:published"].month_name + '</div><p>' + newsitems[i].description + '</p>') + '</a></li>';
+      }
+    }else{
+      txt = "<li>فشل تحديث الأخبار</li>"      
+    }
+    return(txt);
+}
+function fetchItems(){
+  $.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=2ec9c6285235a0b589b40cba3235a097&_render=json',
+          function(data,status){
+            if(status=="success"){
+              var refreshDate = new Date();
+              var jsontxt = JSON.stringify(data.value.items);
+              localStorage.setItem('newsitems',jsontxt);
+              newsitems=JSON.parse(jsontxt);
+              localStorage.setItem('refreshdate', refreshDate.valueOf());
+            }else{
+              
+            }
+          }
+   );	
+}
+
+function loadItems(){
+  var now = new Date();
+  var refreshDate = new Date(parseInt(localStorage.getItem('refreshdate')));
+  if(now.valueOf() - refreshDate.valueOf() >= refreshInterval ){
+  	fetchItems();
+  }else{
+    var jsontxt = localStorage.getItem('newsitems');
+    if (jsontxt == null){
+  	  fetchItems();
+    }else{
+      newsitems=JSON.parse(jsontxt);
+    }
+  }
+  shownews(renderItems());
+
+}
+
+</script>
+</head>
+<body onload="onLoad();">
+<div data-role="page" data-dom-cache="true" id="home">
+  <div data-role="header" data-position="fixed">
+    <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>
+    <h1>الأخبار: سانا</h1>
+  </div>
+  <div data-role="content">    
+    <form>
+      <input type="text" data-type="search" id="news-filter">
+    </form>
+    <ul id="newslist" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#news-filter">
+    <li>يتم تحديث الأخبار حاليا، تستغرق هذه العملية حوالي 60 ثانية وتحتاج وصلة إنترنت، وتنفذ كل 30 دقيقة تقريبا</li>   
+    </ul>
+  </div>
+  <div class="pagefooter" data-role="footer" data-position="fixed">
+  </div>
+</div>   
+</body>
+<script type="text/javascript">
+loadItems();
+//$('#newslist').html(news.render());
+//$('#newslist').listview();
+</script>
+
+</html>
