@@ -166,7 +166,6 @@ function homesection(sectionid,sectiontitle){
 				"data-role": "controlgroup"
 			}).addClass("sublinks").css("display", localStorage.getItem(this.varname) == 0 ? "none" : "block").html(txt)
 			).html();
-		console.log(opt);
 		return(opt);
 	}	
 	this.rendersection=function(){
