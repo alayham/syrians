@@ -39,20 +39,20 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 <script type="text/javascript">
 
 var refreshInterval= 1000 * 60 * 30;
-var newsitems = [];
+var sanaItems = [];
 
 
 function shownews(renderedhtml){
-  $('#newslist').html(renderedhtml);
-  $('#newslist').listview();  
+  $('#sananews').html(renderedhtml);
+  $('#sananews').listview();  
 }
 
 function renderItems(){
     var txt="";
     var i=0;
-    if(newsitems){
-      for(i=0;i<newsitems.length;i++){
-        txt += '<li><a rel="external" data-ajax="false" href="' + newsitems[i].link  + '"><h3>' + newsitems[i].title + '</h3>' + ( newsitems[i].description == null ? '<div class="newsdate">' + newsitems[i]["y:published"].day + "<br />" + newsitems[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + newsitems[i]["y:published"].day + "<br />" + newsitems[i]["y:published"].month_name + '</div><p>' + newsitems[i].description + '</p>') + '</a></li>';
+    if(sanaItems){
+      for(i=0;i<sanaItems.length;i++){
+        txt += '<li><a rel="external" data-ajax="false" href="' + sanaItems[i].link  + '"><h3>' + sanaItems[i].title + '</h3>' + ( sanaItems[i].description == null ? '<div class="newsdate">' + sanaItems[i]["y:published"].day + "<br />" + sanaItems[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + sanaItems[i]["y:published"].day + "<br />" + sanaItems[i]["y:published"].month_name + '</div><p>' + sanaItems[i].description + '</p>') + '</a></li>';
       }
     }else{
       txt = "<li>فشل تحديث الأخبار</li>"      
@@ -65,8 +65,8 @@ function fetchItems(){
             if(status=="success"){
               var refreshDate = new Date();
               var jsontxt = JSON.stringify(data.value.items);
-              localStorage.setItem('newsitems',jsontxt);
-              newsitems=JSON.parse(jsontxt);
+              localStorage.setItem('sanaItems',jsontxt);
+              sanaItems=JSON.parse(jsontxt);
               localStorage.setItem('refreshdate', refreshDate.valueOf());
             }else{
               
@@ -81,11 +81,11 @@ function loadItems(){
   if(now.valueOf() - refreshDate.valueOf() >= refreshInterval ){
   	fetchItems();
   }else{
-    var jsontxt = localStorage.getItem('newsitems');
+    var jsontxt = localStorage.getItem('sanaItems');
     if (jsontxt == null){
   	  fetchItems();
     }else{
-      newsitems=JSON.parse(jsontxt);
+      sanaItems=JSON.parse(jsontxt);
     }
   }
   shownews(renderItems());
@@ -102,9 +102,9 @@ function loadItems(){
   </div>
   <div data-role="content">    
     <form>
-      <input type="text" data-type="search" id="news-filter">
+      <input type="text" data-type="search" id="sana-filter" class="jqmfilter">
     </form>
-    <ul id="newslist" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#news-filter">
+    <ul id="sananews" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#sana-filter">
     <li>يتم تحديث الأخبار حاليا، تستغرق هذه العملية حوالي 60 ثانية وتحتاج وصلة إنترنت، وتنفذ كل 30 دقيقة تقريبا</li>   
     </ul>
   </div>
@@ -114,8 +114,6 @@ function loadItems(){
 </body>
 <script type="text/javascript">
 loadItems();
-//$('#newslist').html(news.render());
-//$('#newslist').listview();
 </script>
 
 </html>

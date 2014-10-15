@@ -177,6 +177,13 @@ $(document).ready(function(){
 			  gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
 		  }
 	});
+	$('.jqmfilter').blur(function(){
+		localStorage.setItem($(this).attr("id"),$(this).val())
+		
+	});
+	$('.jqmfilter').each(function(){
+		$(this).val( localStorage.getItem($(this).attr("id")));
+	})
 	if(tracking){
 		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pagename);
 	}
