@@ -3,7 +3,7 @@ var toast;
 var tracking = false;
 var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/"));
 var onAndroid = false;
-var refreshInterval= 1000 * 60 * 30;
+var refreshInterval= 0000 * 60 * 30;
 
 if (!localStorage.getItem('apptheme')){
 	  localStorage.setItem('apptheme','syria');
@@ -35,6 +35,7 @@ function newssource(sourceUrl,displaytag,newscount){
 		this.count = 200;
 	}
 	this.items = [];
+	this.process = function(s){return(s);}
 }
 
 function shownews(newspage){
@@ -58,7 +59,7 @@ function fetchItems(newspage){
           function(data,status){
             if(status=="success"){
               var refreshDate = new Date();
-              var jsontxt = JSON.stringify(data.value.items);
+              var jsontxt = newspage.process(JSON.stringify(data.value.items));
               localStorage.setItem(newspage.tag + 'Items',jsontxt);
               newspage.items=JSON.parse(jsontxt);
               localStorage.setItem(newspage.tag + 'refreshdate', refreshDate.valueOf());
@@ -197,6 +198,8 @@ function updatesections(){
     	localStorage.setItem(sectionlist[i].varname,($('#' + sectionlist[i].varname + '').is(':checked') ? 1 : 0));
   	}      
 }
+
+
 var sectionlist = [];
 
 //sectionlist[0]=	new homesection("tv", "التلفزيون السوري");
@@ -223,8 +226,6 @@ sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال',
 sectionlist[4].addlink('whatsnew.html','ما الجديد');
 sectionlist[4].addlink('about.html','عن التطبيق');
 
-
-
 $(document).ready(function(){
 	$('.pagefooter').load('includes/footer.html');
 
@@ -246,12 +247,20 @@ $(document).ready(function(){
 			  gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
 		  }
 	});
+	$('.savedoption').change(function(){
+		localStorage.setItem("option" + $(this).attr('id'),($(this).is(':checked') ? 1 : 0));
+	});
 	$('.jqmfilter').blur(function(){
 		localStorage.setItem($(this).attr("id"),$(this).val())
 		
 	});
 	$('.jqmfilter').each(function(){
 		$(this).val( localStorage.getItem($(this).attr("id")));
+	});
+	$('.savedoption').each(function(){
+		if(localStorage.getItem("option" + $(this).attr("id")) == 1){
+			$(this).prop('checked',true);
+		}
 	})
 	if(tracking){
 		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pagename);
@@ -264,4 +273,3 @@ $("<link/>", {
      type: "text/css",
      href: "jquery-mobile/themes/" + localStorage.getItem('apptheme') + ".css"
   }).appendTo("head");
-

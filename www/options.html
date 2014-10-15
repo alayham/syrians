@@ -41,7 +41,7 @@ function theme(themeid,themetitle){
 	this.id=themeid;
 	this.title=themetitle;
 	if(localStorage.getItem('apptheme') == themeid){
-		this.selected = " selected";
+		this.selected = " checked";
 	}else{
 		this.selected = "";
 	}
@@ -58,8 +58,8 @@ var themelist = [
 	new theme("shadi", "تصميم شادي"),
 	new theme("mazen", "تصميم مازن"),
 	new theme("nadia", "تصميم ناديا"),
-	  new theme("samer", "تصميم سامر"),
-	  new theme("sami", "تصميم سامي")
+	new theme("samer", "تصميم سامر"),
+	new theme("sami", "تصميم سامي")
 ];
 
 
@@ -94,6 +94,13 @@ var themelist = [
 		        }      
 		      </script>      
           
+        </div>
+      </div>
+      <div data-role="collapsible" data-collapsed="true" data-inset="false">
+        <legend>خيارات العرض</legend>
+        <div class="collapsiblecontent">
+          <input type="checkbox" id="fixsana" class="savedoption" />
+          <label for="fixsana">تصحيح طريقة عرض الأخبار في موقع سانا في التحديثات القادمة</label>
         </div>
       </div>
       <div data-role="collapsible" data-inset="false">
