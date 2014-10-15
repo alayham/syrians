@@ -3,7 +3,7 @@ var toast;
 var tracking = false;
 var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/"));
 var onAndroid = false;
-var refreshInterval= 0000 * 60 * 30;
+var refreshInterval= 1000 * 60 * 30;
 
 if (!localStorage.getItem('apptheme')){
 	  localStorage.setItem('apptheme','syria');
