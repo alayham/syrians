@@ -3,6 +3,7 @@ var toast;
 var tracking = false;
 var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/"));
 var onAndroid = false;
+var refreshInterval= 1000 * 60 * 30;
 
 if (!localStorage.getItem('apptheme')){
 	  localStorage.setItem('apptheme','syria');
@@ -22,6 +23,75 @@ function onDeviceReady() {
     gaPlugin = window.plugins.gaPlugin;
     gaPlugin.init(successHandler, nativePluginErrorHandler, "UA-55575592-1", 10);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
+}
+
+
+function newssource(sourceUrl,displaytag,newscount){
+	this.url = sourceUrl;
+	this.tag = displaytag;
+	if(newscount){
+		this.count = newscount;
+	}else{
+		this.count = 200;
+	}
+	this.items = [];
+}
+
+function shownews(newspage){
+  var txt="";
+  var i=0;
+  if(newspage.items){
+    console.log("Rendering news items for " + newspage.tag);
+    for(i=0;i<newspage.items.length;i++){
+      txt += '<li><a rel="external" data-ajax="false" href="' + newspage.items[i].link  + '"><h3>' + newspage.items[i].title + '</h3>' + ( newspage.items[i].description == null ? '<div class="newsdate">' + newspage.items[i]["y:published"].day + "<br />" + newspage.items[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + newspage.items[i]["y:published"].day + "<br />" + newspage.items[i]["y:published"].month_name + '</div><p>' + newspage.items[i].description + '</p>') + '</a></li>';
+    }
+  }else{
+    console.log("No News Items to render");
+    txt = "<li>فشل تحديث الأخبار</li>";
+  }
+  $('#' + newspage.tag).html(txt);
+  $('#' + newspage.tag).listview();
+}
+
+function fetchItems(newspage){
+  $.getJSON(newspage.url,
+          function(data,status){
+            if(status=="success"){
+              var refreshDate = new Date();
+              var jsontxt = JSON.stringify(data.value.items);
+              localStorage.setItem(newspage.tag + 'Items',jsontxt);
+              newspage.items=JSON.parse(jsontxt);
+              localStorage.setItem(newspage.tag + 'refreshdate', refreshDate.valueOf());
+            }else{
+              console.log("AJax request failed to update news data for " + newspage.tag);
+            }
+            shownews(newspage);
+          }
+   );	
+}
+
+function loadItems(newspage){
+  var now = new Date();
+  if(localStorage.getItem(newspage.tag + 'refreshdate')){
+	  console.log('Last refresh date for ' + newspage.tag + " is " + localStorage.getItem(newspage.tag + 'refreshdate'))
+	  var refreshDate = new Date(parseInt(localStorage.getItem(newspage.tag + 'refreshdate')));	  
+  }else{
+	  
+  }
+  if(!refreshDate || now.valueOf() - refreshDate.valueOf() >= refreshInterval ){
+	  console.log("Cached data for " + newspage.tag + " is old, trying to fetch new data");
+  	fetchItems(newspage);
+  }else{
+    var jsontxt = localStorage.getItem(newspage.tag + 'Items');
+    if (jsontxt == null){
+    	console.log("No Cached data for " + newspage.tag +  ", trying to fetch new data");   	
+  	  fetchItems(newspage);
+    }else{
+    	console.log("Using cached data for " + newspage.tag)
+      newspage.items=JSON.parse(jsontxt);
+      shownews(newspage);
+    }
+  }
 }
 
 function backhome(){	

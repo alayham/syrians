@@ -36,63 +36,6 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 <script src="jquery-mobile/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
 <script src="syrians.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="styles.css" />
-<script type="text/javascript">
-
-var refreshInterval= 1000 * 60 * 30;
-var tishreenItems = [];
-
-
-function shownews(renderedhtml){
-  $('#tishreennews').html(renderedhtml);
-  $('#tishreennews').listview();  
-}
-
-function renderItems(){
-    var txt="";
-    var i=0;
-    if(tishreenItems){
-      for(i=0;i<tishreenItems.length;i++){
-        txt += '<li><a rel="external" data-ajax="false" href="' + tishreenItems[i].link  + '"><h3>' + tishreenItems[i].title + '</h3>' + ( tishreenItems[i].description == null ? '<div class="newsdate">' + tishreenItems[i]["y:published"].day + "<br />" + tishreenItems[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + tishreenItems[i]["y:published"].day + "<br />" + tishreenItems[i]["y:published"].month_name + '</div><p>' + tishreenItems[i].description + '</p>') + '</a></li>';
-      }
-    }else{
-      txt = "<li>فشل تحديث الأخبار</li>"      
-    }
-    return(txt);
-}
-function fetchItems(){
-  $.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=66497acae540477b268d1796e590b3d6&_render=json',
-          function(data,status){
-            if(status=="success"){
-              var refreshDate = new Date();
-              var jsontxt = JSON.stringify(data.value.items);
-              localStorage.setItem('tishreenItems',jsontxt);
-              tishreenItems=JSON.parse(jsontxt);
-              localStorage.setItem('refreshdate', refreshDate.valueOf());
-            }else{
-              
-            }
-          }
-   );	
-}
-
-function loadItems(){
-  var now = new Date();
-  var refreshDate = new Date(parseInt(localStorage.getItem('refreshdate')));
-  if(now.valueOf() - refreshDate.valueOf() >= refreshInterval ){
-  	fetchItems();
-  }else{
-    var jsontxt = localStorage.getItem('tishreenItems');
-    if (jsontxt == null){
-  	  fetchItems();
-    }else{
-      tishreenItems=JSON.parse(jsontxt);
-    }
-  }
-  shownews(renderItems());
-
-}
-
-</script>
 </head>
 <body onload="onLoad();">
 <div data-role="page" data-dom-cache="true" id="home">
@@ -104,7 +47,7 @@ function loadItems(){
     <form>
       <input type="text" data-type="search" id="tishreen-filter" class="jqmfilter">
     </form>
-    <ul id="tishreennews" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#tishreen-filter">
+    <ul id="tishreen" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#tishreen-filter">
     <li>يتم تحديث الأخبار حاليا، تستغرق هذه العملية حوالي 60 ثانية وتحتاج وصلة إنترنت، وتنفذ كل 30 دقيقة تقريبا</li>   
     </ul>
   </div>
@@ -113,7 +56,8 @@ function loadItems(){
 </div>   
 </body>
 <script type="text/javascript">
-loadItems();
+var tishreenNews=new newssource("http://pipes.yahoo.com/pipes/pipe.run?_id=66497acae540477b268d1796e590b3d6&_render=json","tishreen",200);
+loadItems(tishreenNews);
 </script>
 
 </html>
