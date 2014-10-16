@@ -41,6 +41,9 @@
 	margin-left:5px;
 	margin-right:5px;
 }
+.lc{
+	float:left;
+}
 .newsdate{
 	
 	float:left;
@@ -73,7 +76,10 @@ div.ngologo{
   background-image: url("images/share.png");
   background-repeat: no-repeat;
 }
-
+.ui-icon-clipboard:after{
+	background-image:url("images/clipboard.png");
+	background-repeat:no-repeat;
+}
 .ui-controlgroup-horizontal .ui-controlgroup-controls {
 	padding:0px 3px;
 }

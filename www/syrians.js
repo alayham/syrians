@@ -140,6 +140,25 @@ function syrians_share_app(){
 	navigator.share('أدعوك للاطلاع على دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
 }
 
+function lcShare(tagid){
+	var element=$("#" + tagid).clone();
+	element.find(".nocopy,.ui-collapsible-heading-status").remove();
+	var txt = element.text().replace(/(\s)+/g, " ");
+	console.log(txt);
+  if(onAndroid){
+	navigator.share(txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
+  }	
+}
+function lcCopy(tagid){
+  var element=$("#" + tagid).clone();
+  element.find(".nocopy,.ui-collapsible-heading-status").remove();
+  var txt = element.text().replace(/(\s)+/g, " ");
+  if(onAndroid){
+	  window.plugins.copy(txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
+  }	
+}
+
+
 function updatetheme(){
 	  localStorage.setItem('apptheme',$( "input:radio[name=apptheme]:checked" ).val());
 	  location.reload();
@@ -230,7 +249,6 @@ function updatesections(){
   	}      
 }
 
-
 var sectionlist = [];
 
 //sectionlist[0]=	new homesection("tv", "التلفزيون السوري");
@@ -282,6 +300,26 @@ $(document).ready(function(){
 	});
 	$('.jqmfilter').each(function(){
 		$(this).val( localStorage.getItem($(this).attr("id")));
+	});
+	$(".localcommands").each(function(){
+		var hostElement = $(this).children(".ui-collapsible-content");
+		var elementID = "";
+		if($(this).prop("id")){
+			elementID = $(this).prop("id");
+		}else{
+			elementID = "lc" + Math.floor((Math.random() * 100000000) + 1);
+			$(this).attr("id",elementID);
+		}
+		$("<div/>",{"class": "lc nocopy"}).append($("<a/>",{
+			"class" : "ui-link ui-btn ui-icon-share ui-btn-icon-notext ui-btn-inline ui-corner-all",
+			"href" : "#",
+			"data-for" : elementID,
+		}).text("مشاركة").click(function(){lcShare(elementID); return(false);})).append($("<a/>",{
+			"class" : "ui-link ui-btn ui-icon-clipboard ui-btn-icon-notext ui-btn-inline ui-corner-all",
+			"href" : "#",
+			"data-for" : elementID,
+		}).text("نسخ").click(function(){lcCopy(elementID); return(false);})).prependTo(hostElement);
+		
 	});
 	$('.savedoption').each(function(){
 		if(localStorage.getItem("option" + $(this).attr("id")) == 1){
