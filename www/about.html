@@ -70,7 +70,13 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
        <h2>المساهمة في تطوير التطبيق</h2>
        <p>هذا التطبيق مفتوح المصدر ويمكن تصفح النص البرمجي له على موقع github على العنوان <a href="https://github.com/alayham/syrians" rel="external">https://github.com/alayham/syrians</a></p>
        <p>المطورون الراغبون بالمساهمة في تطوير التطبيق يمكنهم المشاركة في موقع github مثل العادة</p>
-		    </div> 
+		  <div data-role="collapsible" data-inset="false">
+		    <legend>سجل عمل هذه الجلسة</legend>
+		    <div class="ltr collapsiblecontent" id="messagelog">
+		    
+		    </div>
+		  </div>
+		</div> 
     <div class="pagefooter" data-role="footer" data-position="fixed">
     </div>
  	  
@@ -80,6 +86,7 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
  $(document).ready(function(){
 	    $('#appversion').load('includes/version.txt');
 	    $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
+	    $("#messagelog").html("<pre>" + sessionStorage.getItem("log") + "</pre>");
 	});
 
  </script>

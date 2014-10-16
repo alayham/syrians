@@ -7,7 +7,7 @@ var refreshInterval= 1000 * 60 * 30;
 
 function logmessage(msg){
 	console.log(msg);
-	sessionStorage.setItem("log","pagename: " + msg + "\n" + sessionStorage.getItem("log"));
+	sessionStorage.setItem("log",pagename + ": " + msg + "\n" + sessionStorage.getItem("log"));
 }
 
 if (!localStorage.getItem('apptheme')){
