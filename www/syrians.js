@@ -175,8 +175,7 @@ function homesection(sectionid,sectiontitle){
 		this.selected = " checked";
 	}else{
 		if(localStorage.getItem(this.varname) == 0){
-			this.selected = "";function lcShare(tagid){
-
+			this.selected = "";
 		}else{ //undefinded, show by default;
 			this.selected = " checked";
 			localStorage.setItem(this.varname,'1');
