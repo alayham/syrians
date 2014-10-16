@@ -20,7 +20,7 @@ function initSuccessHandler(){
 	logmessage("gaPlugin Init Success")
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 	gaPlugin.trackPage( trackSuccessHandler, trackErrorHandler, pagename);
-	gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
+	//gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
 }
 function initErrorHandler(){
 	logmessage("gaPlugin Init Error")
