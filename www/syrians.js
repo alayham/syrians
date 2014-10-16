@@ -1,8 +1,7 @@
-var gaPlugin;
 var toast;
 var tracking = false;
 var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/"));
-var onAndroid = false;
+var onAndroid = navigator.userAgent.match(/Android/i);
 var refreshInterval= 1000 * 60 * 30;
 
 function logmessage(msg){
@@ -13,7 +12,8 @@ function logmessage(msg){
 if (!localStorage.getItem('apptheme')){
 	  localStorage.setItem('apptheme','syria');
 	}
-
+/*
+var gaPlugin;
 
 function initSuccessHandler(){
 	tracking=true;
@@ -48,12 +48,13 @@ function nativePluginResultHandler(){
 }
 
 function nativePluginErrorHandler(){}
-
+*/
 function onDeviceReady() {
-	onAndroid = true;
-    gaPlugin = window.plugins.gaPlugin;
-    gaPlugin.init(initSuccessHandler, initErrorHandler, "UA-55575592-1", 10);
+//	onAndroid = true;
+//    gaPlugin = window.plugins.gaPlugin;
+//    gaPlugin.init(initSuccessHandler, initErrorHandler, "UA-55575592-1", 10);
 }
+
 
 
 function newssource(sourceUrl,displaytag,newscount){
@@ -271,11 +272,6 @@ $(document).ready(function(){
 	    var targetURL = $(this).attr("href");
 
 	    window.open(targetURL, "_system");
-	});
-	$( window ).unload(function() {
-		  if(tracking){
-			  //gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
-		  }
 	});
 	$('.savedoption').change(function(){
 		localStorage.setItem("option" + $(this).attr('id'),($(this).is(':checked') ? 1 : 0));
