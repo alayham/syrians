@@ -55,8 +55,8 @@
     <gap:plugin name="org.apache.cordova.vibration" />
 -->
     <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="com.adobe.plugins.gaplugin" />
     <gap:plugin name="nl.madebymark.share" />
+    <gap:plugin name="com.verso.cordova.clipboard" version="0.1.0" />
     	
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
