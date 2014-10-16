@@ -52,6 +52,7 @@ function onDeviceReady() {
     gaPlugin.init(initSuccessHandler, initErrorHandler, "UA-55575592-1", 10);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
 	gaPlugin.trackPage( trackSuccessHandler, trackErrorHandler, pagename);
+	gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
 }
 
 
@@ -274,7 +275,7 @@ $(document).ready(function(){
 	});
 	$( window ).unload(function() {
 		  if(tracking){
-			  gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
+			  //gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
 		  }
 	});
 	$('.savedoption').change(function(){
