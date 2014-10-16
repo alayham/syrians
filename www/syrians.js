@@ -154,7 +154,7 @@ function lcCopy(tagid){
   element.find(".nocopy,.ui-collapsible-heading-status").remove();
   var txt = element.text().replace(/(\s)+/g, " ");
   if(onAndroid){
-	  window.plugins.copy(txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
+	  window.plugins.clipboard.copy(txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
   }	
 }
 
@@ -175,7 +175,8 @@ function homesection(sectionid,sectiontitle){
 		this.selected = " checked";
 	}else{
 		if(localStorage.getItem(this.varname) == 0){
-			this.selected = "";
+			this.selected = "";function lcShare(tagid){
+
 		}else{ //undefinded, show by default;
 			this.selected = " checked";
 			localStorage.setItem(this.varname,'1');
