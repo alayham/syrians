@@ -18,6 +18,9 @@ if (!localStorage.getItem('apptheme')){
 function initSuccessHandler(){
 	tracking=true;
 	logmessage("gaPlugin Init Success")
+    gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
+	gaPlugin.trackPage( trackSuccessHandler, trackErrorHandler, pagename);
+	gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
 }
 function initErrorHandler(){
 	logmessage("gaPlugin Init Error")
@@ -50,9 +53,6 @@ function onDeviceReady() {
 	onAndroid = true;
     gaPlugin = window.plugins.gaPlugin;
     gaPlugin.init(initSuccessHandler, initErrorHandler, "UA-55575592-1", 10);
-    gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
-	gaPlugin.trackPage( trackSuccessHandler, trackErrorHandler, pagename);
-	gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
 }
 
 
