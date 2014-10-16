@@ -141,10 +141,10 @@ function syrians_share_app(){
 }
 
 function lcShare(tagid){
-	var element=$("#" + tagid).clone();
-	element.find(".nocopy,.ui-collapsible-heading-status").remove();
-	var txt = element.text().replace(/(\s)+/g, " ");
-	console.log(txt);
+  var element=$("#" + tagid).clone();
+  element.find(".nocopy,.ui-collapsible-heading-status").remove();
+  var txt = element.text().replace(/(\s)+/g, " ");
+  console.log(txt);
   if(onAndroid){
 	navigator.share(txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
   }	
@@ -154,7 +154,7 @@ function lcCopy(tagid){
   element.find(".nocopy,.ui-collapsible-heading-status").remove();
   var txt = element.text().replace(/(\s)+/g, " ");
   if(onAndroid){
-	  window.plugins.clipboard.copy(txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
+	  window.plugins.clipboard.copy(txt);	
   }	
 }
 
@@ -313,11 +313,9 @@ $(document).ready(function(){
 		$("<div/>",{"class": "lc nocopy"}).append($("<a/>",{
 			"class" : "ui-link ui-btn ui-icon-share ui-btn-icon-notext ui-btn-inline ui-corner-all",
 			"href" : "#",
-			"data-for" : elementID,
 		}).text("مشاركة").click(function(){lcShare(elementID); return(false);})).append($("<a/>",{
 			"class" : "ui-link ui-btn ui-icon-clipboard ui-btn-icon-notext ui-btn-inline ui-corner-all",
 			"href" : "#",
-			"data-for" : elementID,
 		}).text("نسخ").click(function(){lcCopy(elementID); return(false);})).prependTo(hostElement);
 		
 	});
