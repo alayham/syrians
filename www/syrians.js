@@ -7,7 +7,7 @@ var refreshInterval= 1000 * 60 * 30;
 
 function logmessage(msg){
 	console.log(msg);
-	sessionStorage.setItem("log",pagename + ": " + tracking + " " + msg + "\n" + sessionStorage.getItem("log"));
+	sessionStorage.setItem("log",pagename + ": " + msg + "\n" + sessionStorage.getItem("log"));
 }
 
 if (!localStorage.getItem('apptheme')){
@@ -257,7 +257,6 @@ sectionlist[4].addlink('whatsnew.html','ما الجديد');
 sectionlist[4].addlink('about.html','عن التطبيق');
 
 $(document).ready(function(){
-	logmessage("Document Ready");
 	$('.pagefooter').load('includes/footer.html');
 
 	$('.linkvisibility').click(function(){
