@@ -51,6 +51,7 @@ function onDeviceReady() {
     gaPlugin = window.plugins.gaPlugin;
     gaPlugin.init(initSuccessHandler, initErrorHandler, "UA-55575592-1", 10);
     gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
+	gaPlugin.trackPage( trackSuccessHandler, trackErrorHandler, pagename);
 }
 
 
@@ -291,11 +292,6 @@ $(document).ready(function(){
 			$(this).prop('checked',true);
 		}
 	})
-	if(tracking){
-		gaPlugin.trackPage( trackSuccessHandler, trackErrorHandler, pagename);
-	}else{
-		logmessage("Page not Tracked");
-	}
 });
 
 
