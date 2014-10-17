@@ -123,6 +123,7 @@ div.ngologo{
 .responsive-2{
   margin:0;
   padding:0;
+  clear:both;
  }
 
 .responsive-2>:nth-child(n),
