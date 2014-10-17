@@ -143,10 +143,19 @@ function syrians_share_app(){
 function lcShare(tagid){
   var element=$("#" + tagid).clone();
   element.find(".nocopy,.ui-collapsible-heading-status").remove();
-  var txt = element.text().replace(/(\s)+/g, " ");
+  element.find("a").each(function(){
+	  switch($(this).attr("href").substring(0,4)){
+	  case "http": $(this).text($(this).text() + ": " + $(this).attr("href")); break;
+	  case "tel:": $(this).text( "Telephone: " + $(this).text()); break;
+	  case "mail": $(this).text( "Email: " + $(this).text()); break;
+	  };
+  });
+  element.find(".embassy_address").each(function(){$(this).text("Address: " + $(this).text());});
+		  
+  var txt = document.title + "\n" + element.text().replace(/([ \t])+/g, " ");
   console.log(txt);
   if(onAndroid){
-	navigator.share(txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
+	navigator.share( txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
   }	
 }
 function lcCopy(tagid){
@@ -160,8 +169,8 @@ function lcCopy(tagid){
 
 
 function updatetheme(){
-	  localStorage.setItem('apptheme',$( "input:radio[name=apptheme]:checked" ).val());
-	  location.reload();
+	localStorage.setItem('apptheme',$( "input:radio[name=apptheme]:checked" ).val());
+	location.reload();
 }
 
 function homesection(sectionid,sectiontitle){
