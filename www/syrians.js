@@ -49,6 +49,16 @@ function nativePluginResultHandler(){
 
 function nativePluginErrorHandler(){}
 */
+
+function onOnline(){
+	$('body').removeClass("offline");
+	logmessage("Connected");
+}
+function onOffline(){
+	$('body').addClass("offline");
+	logmessage("Disconnected");
+}
+
 function onDeviceReady() {
 //	onAndroid = true;
 //    gaPlugin = window.plugins.gaPlugin;
@@ -300,6 +310,11 @@ $(document).ready(function(){
 	    var targetURL = $(this).attr("href");
 
 	    window.open(targetURL, "_system");
+	});
+	$(".mediaitem").click(function(){
+		$("#audioplayer").attr("src",$(this).attr("href"));
+		$("#nowplaying").text($(this).text());
+		return(false);
 	});
 	$('.savedoption').change(function(){
 		localStorage.setItem("option" + $(this).attr('id'),($(this).is(':checked') ? 1 : 0));

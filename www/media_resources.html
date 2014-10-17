@@ -27,7 +27,11 @@
 
 <script src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
-function onLoad() { document.addEventListener("deviceready", onDeviceReady, false);}
+function onLoad() { 
+	document.addEventListener("deviceready", onDeviceReady, false);
+  document.addEventListener("online", onOnline, false);
+  document.addEventListener("offline", onOffline, false);
+}
 </script>
 
 <link rel="stylesheet" href="jquery-mobile/themes/jquery.mobile.icons.min.css" />
@@ -38,7 +42,7 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 <link rel="stylesheet" type="text/css" href="styles.css" />
 
 </head>
-<body onload="onLoad();">
+<body onload="onLoad();" class="">
 <div data-role="page" data-dom-cache="true" id="home">
   <div data-role="header" data-position="fixed">
 <!-- <a href="#" data-icon="home"  data-role="button" data-ajax="false" data-rel="back">الرئيسية</a>  -->
@@ -46,16 +50,21 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
     <h1>أغاني وتسجيلات</h1>
   </div>
   <div data-role="content">
-    <a data-role="button" rel="external" href="http://www.syriatoday.ca/images/souria-ya-habibaty/syria-Humateldyar.mp3">النشيد الوطني السوري</a>
+    <div id="mediaplayer" class="ui-btn">
+      <div id="nowplaying">جميع الوصلات تتطلب اتصالا بالإنترنت وقد لا تعمل بدونه</div>
+      <audio id="audioplayer" autoplay controls src=""></audio>
+    </div>
+    <a class="mediaitem" data-role="button" data-ajax="false" data-icon="audio" href="http://www.syriatoday.ca/images/souria-ya-habibaty/syria-Humateldyar.mp3">النشيد الوطني السوري</a></li>
     <div data-role="collapsible" data-mini="true" data-inset="false" data-collapsed="false">
       <legend>أغاني وطنية</legend>
-      <ul class="collapsiblecontent responsive-2">
-        <li><a data-role="button" data-mini="true" data-icon="audio" rel="external" href="http://6arbyat.net/songs/egypt/naga7_sallam/6arbyat_naga7_sallam_035.mp3">سوريا يا حبيبتي</a></li>
-        <li><a data-role="button" data-mini="true" data-icon="audio" rel="external" href="http://www.syriatoday.ca/images/souria-ya-habibaty/fi-sabeel-elmajd.mp3">في سبيل المجد</a></li>
-        <li><a data-role="button" data-mini="true" data-icon="audio" rel="external" href="http://www.melody4arab.com/music/lebnan/fairouz/damascus_festival_1960/Sailini_melody4arab.com.mp3">سائليني يا شأم</a></li>
-        <li><a data-role="button" data-mini="true" data-icon="audio" rel="external" href="http://mp3.bokra.net/newmp3/3538_4349515.mp3">خبطة قدمكم</a></li>
-        <li><a data-role="button" data-mini="true" data-icon="audio" rel="external" href="http://media.weziwezi.com/wezi_mp3/mp3/EY6zI8jeEN4.mp3">يجعلها عمار</a></li>
-      </ul>
+        <ul class="collapsiblecontent responsive-2">
+          <li><a class="mediaitem" data-role="button" data-ajax="false" data-icon="audio" href="http://6arbyat.net/songs/egypt/naga7_sallam/6arbyat_naga7_sallam_035.mp3">سوريا يا حبيبتي</a></li>
+          <li><a class="mediaitem" data-role="button" data-ajax="false" data-icon="audio" href="http://www.syriatoday.ca/images/souria-ya-habibaty/fi-sabeel-elmajd.mp3">في سبيل المجد</a></li>
+          <li><a class="mediaitem" data-role="button" data-ajax="false" data-icon="audio" href="http://www.melody4arab.com/music/lebnan/fairouz/damascus_festival_1960/Sailini_melody4arab.com.mp3">سائليني يا شآم</a></li>
+          <li><a class="mediaitem" data-role="button" data-ajax="false" data-icon="audio" href="http://mp3.bokra.net/newmp3/3538_4349515.mp3">خبطة قدمكم</a></li>
+          <li><a class="mediaitem" data-role="button" data-ajax="false" data-icon="audio" href="http://media.weziwezi.com/wezi_mp3/mp3/EY6zI8jeEN4.mp3">يجعلها عمار</a></li>
+        </ul>
+      
     </div>
     <div data-role="collapsible" data-mini="true" data-inset="false" data-collapsed="false">
       <legend>أغاني من موقع Youtube</legend>

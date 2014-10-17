@@ -139,6 +139,20 @@ div.ngologo{
   clear:both;
 }
 
+#nowplaying{
+	width:100%;
+	text-align:center;
+	font-weight: bold;
+}
+#mediaplayer{
+
+}
+audio#audioplayer{
+	width:100%;
+}
+body.offline audio.upstream{
+	disabled: true;
+}
 
 
 @media (min-width:35em){
