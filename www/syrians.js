@@ -281,6 +281,7 @@ sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات','daa
 sectionlist[3].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
 sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
 sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال','colors.png');
+sectionlist[3].addlink('media_resources.html','أغاني وتسجيلات','play.png');
 sectionlist[4].addlink('whatsnew.html','ما الجديد');
 sectionlist[4].addlink('about.html','عن التطبيق');
 
