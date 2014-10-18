@@ -313,6 +313,7 @@ $(document).ready(function(){
 	});
 	$(".mediaitem").click(function(){
 		$("#audioplayer").attr("src",$(this).attr("href"));
+		$("#audioplayer").trigger("play");
 		$("#nowplaying").text($(this).text());
 		return(false);
 	});
