@@ -155,7 +155,7 @@ function lcShare(tagid){
   element.find(".nocopy,.ui-collapsible-heading-status").remove();
   element.find("a").each(function(){
 	  switch($(this).attr("href").substring(0,4)){
-	  case "http": $(this).text($(this).text() + ": " + $(this).attr("href")); break;
+	  case "http": $(this).text(($(this).text().substring(0,4) == "www." ? "Website" : $(this).text()) + ": " + $(this).attr("href")); break;
 	  case "tel:": $(this).text( "Telephone: " + $(this).text()); break;
 	  case "mail": $(this).text( "Email: " + $(this).text()); break;
 	  };
