@@ -1,6 +1,6 @@
 var toast;
 var tracking = false;
-var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/"));
+var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
 var onAndroid = navigator.userAgent.match(/Android/i);
 var refreshInterval= 1000 * 60 * 30;
 
@@ -295,8 +295,27 @@ sectionlist[3].addlink('media_resources.html','أغاني وتسجيلات','pla
 sectionlist[4].addlink('whatsnew.html','ما الجديد');
 sectionlist[4].addlink('about.html','عن التطبيق');
 
+function preparePanel(){
+	panel=$("<div/>",{
+		"data-role": "panel",
+		"id": "rightpanel",
+		"data-position": "right",
+		"data-display": "overlay"
+	});
+}
+
+
+
 $(document).ready(function(){
-	$('.pagefooter').load('includes/footer.html');
+	$('.pagefooter').html(
+	'      <div role="navigation" class="ui-navbar" data-role="navbar" data-iconpos="right">' +
+'        <ul class="ui-grid-c">' +
+'	        <li class="ui-block-a"><a class="ui-link ui-btn ui-icon-bullets ui-btn-icon-right" data-ajax="false" href="options.html" data-icon="bullets">خيارات</a></li>' +
+'	        <li class="ui-block-b"><a class="ui-link ui-btn ui-icon-home ui-btn-icon-right" rel="external" data-icon="home" href="http://syrians.alayham.com">الموقع</a></li>' +
+'	        <li class="ui-block-c"><a class="ui-link ui-btn ui-icon-action ui-btn-icon-right" rel="external" data-icon="action" href="https://m.facebook.com/groups/syrianexpats/">المجموعة</a></li>' +
+'	        <li class="ui-block-d"><a class="ui-link ui-btn ui-icon-share ui-btn-icon-right" href="" data-icon="share" onclick="syrians_share_app(); return false;">مشاركة</a></li> ' +
+'        </ul>' +
+'      </div>');
 
 	$('.linkvisibility').click(function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
@@ -351,7 +370,6 @@ $(document).ready(function(){
 		}
 	})
 });
-
 
 $("<link/>", {
      rel: "stylesheet",

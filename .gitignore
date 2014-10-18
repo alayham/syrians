@@ -24,3 +24,6 @@ proguard/
 
 # Log Files
 *.log
+
+#cleanup file
+cleanup.html
