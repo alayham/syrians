@@ -352,6 +352,7 @@ $(document).ready(function(){
 		if($(this).prop("id")){
 			elementID = $(this).prop("id");
 		}else{
+			return(); //Do not work on collapsibles that don't have a uuid
 			elementID = "lc" + Math.floor((Math.random() * 100000000) + 1);
 			$(this).attr("id",elementID);
 		}
