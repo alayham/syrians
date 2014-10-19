@@ -3,66 +3,45 @@ var tracking = false;
 var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
 var onAndroid = navigator.userAgent.match(/Android/i);
 var refreshInterval= 1000 * 60 * 30;
-
+var ParseInitialized = false;
 function logmessage(msg){
 	console.log(msg);
 	sessionStorage.setItem("log",pagename + ": " + msg + "\n" + sessionStorage.getItem("log"));
 }
 
 if (!localStorage.getItem('apptheme')){
-	  localStorage.setItem('apptheme','syria');
-	}
-/*
-var gaPlugin;
-
-function initSuccessHandler(){
-	tracking=true;
-	logmessage("gaPlugin Init Success")
-    gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1,  localStorage.getItem('apptheme'));
-	gaPlugin.trackPage( trackSuccessHandler, trackErrorHandler, pagename);
-	//gaPlugin.exit(exitSuccessHandler, exitErrorHandler);
-}
-function initErrorHandler(){
-	logmessage("gaPlugin Init Error")
+  localStorage.setItem('apptheme','syria');
 }
 
-function trackSuccessHandler(){
-	logmessage("gaPlugin Track Success")
-}
-
-function trackErrorHandler(){
-	logmessage("gaPlugin Track Error")
-}
-function exitSuccessHandler(){
-	logmessage("gaPlugin Exit Success")
-}
-
-function exitErrorHandler(){
-	logmessage("gaPlugin Exit Error")
-}
-
-
-
-function nativePluginResultHandler(){
-	//alert("tracking " + pagename);
-}
-
-function nativePluginErrorHandler(){}
-*/
 
 function onOnline(){
-	$('body').removeClass("offline");
+	$('body').removeClass("offline").addClass("online");
 	logmessage("Connected");
 }
 function onOffline(){
-	$('body').addClass("offline");
+	$('body').addClass("offline").removeClass("online");
 	logmessage("Disconnected");
 }
 
+function InitParse(){
+	if(!ParseInitialized){
+		var PARSE_APP = "2G96h8o7oIjVIw23DDSkuw7QkwwAVPqViSwUamHJ";
+		var PARSE_JS = "1OPOeESsXbA2EtgiwjNm8KFeM8zohigBuEYoEQ4Y";
+	    Parse.initialize(PARSE_APP, PARSE_JS);
+	    ParseInitialized = true;
+	}
+}
+
 function onDeviceReady() {
-//	onAndroid = true;
-//    gaPlugin = window.plugins.gaPlugin;
-//    gaPlugin.init(initSuccessHandler, initErrorHandler, "UA-55575592-1", 10);
+	onAndroid = true;
+    $(document).on("online", onOnline);
+    $(document).on("offline", onOffline);
+    if(!(navigator.connection.type === Connection.UNKNOWN &&
+       navigator.connection.type === Connection.NONE)) {
+        $(document).trigger("online");
+    } else {
+        $(document).trigger("offline");
+    }
 }
 
 
@@ -293,6 +272,7 @@ sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية �
 sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال','colors.png');
 sectionlist[3].addlink('media_resources.html','أغاني وتسجيلات','play.png');
 sectionlist[4].addlink('whatsnew.html','ما الجديد');
+sectionlist[4].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
 sectionlist[4].addlink('about.html','عن التطبيق');
 
 function preparePanel(){

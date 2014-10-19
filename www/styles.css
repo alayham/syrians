@@ -6,6 +6,13 @@
 .ui-collapsible-heading .ui-btn{
   text-align:right;		
 }
+
+.ui-input-text input, .ui-input-search input {
+	text-align:right;
+}
+.ui-input-text input.ltr, .ui-input-search input.ltr {
+  text-align:left;
+}
 .floatleft{float:left;}
 .floatright{float:right;}
 .ui-listview > li > a.ui-btn{
