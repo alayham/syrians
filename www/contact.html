@@ -117,10 +117,12 @@ $(document).ready(function(){
 	       Message_Text: $("#contacttext").val(),
 			 },{
 				 success: function(){
+					 logmessage("Sent a contact message")
 					 $("#messageresult").html("تم إرسال الرسالة بنجاح. شكرا لك");
 					 $("#contacttext").val("");
 				 },
 				 error: function(){
+			     logmessage("Failed to send a contact message")
 			     $("#messageresult").html("فشل إرسال الرسالة. الرجاء التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى");
 				 }
 			 });
