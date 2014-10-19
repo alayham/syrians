@@ -4,6 +4,11 @@ var pagename = window.location.pathname.substring(window.location.pathname.lastI
 var onAndroid = navigator.userAgent.match(/Android/i);
 var refreshInterval= 1000 * 60 * 30;
 var ParseInitialized = false;
+if(!sessionStorage.getItem("log")){
+	sessionStorage.setItem("log","Starting a new session");		
+}
+
+
 function logmessage(msg){
 	console.log(msg);
 	sessionStorage.setItem("log",pagename + ": " + msg + "\n" + sessionStorage.getItem("log"));
@@ -273,6 +278,7 @@ sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال',
 sectionlist[3].addlink('media_resources.html','أغاني وتسجيلات','play.png');
 sectionlist[4].addlink('whatsnew.html','ما الجديد');
 sectionlist[4].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
+sectionlist[4].addlink('help.html','المساعدة والشروحات');
 sectionlist[4].addlink('about.html','عن التطبيق');
 
 function preparePanel(){
