@@ -27,3 +27,7 @@ proguard/
 
 #cleanup file
 cleanup.html
+
+
+#Extra files
+extra/
