@@ -32,3 +32,6 @@ cleanup.html
 #Extra files
 extra/
 .cordova
+builds
+platforms
+
