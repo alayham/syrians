@@ -375,6 +375,9 @@ $(document).ready(function(){
 		$("#audioplayer").attr("src",$(this).attr("href"));
 		$("#audioplayer").trigger("play");
 		$("#nowplaying").text($(this).text());
+	    if(gaPlugin){
+	    	gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Media", "Play", $(this).text());
+	    }
 		return(false);
 	});
 	$('.savedoption').change(function(){
