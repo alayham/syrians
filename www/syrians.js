@@ -4,6 +4,9 @@ var pagename = window.location.pathname.substring(window.location.pathname.lastI
 var onAndroid = navigator.userAgent.match(/Android/i);
 var refreshInterval= 1000 * 60 * 30;
 var ParseInitialized = false;
+var gaPlugin;
+
+
 if(!sessionStorage.getItem("log")){
 	sessionStorage.setItem("log","Starting a new session");		
 }
@@ -18,14 +21,47 @@ if (!localStorage.getItem('apptheme')){
   localStorage.setItem('apptheme','syria');
 }
 
+function checkConnection(){
+	return(!(navigator.connection.type === Connection.UNKNOWN &&
+		     navigator.connection.type === Connection.NONE));
+}
+
+function gaInitSuccess(){
+	logmessage("GA Initialized");
+}
+
+function gaInitError(){
+	logmessage("GA Init Failed")
+}
+
+function gaTrackSuccess(){
+	logmessage("GA Tracking Success");
+}
+function gaTrackFailed(){
+	logmessage("GA Tracking failed");
+}
+
+function gaSetVarSuccess(){
+	logmessage("GA Setvar Success");
+}
+
+function gaSetVarFailed(){
+	logmessage("GA Setvar failed");
+}
+function gaEventSuccess(){
+	logmessage("Tracking Event Succeeded");
+}
+function gaEventFailed(){
+	logmessage("Tracking Event Failed");
+}
 
 function onOnline(){
 	$('body').removeClass("offline").addClass("online");
-	logmessage("Connected");
+	logmessage("Internet Connected");
 }
 function onOffline(){
 	$('body').addClass("offline").removeClass("online");
-	logmessage("Disconnected");
+	logmessage("Internet Disconnected");
 }
 
 function InitParse(){
@@ -38,15 +74,20 @@ function InitParse(){
 }
 
 function onDeviceReady() {
+	console.log("Device Ready");
 	onAndroid = true;
     $(document).on("online", onOnline);
     $(document).on("offline", onOffline);
-    if(!(navigator.connection.type === Connection.UNKNOWN &&
-       navigator.connection.type === Connection.NONE)) {
+    if(checkConnection()) {
         $(document).trigger("online");
     } else {
         $(document).trigger("offline");
     }
+    gaPlugin = window.plugins.gaPlugin;
+    gaPlugin.init(gaInitSuccess, gaInitError, "UA-55575592-1", 10);
+    gaPlugin.setVariable( gaSetVarSuccess, gaSetVarFailed, 1, localStorage.getItem('apptheme'));
+    gaPlugin.trackPage( gaTrackSuccess, gaTrackFailed, pagename);
+
 }
 
 
@@ -88,6 +129,10 @@ function fetchItems(newspage){
               localStorage.setItem(newspage.tag + 'Items',jsontxt);
               newspage.items=JSON.parse(jsontxt);
               localStorage.setItem(newspage.tag + 'refreshdate', refreshDate.valueOf());
+              if(gaPlugin){
+            	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "Network", "News", "refresh", pagename);
+              }
+
             }else{
               logmessage("AJax request failed to update news data for " + newspage.tag);
             }
@@ -131,7 +176,11 @@ function backhome(){
 }
 
 function syrians_share_app(){
-	navigator.share('أدعوك للاطلاع على دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
+	navigator.share('أدعوك للاطلاع على دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');
+    if(gaPlugin){
+    	gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Share", "App", pagename);
+    }
+
 }
 
 function lcShare(tagid){
@@ -150,6 +199,7 @@ function lcShare(tagid){
   console.log(txt);
   if(onAndroid){
 	navigator.share( txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
+    gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Share", "Content", tagid);
   }	
 }
 function lcCopy(tagid){
@@ -158,6 +208,7 @@ function lcCopy(tagid){
   var txt = element.text().replace(/(\s)+/g, " ");
   if(onAndroid){
 	  window.plugins.clipboard.copy(txt);	
+	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Copy", "Content", tagid);
   }	
 }
 
@@ -313,6 +364,10 @@ $(document).ready(function(){
 	$(document).on('click', '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
+	    
+	    if(onAndroid){
+	  	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Click", "link", targetURL);
+	    }
 
 	    window.open(targetURL, "_system");
 	});
