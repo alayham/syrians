@@ -86,7 +86,12 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
  $(document).ready(function(){
 	    $('#appversion').load('includes/version.txt');
 	    $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
-	    $("#messagelog").html("<pre>" + sessionStorage.getItem("log") + "</pre>");
+	    if(sessionStorage.getItem("device") == "GT-N7100-cfff1bdc200e404f"){
+	        $("#messagelog").html("<pre>" + sessionStorage.getItem("log") + "</pre>");
+	    }else{
+	        $("#messagelog").remove();
+
+	    }
 	});
 
  </script>

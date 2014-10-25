@@ -30,6 +30,8 @@ function checkConnection(){
 
 function gaInitSuccess(){
 	logmessage("GA Initialized");
+    gaPlugin.setVariable( gaSetVarSuccess, gaSetVarFailed, 1, localStorage.getItem('apptheme'));
+    gaPlugin.trackPage( gaTrackSuccess, gaTrackFailed, pagename);
 }
 
 function gaInitError(){
@@ -76,7 +78,7 @@ function InitParse(){
 }
 
 function onDeviceReady() {
-	console.log("Device Ready");
+	logmessage("Device Ready");
 	onAndroid = true;
     $(document).on("online", onOnline);
     $(document).on("offline", onOffline);
@@ -85,11 +87,21 @@ function onDeviceReady() {
     } else {
         $(document).trigger("offline");
     }
+    if(window.device){
+        logmessage("Cordova: " + device.cordova);
+        logmessage("Model: " + device.model);
+        logmessage("Platform: " + device.platform);
+        logmessage("UUID: " + device.uuid);
+        logmessage("Version: " + device.version);
+        sessionStorage.setItem("device ", device.model + "-" + device.uuid);
+        logmessage("Device ID: " + sessionStorage.getItem("device"));
+    }
     gaPlugin = window.plugins.gaPlugin;
-    gaPlugin.init(gaInitSuccess, gaInitError, "UA-55575592-1", 10);
-    gaPlugin.setVariable( gaSetVarSuccess, gaSetVarFailed, 1, localStorage.getItem('apptheme'));
-    gaPlugin.trackPage( gaTrackSuccess, gaTrackFailed, pagename);
-
+    if(gaPlugin){
+        gaPlugin.init(gaInitSuccess, gaInitError, "UA-55575592-1", 10);    	
+    }else{
+    	logmessage("gaPlugin Not found");
+    }
 }
 
 
@@ -133,6 +145,8 @@ function fetchItems(newspage){
               localStorage.setItem(newspage.tag + 'refreshdate', refreshDate.valueOf());
               if(gaPlugin){
             	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "Network", "News", "refresh", pagename);
+              }else{
+            	  logmessage("gaPlugin Not found");
               }
 
             }else{
@@ -181,6 +195,8 @@ function syrians_share_app(){
 	navigator.share('أدعوك للاطلاع على دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');
     if(gaPlugin){
     	gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Share", "App", pagename);
+    }else{
+  	  logmessage("gaPlugin Not found");
     }
 
 }
@@ -198,11 +214,15 @@ function lcShare(tagid){
   element.find(".embassy_address").each(function(){$(this).text("Address: " + $(this).text());});
 		  
   var txt = document.title + "\n" + element.text().replace(/([ \t])+/g, " ");
-  console.log(txt);
+  //console.log(txt);
   if(onAndroid){
 	navigator.share( txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
-    gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Share", "Content", tagid);
   }	
+  if(gaPlugin){
+	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Share", "Content", tagid);
+  }else{
+	  logmessage("gaPlugin Not found");
+  }
 }
 function lcCopy(tagid){
   var element=$("#" + tagid).clone();
@@ -210,8 +230,12 @@ function lcCopy(tagid){
   var txt = element.text().replace(/(\s)+/g, " ");
   if(onAndroid){
 	  window.plugins.clipboard.copy(txt);	
-	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Copy", "Content", tagid);
   }	
+  if(gaPlugin){
+	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Copy", "Content", tagid);	  
+  }else{
+	  logmessage("gaPlugin Not found");
+  }
 }
 
 
@@ -367,11 +391,13 @@ $(document).ready(function(){
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
 	    
-	    if(onAndroid){
+	    if(gaPlugin){
 	  	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Click", "link", targetURL);
+	    }else{
+	  	  logmessage("gaPlugin Not found");
 	    }
-
 	    window.open(targetURL, "_system");
+
 	});
 	$(".mediaitem").on(clickEvent(),function(){
 		$("#audioplayer").attr("src",$(this).attr("href"));
@@ -379,6 +405,8 @@ $(document).ready(function(){
 		$("#nowplaying").text($(this).text());
 	    if(gaPlugin){
 	    	gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Media", "Play", $(this).text());
+	    }else{
+	  	  logmessage("gaPlugin Not found");
 	    }
 		return(false);
 	});
