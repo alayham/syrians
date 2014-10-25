@@ -6,7 +6,9 @@ var refreshInterval= 1000 * 60 * 30;
 var ParseInitialized = false;
 var gaPlugin;
 
-
+function clickEvent(){
+	return( onAndroid ? "tap" : "click" );
+}
 if(!sessionStorage.getItem("log")){
 	sessionStorage.setItem("log","Starting a new session");		
 }
@@ -354,14 +356,14 @@ $(document).ready(function(){
 '        </ul>' +
 '      </div>');
 
-	$('.linkvisibility').click(function(){
+	$('.linkvisibility').on(clickEvent(),function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 	});
 	$('.sectionvisibility').change(function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 		$('#' + $(this).attr('id') + "sublinks").toggle();
 	});
-	$(document).on('click', '[rel="external"],.linksource', function (e) {
+	$(document).on(clickEvent(), '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
 	    
@@ -371,7 +373,7 @@ $(document).ready(function(){
 
 	    window.open(targetURL, "_system");
 	});
-	$(".mediaitem").click(function(){
+	$(".mediaitem").on(clickEvent(),function(){
 		$("#audioplayer").attr("src",$(this).attr("href"));
 		$("#audioplayer").trigger("play");
 		$("#nowplaying").text($(this).text());
@@ -403,10 +405,10 @@ $(document).ready(function(){
 		$("<div/>",{"class": "lc nocopy"}).append($("<a/>",{
 			"class" : "ui-link ui-btn ui-icon-share ui-btn-icon-notext ui-btn-inline ui-corner-all",
 			"href" : "#",
-		}).text("مشاركة").click(function(){lcShare(elementID); return(false);})).append($("<a/>",{
+		}).text("مشاركة").on(clickEvent(),function(){lcShare(elementID); return(false);})).append($("<a/>",{
 			"class" : "ui-link ui-btn ui-icon-clipboard ui-btn-icon-notext ui-btn-inline ui-corner-all",
 			"href" : "#",
-		}).text("نسخ").click(function(){lcCopy(elementID); return(false);})).prependTo(hostElement);
+		}).text("نسخ").on(clickEvent(),function(){lcCopy(elementID); return(false);})).prependTo(hostElement);
 		
 	});
 	$('.savedoption').each(function(){
