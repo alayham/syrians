@@ -70,7 +70,7 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
        <h2>المساهمة في تطوير التطبيق</h2>
        <p>هذا التطبيق مفتوح المصدر ويمكن تصفح النص البرمجي له على موقع github على العنوان <a href="https://github.com/alayham/syrians" rel="external">https://github.com/alayham/syrians</a></p>
        <p>المطورون الراغبون بالمساهمة في تطوير التطبيق يمكنهم المشاركة في موقع github مثل العادة</p>
-		  <div data-role="collapsible" data-inset="false">
+		  <div data-role="collapsible" data-inset="false" id="messagelogcontainer">
 		    <legend>سجل عمل هذه الجلسة</legend>
 		    <div class="ltr collapsiblecontent" id="messagelog">
 		    
@@ -89,8 +89,8 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 	    if(sessionStorage.getItem("device") == "GT-N7100-cfff1bdc200e404f"){
 	        $("#messagelog").html("<pre>" + sessionStorage.getItem("log") + "</pre>");
 	    }else{
-	        $("#messagelog").remove();
-
+	        $("#messagelogcontainer").remove();
+	        
 	    }
 	});
 
