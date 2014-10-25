@@ -93,7 +93,7 @@ function onDeviceReady() {
         logmessage("Platform: " + device.platform);
         logmessage("UUID: " + device.uuid);
         logmessage("Version: " + device.version);
-        sessionStorage.setItem("device ", device.model + "-" + device.uuid);
+        sessionStorage.setItem("device", device.model + "-" + device.uuid);
         logmessage("Device ID: " + sessionStorage.getItem("device"));
     }
     gaPlugin = window.plugins.gaPlugin;
