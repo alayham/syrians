@@ -334,8 +334,9 @@ var sectionlist = [];
 //sectionlist[0]=	new homesection("tv", "التلفزيون السوري");
 sectionlist[1]=	new homesection("intheworld", "السوريون في العالم");
 sectionlist[2]=	new homesection("connectsyria", "التواصل مع سوريا");
-sectionlist[3]=	new homesection("culture", "تقافة وتعليم");
-sectionlist[4]=	new homesection("about", "عن التطبيق");
+sectionlist[3]=	new homesection("education", "تعليم");
+sectionlist[4]=	new homesection("culture", "تقافة");
+sectionlist[5]=	new homesection("about", "عن التطبيق");
 
 //sectionlist[0].html ='<iframe width="100%" height="250" src="http://www.youtube.com/embed/videoseries?list=PLdnH0tm73Ekm5yvRzmWNbj7e-1ffaAaML" frameborder="0" allowfullscreen></iframe>';
 sectionlist[1].addlink('syria_embassy.html','دليل السفارات السورية','Syria_coat_of_arms.png');
@@ -349,14 +350,15 @@ sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوري�
 sectionlist[2].addlink('directory.html','دليل المواقع السورية','sy_tld_logo.png');
 sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال','syrecon.png');
 sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات','daam.png');
-sectionlist[3].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
+sectionlist[3].addlink('student_affairs.html','الطلاب المغتربين','students.png');
 sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
 sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال','colors.png');
-sectionlist[3].addlink('media_resources.html','أغاني وتسجيلات','play.png');
-sectionlist[4].addlink('whatsnew.html','ما الجديد');
-sectionlist[4].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
-sectionlist[4].addlink('help.html','المساعدة والشروحات');
-sectionlist[4].addlink('about.html','عن التطبيق');
+sectionlist[4].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
+sectionlist[4].addlink('media_resources.html','أغاني وتسجيلات','play.png');
+sectionlist[5].addlink('whatsnew.html','ما الجديد');
+sectionlist[5].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
+sectionlist[5].addlink('help.html','المساعدة والشروحات');
+sectionlist[5].addlink('about.html','عن التطبيق');
 
 function preparePanel(){
 	panel=$("<div/>",{

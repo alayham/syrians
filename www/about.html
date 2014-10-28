@@ -89,11 +89,9 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 	    if(sessionStorage.getItem("device") == "GT-N7100-cfff1bdc200e404f"){
 	        $("#messagelog").html("<pre>" + sessionStorage.getItem("log") + "</pre>");
 	    }else{
-	        $("#messagelogcontainer").remove();
-	        
+	        $("#messagelogcontainer").remove();	        
 	    }
 	});
-
  </script>
 </body>
 </html>
