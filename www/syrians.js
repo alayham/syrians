@@ -17,7 +17,7 @@ if(!sessionStorage.getItem("loger")){
 
 function logmessage(msg){
 	console.log(msg);
-	sessionStorage.setItem("loger",pagename + ": " + msg + "\n" + sessionStorage.getItem("loger"));
+	//sessionStorage.setItem("loger",pagename + ": " + msg + "\n" + sessionStorage.getItem("loger"));
 }
 
 if (!localStorage.getItem('apptheme')){
@@ -314,7 +314,7 @@ function homesection(sectionid,sectiontitle){
 			if(localStorage.getItem(this.links[i][2]) == 0){
 				
 			}else{
-				txt += '<li><a id="' + this.links[i][2]  +   '" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"false")  +  '" href="' + this.links[i][0] +  '" data-transition="flip">'  + 
+				txt += '<li><a id="' + this.links[i][2]  +   '" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"false")  +  '" href="' + this.links[i][0] +  '" data-transition="none">'  + 
 						'<div class="linkimage"><img src="images/' + this.links[i][3] + '" title="الانتقال إلى قسم ' +  this.links[i][1] + '" /></div>' +
 						'<div class="linktext">' + this.links[i][1] + '</div>' +
 						'</a></li>'
@@ -339,8 +339,8 @@ sectionlist[3]=	new homesection("education", "تعليم");
 sectionlist[4]=	new homesection("culture", "تقافة");
 sectionlist[5]=	new homesection("about", "عن التطبيق");
 
-sectionlist[0].addlink('news_sana.html','الأخبار المحلية: سانا','sana.png');
-sectionlist[0].addlink('news_tishreen.html','الأخبار: جريدة تشرين','tishreen.jpg');
+sectionlist[0].addlink('#news_sana','الأخبار المحلية: سانا','sana.png');
+sectionlist[0].addlink('#news_tishreen','الأخبار: جريدة تشرين','tishreen.jpg');
 sectionlist[0].addlink('news_sana_politics.html','الأخبار السياسية: سانا','sana.png');
 sectionlist[0].addlink('#live_syrian_tv','التلفزيون والإذاعة','Syriatvlogo.png');
 
@@ -362,7 +362,7 @@ sectionlist[4].addlink('#about_syria','معلومات عن سوريا','about_sy
 sectionlist[4].addlink('#media_resources','أغاني وتسجيلات','play.png');
 
 sectionlist[5].addlink('#whatsnew','ما الجديد');
-sectionlist[5].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
+sectionlist[5].addlink('#contact','الاتصال مع مطور التطبيق',"contact.png");
 sectionlist[5].addlink('#help','المساعدة والشروحات');
 sectionlist[5].addlink('#about','عن التطبيق');
 
@@ -375,6 +375,48 @@ function preparePanel(){
 	});
 }
 
+
+function checkEmail(emailAddress) {
+	  var sQtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
+	  var sDtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
+	  var sAtom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+';
+	  var sQuotedPair = '\\x5c[\\x00-\\x7f]';
+	  var sDomainLiteral = '\\x5b(' + sDtext + '|' + sQuotedPair + ')*\\x5d';
+	  var sQuotedString = '\\x22(' + sQtext + '|' + sQuotedPair + ')*\\x22';
+	  var sDomain_ref = sAtom;
+	  var sSubDomain = '(' + sDomain_ref + '|' + sDomainLiteral + ')';
+	  var sWord = '(' + sAtom + '|' + sQuotedString + ')';
+	  var sDomain = sSubDomain + '(\\x2e' + sSubDomain + ')*';
+	  var sLocalPart = sWord + '(\\x2e' + sWord + ')*';
+	  var sAddrSpec = sLocalPart + '\\x40' + sDomain; // complete RFC822 email address spec
+	  var sValidEmail = '^' + sAddrSpec + '$'; // as whole string
+
+	  var reValidEmail = new RegExp(sValidEmail);
+
+	  if (reValidEmail.test(emailAddress)) {
+	    return true;
+	  }
+
+	  return false;
+	}
+
+function validateContactForm(){
+	var valid=true;
+  $("#messageresult").html(" ");
+  if(!checkEmail($("#contactemail").val())){
+    $("#messageresult").append("<p>عنوان البريد الالكتروني غير صحيح</p>");
+    valid=false;    
+  }
+  if($("#contactname").val().length<=5){
+	  $("#messageresult").append("<p>الاسم المدخل قصير جدا، الرجاء إدخال الاسم الكامل</p>");
+	  valid=false;    
+	}
+  if($("#contacttext").val().length<=5){
+	    $("#messageresult").append("<p>نص الرسالة المدخل قصير جدا، الرجاء إدخال أكثر من 10 أحرف</p>");
+	    valid=false;    
+	  }
+	return(valid);
+}
 
 
 $(document).ready(function(){
@@ -458,6 +500,36 @@ $(document).ready(function(){
 			$(this).prop('checked',true);
 		}
 	});
+    $("#sendmessage").on("click",function(e){
+	    e.preventDefault();
+		  if(validateContactForm()){
+			  InitParse();
+			  MessageObject = Parse.Object.extend("Contact_message");
+			  var message = new MessageObject;
+				 message.save({
+					 Name: $("#contactname").val(),
+					 Email: $("#contactemail").val(),
+					 Message_Text: $("#contacttext").val(),
+				 },{
+					 success: function(){
+						 logmessage("Sent a contact message");
+						 $("#messageresult").html("تم إرسال الرسالة بنجاح. شكرا لك");
+						 $("#contacttext").val("");
+					 },
+					 error: function(){
+				     logmessage("Failed to send a contact message");
+				     $("#messageresult").html("فشل إرسال الرسالة. الرجاء التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى");
+					 }
+				 });
+		  }else{
+		      $("#messageresult").append("<p>لم يتم إرسال الرسالة</p>");		  
+		  }
+	  });
+	
+	
+	
+	
+	
     $('#appversion').load('includes/version.txt');
     $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
 

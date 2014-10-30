@@ -26,6 +26,7 @@
 <title>دليل المغتربين السوريين</title>
 
 <script src="phonegap.js"></script>
+<script src="parse-1.3.0.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 function onLoad() { document.addEventListener("deviceready", onDeviceReady, false);}
 </script>
@@ -183,6 +184,24 @@ $( "#colorselector" ).on("change",function() {
 });
 </script>
 
+<div data-role="page" data-dom-cache="true" id="contact">
+    <div data-role="header" data-position="fixed">
+      <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>
+      <h2 title="دليل المغتربين السوريين" class="">الاتصال مع مطور التطبيق</h2>
+    </div>
+    <div data-role="content">
+      <h3>الاتصال مع مطور التطبيق</h3>
+        <label for="contactname">الاسم</label>
+        <input type="text" id="contactname" placeholder="الرجاء ادخال اسمك" name="contactname" />
+        <label for="contactemail">البريد الالكتروني</label>
+        <input type="email" id="contactemail" placeholder="الرجاء إدخال بريدك الالكتروني" name="contactemail" />
+        <label for="contacttext">نص الرسالة</label>        
+        <textarea id="contacttext" placeholder="الرجاء كتابة الرسالة هنا" name="contacttext" rows="10"></textarea>
+        <button id="sendmessage">إرسال الرسالة</button>
+      <div id="messageresult"></div>
+    </div> 
+    
+ </div>
  
  
  
@@ -4353,6 +4372,75 @@ $( "#colorselector" ).on("change",function() {
         <a href="https://github.com/alayham/syrians/commits/master" data-ajax="false" rel="external">https://github.com/alayham/syrians/commits/master</a>
      </div> 
  </div>
+ 
+ 
+ <div data-role="page" data-dom-cache="true" id="news_sana">
+  <div data-role="header" data-position="fixed">
+    <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>
+    <h1>الأخبار: سانا</h1>
+  </div>
+  <div data-role="content">    
+    <form>
+      <input type="text" data-type="search" id="sana-filter" class="jqmfilter">
+    </form>
+    <ul id="sana" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#sana-filter">
+    <li>يتم تحديث الأخبار حاليا، تستغرق هذه العملية حوالي 60 ثانية وتحتاج وصلة إنترنت، وتنفذ كل 30 دقيقة تقريبا</li>   
+    </ul>
+  </div>
+
+</div>   
+</body>
+<script type="text/javascript">
+var sanaNews=new newssource("http://pipes.yahoo.com/pipes/pipe.run?_id=2ec9c6285235a0b589b40cba3235a097&_render=json","sana",200);
+if(localStorage.getItem("optionfixsana") == 1){
+    sanaNews.process = function(s){return(s.replace(/([0-9]+)ر([0-9]+)/mig,'\$2\.\$1'));}
+}
+loadItems(sanaNews);
+</script>
+ 
+ <div data-role="page" data-dom-cache="true" id="news_tishreen">
+  <div data-role="header" data-position="fixed">
+    <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>
+    <h1>الأخبار: جريدة تشرين</h1>
+  </div>
+  <div data-role="content">    
+    <form>
+      <input type="text" data-type="search" id="tishreen-filter" class="jqmfilter">
+    </form>
+    <ul id="tishreen" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#tishreen-filter">
+    <li>يتم تحديث الأخبار حاليا، تستغرق هذه العملية حوالي 60 ثانية وتحتاج وصلة إنترنت، وتنفذ كل 30 دقيقة تقريبا</li>   
+    </ul>
+  </div>
+</div>   
+</body>
+<script type="text/javascript">
+var tishreenNews=new newssource("http://pipes.yahoo.com/pipes/pipe.run?_id=66497acae540477b268d1796e590b3d6&_render=json","tishreen",200);
+loadItems(tishreenNews);
+</script>
+ 
+<div data-role="page" data-dom-cache="true" id="news_sana_politics">
+  <div data-role="header" data-position="fixed">
+    <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>
+    <h1>الأخبار السياسية: سانا</h1>
+  </div>
+  <div data-role="content">    
+    <form>
+      <input type="text" data-type="search" id="sana-politics-filter" class="jqmfilter">
+    </form>
+    <ul id="sanapolitics" data-inset="true" data-mini="true" data-icon="carat-l" data-filter="true" data-input="#sana-politics-filter">
+    <li>يتم تحديث الأخبار حاليا، تستغرق هذه العملية حوالي 60 ثانية وتحتاج وصلة إنترنت، وتنفذ كل 30 دقيقة تقريبا</li>   
+    </ul>
+  </div>
+</div>   
+</body>
+<script type="text/javascript">
+var sanaNews=new newssource("http://pipes.yahoo.com/pipes/pipe.run?_id=24df007b9a236f17c7019d285fd90b6a&_render=json","sanapolitics",200);
+if(localStorage.getItem("optionfixsana") == 1){
+    sanaNews.process = function(s){return(s.replace(/([0-9]+)ر([0-9]+)/mig,'\$2\.\$1'));}
+}
+loadItems(sanaNews);
+</script>
+ 
  
 </body>
 </html>
