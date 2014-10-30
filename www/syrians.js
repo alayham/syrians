@@ -502,8 +502,8 @@ $(document).ready(function(){
 		}
 	});
     $("#sendmessage").on("click",function(e){
-	    e.preventDefault();
-		  if(validateContactForm()){
+	    	e.preventDefault();
+	    	if(validateContactForm()){
 			  InitParse();
 			  MessageObject = Parse.Object.extend("Contact_message");
 			  var message = new MessageObject;
@@ -522,19 +522,21 @@ $(document).ready(function(){
 				     $("#messageresult").html("فشل إرسال الرسالة. الرجاء التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى");
 					 }
 				 });
-		  }else{
+	    	}else{
 		      $("#messageresult").append("<p>لم يتم إرسال الرسالة</p>");		  
-		  }
+	    	}
 	  });
 
     $( ":mobile-pagecontainer" ).on( "pagecontainerbeforechange", function( event, ui ) {
-    		pagetimer = new Date();
+    		//pagetimer = new Date();
+    		$.mobile.loading( "show");
     	});
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
-    	var newtimer = new Date();
-    	var duration = newtimer.valueOf() - pagetimer.valueOf();
-    	alert(duration);
+    	//var newtimer = new Date();
+    	//var duration = newtimer.valueOf() - pagetimer.valueOf();
+		$.mobile.loading( "hide");
+    	//alert(duration);
 	});
 	
     $('#appversion').load('includes/version.txt');
