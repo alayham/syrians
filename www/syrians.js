@@ -9,14 +9,15 @@ var gaPlugin;
 function clickEvent(){
 	return( onAndroid ? "tap" : "click" );
 }
-if(!sessionStorage.getItem("log")){
-	sessionStorage.setItem("log","Starting a new session");		
+/*
+if(!sessionStorage.getItem("loger")){
+	sessionStorage.setItem("loger","Starting a new session");		
 }
-
+*/
 
 function logmessage(msg){
 	console.log(msg);
-	sessionStorage.setItem("log",pagename + ": " + msg + "\n" + sessionStorage.getItem("log"));
+	sessionStorage.setItem("loger",pagename + ": " + msg + "\n" + sessionStorage.getItem("loger"));
 }
 
 if (!localStorage.getItem('apptheme')){
@@ -313,7 +314,7 @@ function homesection(sectionid,sectiontitle){
 			if(localStorage.getItem(this.links[i][2]) == 0){
 				
 			}else{
-				txt += '<li><a id="' + this.links[i][2]  +   '" data-ajax="false" href="' + this.links[i][0] +  '">'  + 
+				txt += '<li><a id="' + this.links[i][2]  +   '" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"false")  +  '" href="' + this.links[i][0] +  '" data-transition="flip">'  + 
 						'<div class="linkimage"><img src="images/' + this.links[i][3] + '" title="الانتقال إلى قسم ' +  this.links[i][1] + '" /></div>' +
 						'<div class="linktext">' + this.links[i][1] + '</div>' +
 						'</a></li>'
@@ -341,29 +342,29 @@ sectionlist[5]=	new homesection("about", "عن التطبيق");
 sectionlist[0].addlink('news_sana.html','الأخبار المحلية: سانا','sana.png');
 sectionlist[0].addlink('news_tishreen.html','الأخبار: جريدة تشرين','tishreen.jpg');
 sectionlist[0].addlink('news_sana_politics.html','الأخبار السياسية: سانا','sana.png');
-sectionlist[0].addlink('live_syrian_tv.html','التلفزيون والإذاعة','Syriatvlogo.png');
+sectionlist[0].addlink('#live_syrian_tv','التلفزيون والإذاعة','Syriatvlogo.png');
 
-sectionlist[1].addlink('syria_embassy.html','دليل السفارات السورية','Syria_coat_of_arms.png');
-sectionlist[1].addlink('counsular_services_outside.html','دليل الخدمات القنصلية','moex.png');
-sectionlist[1].addlink('military_service.html','شؤون التجنيد','Syria_Armed_Forces_Emblem.png');
-sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم','syrians_abroad.png');
+sectionlist[1].addlink('#syria_embassy','دليل السفارات السورية','Syria_coat_of_arms.png');
+sectionlist[1].addlink('#counsular_services_outside','دليل الخدمات القنصلية','moex.png');
+sectionlist[1].addlink('#military_service','شؤون التجنيد','Syria_Armed_Forces_Emblem.png');
+sectionlist[1].addlink('#expat_associations','النوادي السورية في العالم','syrians_abroad.png');
 
-sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا','syria_phone.png');
-sectionlist[2].addlink('directory.html','دليل المواقع السورية','sy_tld_logo.png');
-sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال','syrecon.png');
-sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات','daam.png');
+sectionlist[2].addlink('#phones','الاتصال هاتفيا مع سوريا','syria_phone.png');
+sectionlist[2].addlink('#directory','دليل المواقع السورية','sy_tld_logo.png');
+sectionlist[2].addlink('#invest_in_syria','دليل الاستثمار والأعمال','syrecon.png');
+sectionlist[2].addlink('#donate_to_syria','إرسال التبرعات','daam.png');
 
-sectionlist[3].addlink('student_affairs.html','الطلاب المغتربين','students.png');
-sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
-sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال','colors.png');
+sectionlist[3].addlink('#student_affairs','الطلاب المغتربين','students.png');
+sectionlist[3].addlink('#schoolbag','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
+sectionlist[3].addlink('#color_learning','تعليم الألوان للأطفال','colors.png');
 
-sectionlist[4].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
-sectionlist[4].addlink('media_resources.html','أغاني وتسجيلات','play.png');
+sectionlist[4].addlink('#about_syria','معلومات عن سوريا','about_syria.jpg');
+sectionlist[4].addlink('#media_resources','أغاني وتسجيلات','play.png');
 
-sectionlist[5].addlink('whatsnew.html','ما الجديد');
+sectionlist[5].addlink('#whatsnew','ما الجديد');
 sectionlist[5].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
-sectionlist[5].addlink('help.html','المساعدة والشروحات');
-sectionlist[5].addlink('about.html','عن التطبيق');
+sectionlist[5].addlink('#help','المساعدة والشروحات');
+sectionlist[5].addlink('#about','عن التطبيق');
 
 function preparePanel(){
 	panel=$("<div/>",{
@@ -391,7 +392,7 @@ $(document).ready(function(){
 '	        <li class="ui-block-d"><a class="ui-link ui-btn ui-icon-share ui-btn-icon-right" href="" data-icon="share" onclick="syrians_share_app(); return false;">مشاركة</a></li> ' +
 '        </ul>' +
 '      </div></div>');
-	$('.pagefooter').toolbar( { "role": "footer", "tapToggle": "true" , "position" : "fixed"});
+	$('.pagefooter').toolbar( { "role": "footer", "tapToggle": "true" , "position" : "fixed", "theme": "a"});
 	$('.linkvisibility').on(clickEvent(),function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 	});
@@ -411,7 +412,8 @@ $(document).ready(function(){
 	    window.open(targetURL, "_system");
 
 	});
-	$(".mediaitem").on(clickEvent(),function(){
+	$(".mediaitem").on(clickEvent(),function(ev){
+		ev.preventDefault();
 		$("#audioplayer").attr("src",$(this).attr("href"));
 		$("#audioplayer").trigger("play");
 		$("#nowplaying").text($(this).text());
@@ -455,7 +457,10 @@ $(document).ready(function(){
 		if(localStorage.getItem("option" + $(this).attr("id")) == 1){
 			$(this).prop('checked',true);
 		}
-	})
+	});
+    $('#appversion').load('includes/version.txt');
+    $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
+
 });
 
 $("<link/>", {

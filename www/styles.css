@@ -37,6 +37,16 @@
 	text-decoration:none;
 }
 
+#color_learning{
+  background-color: red; 
+  height:100%;
+}
+#colorselector{
+  position:absolute;
+  font-size:1em;
+}
+
+
 .ui-listview > li p , .ui-btn{
 	white-space:normal;	
 }

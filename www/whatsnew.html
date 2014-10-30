@@ -39,7 +39,7 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
 
 </head>
 <body onload="onLoad();">
-<div data-role="page" data-dom-cache="true" id="home">
+<div data-role="page" data-dom-cache="true" id="whatsnew">
   	<div data-role="header" data-position="fixed">
       <script type="text/javascript">var btnhome= new backhome(); document.write(btnhome.render());</script>
     	<h2 title="جديد دليل المغتربين السوريين" class="">ما الجديد</h2>
@@ -60,12 +60,5 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
         <a href="https://github.com/alayham/syrians/commits/master" data-ajax="false" rel="external">https://github.com/alayham/syrians/commits/master</a>
      </div> 
  </div>
- <script type="text/javascript">
- $(document).ready(function(){
-	    $('#appversion').load('includes/version.txt');
-	    $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
-	});
-
- </script>
 </body>
 </html>
