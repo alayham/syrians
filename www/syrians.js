@@ -5,6 +5,7 @@ var onAndroid = navigator.userAgent.match(/Android/i);
 var refreshInterval= 1000 * 60 * 30;
 var ParseInitialized = false;
 var gaPlugin;
+var pagetimer;
 
 function clickEvent(){
 	return( onAndroid ? "tap" : "click" );
@@ -527,8 +528,15 @@ $(document).ready(function(){
 	  });
 	
 	
+    $( ":mobile-pagecontainer" ).on( "pagecontainerbeforechange", function( event, ui ) {
+    		pagetimer = new Date();
+    	});
 	
-	
+    $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
+    	var newtimer = new Date();
+    	var duration = newtimer.valueOf() - pagetimer.valueOf();
+    	alert(duration);
+	});
 	
     $('#appversion').load('includes/version.txt');
     $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
