@@ -341,7 +341,7 @@ sectionlist[5]=	new homesection("about", "عن التطبيق");
 
 sectionlist[0].addlink('#news_sana','الأخبار المحلية: سانا','sana.png');
 sectionlist[0].addlink('#news_tishreen','الأخبار: جريدة تشرين','tishreen.jpg');
-sectionlist[0].addlink('news_sana_politics.html','الأخبار السياسية: سانا','sana.png');
+sectionlist[0].addlink('#news_sana_politics','الأخبار السياسية: سانا','sana.png');
 sectionlist[0].addlink('#live_syrian_tv','التلفزيون والإذاعة','Syriatvlogo.png');
 
 sectionlist[1].addlink('#syria_embassy','دليل السفارات السورية','Syria_coat_of_arms.png');
