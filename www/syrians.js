@@ -526,8 +526,7 @@ $(document).ready(function(){
 		      $("#messageresult").append("<p>لم يتم إرسال الرسالة</p>");		  
 		  }
 	  });
-	
-	
+
     $( ":mobile-pagecontainer" ).on( "pagecontainerbeforechange", function( event, ui ) {
     		pagetimer = new Date();
     	});
