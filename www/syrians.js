@@ -377,7 +377,12 @@ function preparePanel(){
 
 
 $(document).ready(function(){
-	$('.pagefooter').html(
+	$('[data-role=page]').prepend(
+	
+	);
+	
+	$('[data-role=page]').append(
+	'<div class="pagefooter" data-role="footer">' +
 	'      <div role="navigation" class="ui-navbar" data-role="navbar" data-iconpos="right">' +
 '        <ul class="ui-grid-c">' +
 '	        <li class="ui-block-a"><a class="ui-link ui-btn ui-icon-bullets ui-btn-icon-right" data-ajax="false" href="options.html" data-icon="bullets">خيارات</a></li>' +
@@ -385,8 +390,8 @@ $(document).ready(function(){
 '	        <li class="ui-block-c"><a class="ui-link ui-btn ui-icon-action ui-btn-icon-right" rel="external" data-icon="action" href="https://m.facebook.com/groups/syrianexpats/">المجموعة</a></li>' +
 '	        <li class="ui-block-d"><a class="ui-link ui-btn ui-icon-share ui-btn-icon-right" href="" data-icon="share" onclick="syrians_share_app(); return false;">مشاركة</a></li> ' +
 '        </ul>' +
-'      </div>');
-
+'      </div></div>');
+	$('.pagefooter').toolbar( { "role": "footer", "tapToggle": "true" , "position" : "fixed"});
 	$('.linkvisibility').on(clickEvent(),function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 	});
