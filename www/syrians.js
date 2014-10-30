@@ -315,7 +315,7 @@ function homesection(sectionid,sectiontitle){
 			if(localStorage.getItem(this.links[i][2]) == 0){
 				
 			}else{
-				txt += '<li><a id="' + this.links[i][2]  +   '" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"false")  +  '" href="' + this.links[i][0] +  '" data-transition="none">'  + 
+				txt += '<li><a class="homelink" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"false")  +  '" href="' + this.links[i][0] +  '" data-transition="none">'  + 
 						'<div class="linkimage"><img src="images/' + this.links[i][3] + '" title="الانتقال إلى قسم ' +  this.links[i][1] + '" /></div>' +
 						'<div class="linktext">' + this.links[i][1] + '</div>' +
 						'</a></li>'
@@ -529,14 +529,15 @@ $(document).ready(function(){
 
     $( ":mobile-pagecontainer" ).on( "pagecontainerbeforechange", function( event, ui ) {
     		//pagetimer = new Date();
-    		$.mobile.loading( "show");
+	    	$.mobile.loading( "show" );    	
     	});
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
     	//var newtimer = new Date();
     	//var duration = newtimer.valueOf() - pagetimer.valueOf();
-		$.mobile.loading( "hide");
     	//alert(duration);
+    	$.mobile.loading( "hide" );
+
 	});
 	
     $('#appversion').load('includes/version.txt');
