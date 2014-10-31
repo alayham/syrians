@@ -391,15 +391,15 @@ function validateContactForm(){
 	var valid=true;
   $("#messageresult").html(" ");
   if(!checkEmail($("#contactemail").val())){
-    $("#messageresult").append("<p>عنوان البريد الالكتروني غير صحيح</p>");
+    $("#messageresult").append("عنوان البريد الالكتروني غير صحيح<br />");
     valid=false;    
   }
   if($("#contactname").val().length<=5){
-	  $("#messageresult").append("<p>الاسم المدخل قصير جدا، الرجاء إدخال الاسم الكامل</p>");
+	  $("#messageresult").append("الاسم المدخل قصير جدا، الرجاء إدخال الاسم الكامل<br />");
 	  valid=false;    
 	}
   if($("#contacttext").val().length<=5){
-	    $("#messageresult").append("<p>نص الرسالة المدخل قصير جدا، الرجاء إدخال أكثر من 10 أحرف</p>");
+	    $("#messageresult").append("نص الرسالة المدخل قصير جدا، الرجاء إدخال أكثر من 10 أحرف<br />");
 	    valid=false;    
 	  }
 	return(valid);

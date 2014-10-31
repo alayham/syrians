@@ -53,6 +53,8 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
         <textarea id="contacttext" placeholder="الرجاء كتابة الرسالة هنا" name="contacttext" rows="10"></textarea>
         <button id="sendmessage">إرسال الرسالة</button>
       <div id="messageresult"></div>
+      <h3>الاتصال عبر الهاتف</h3>
+      <a class="ltr" data-inline="true" href="tel:+97336051666" data-role="button" data-icon="phone">(+973) 3605 1666</a>
     </div> 
     
  
@@ -81,7 +83,7 @@ $(document).ready(function(){
            }
          });
         }else{
-          $("#messageresult").append("<p>لم يتم إرسال الرسالة</p>");      
+          $("#messageresult").append("لم يتم إرسال الرسالة<br />");      
         }
     });
 });
