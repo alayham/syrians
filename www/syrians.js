@@ -311,7 +311,7 @@ function homesection(sectionid,sectiontitle){
 			if(localStorage.getItem(this.links[i][2]) == 0){
 				
 			}else{
-				txt += '<li><a class="homelink" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"true")  +  '" href="' + this.links[i][0] +  '" data-transition="none">'  + 
+				txt += '<li><a class="homelink" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"true")  +  '" href="' + this.links[i][0] +  '" data-transition="flip">'  + 
 						'<div class="linkimage"><img src="images/' + this.links[i][3] + '" title="الانتقال إلى قسم ' +  this.links[i][1] + '" /></div>' +
 						'<div class="linktext">' + this.links[i][1] + '</div>' +
 						'</a></li>'
@@ -486,13 +486,16 @@ $(document).ready(function(){
     	});
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
-    	injectFooter();
     	//var newtimer = new Date();
     	//var duration = newtimer.valueOf() - pagetimer.valueOf();
     	//alert(duration);
     	//$.mobile.loading( "hide" );
 
 	});
+    $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
+    	injectFooter();
+	});
+
 });
 
 $("<link/>", {
