@@ -6,15 +6,11 @@ var refreshInterval= 1000 * 60 * 30;
 var ParseInitialized = false;
 var gaPlugin;
 var pagetimer;
+var sectionlist = [];
 
 function clickEvent(){
 	return( onAndroid ? "tap" : "click" );
 }
-/*
-if(!sessionStorage.getItem("loger")){
-	sessionStorage.setItem("loger","Starting a new session");		
-}
-*/
 
 function logmessage(msg){
 	console.log(msg);
@@ -315,7 +311,7 @@ function homesection(sectionid,sectiontitle){
 			if(localStorage.getItem(this.links[i][2]) == 0){
 				
 			}else{
-				txt += '<li><a class="homelink" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"false")  +  '" href="' + this.links[i][0] +  '" data-transition="none">'  + 
+				txt += '<li><a class="homelink" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"true")  +  '" href="' + this.links[i][0] +  '" data-transition="none">'  + 
 						'<div class="linkimage"><img src="images/' + this.links[i][3] + '" title="الانتقال إلى قسم ' +  this.links[i][1] + '" /></div>' +
 						'<div class="linktext">' + this.links[i][1] + '</div>' +
 						'</a></li>'
@@ -330,52 +326,42 @@ function updatesections(){
     	localStorage.setItem(sectionlist[i].varname,($('#' + sectionlist[i].varname + '').is(':checked') ? 1 : 0));
   	}      
 }
-
-var sectionlist = [];
-
-sectionlist[0]=	new homesection("news", "الأخبار والإعلام");
-sectionlist[1]=	new homesection("intheworld", "السوريون في العالم");
-sectionlist[2]=	new homesection("connectsyria", "التواصل مع سوريا");
-sectionlist[3]=	new homesection("education", "تعليم");
-sectionlist[4]=	new homesection("culture", "تقافة");
-sectionlist[5]=	new homesection("about", "عن التطبيق");
-
-sectionlist[0].addlink('#news_sana','الأخبار المحلية: سانا','sana.png');
-sectionlist[0].addlink('#news_tishreen','الأخبار: جريدة تشرين','tishreen.jpg');
-sectionlist[0].addlink('#news_sana_politics','الأخبار السياسية: سانا','sana.png');
-sectionlist[0].addlink('#live_syrian_tv','التلفزيون والإذاعة','Syriatvlogo.png');
-
-sectionlist[1].addlink('#syria_embassy','دليل السفارات السورية','Syria_coat_of_arms.png');
-sectionlist[1].addlink('#counsular_services_outside','دليل الخدمات القنصلية','moex.png');
-sectionlist[1].addlink('#military_service','شؤون التجنيد','Syria_Armed_Forces_Emblem.png');
-sectionlist[1].addlink('#expat_associations','النوادي السورية في العالم','syrians_abroad.png');
-
-sectionlist[2].addlink('#phones','الاتصال هاتفيا مع سوريا','syria_phone.png');
-sectionlist[2].addlink('#directory','دليل المواقع السورية','sy_tld_logo.png');
-sectionlist[2].addlink('#invest_in_syria','دليل الاستثمار والأعمال','syrecon.png');
-sectionlist[2].addlink('#donate_to_syria','إرسال التبرعات','daam.png');
-
-sectionlist[3].addlink('#student_affairs','الطلاب المغتربين','students.png');
-sectionlist[3].addlink('#schoolbag','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
-sectionlist[3].addlink('#color_learning','تعليم الألوان للأطفال','colors.png');
-
-sectionlist[4].addlink('#about_syria','معلومات عن سوريا','about_syria.jpg');
-sectionlist[4].addlink('#media_resources','أغاني وتسجيلات','play.png');
-
-sectionlist[5].addlink('#whatsnew','ما الجديد');
-sectionlist[5].addlink('#contact','الاتصال مع مطور التطبيق',"contact.png");
-sectionlist[5].addlink('#help','المساعدة والشروحات');
-sectionlist[5].addlink('#about','عن التطبيق');
-
-function preparePanel(){
-	panel=$("<div/>",{
-		"data-role": "panel",
-		"id": "rightpanel",
-		"data-position": "right",
-		"data-display": "overlay"
-	});
+function initSections(){
+	
+	sectionlist[0]=	new homesection("news", "الأخبار والإعلام");
+	sectionlist[1]=	new homesection("intheworld", "السوريون في العالم");
+	sectionlist[2]=	new homesection("connectsyria", "التواصل مع سوريا");
+	sectionlist[3]=	new homesection("education", "تعليم");
+	sectionlist[4]=	new homesection("culture", "تقافة");
+	sectionlist[5]=	new homesection("about", "عن التطبيق");
+	
+	sectionlist[0].addlink('news_sana.html','الأخبار المحلية: سانا','sana.png');
+	sectionlist[0].addlink('news_tishreen.html','الأخبار: جريدة تشرين','tishreen.jpg');
+	sectionlist[0].addlink('news_sana_politics.html','الأخبار السياسية: سانا','sana.png');
+	sectionlist[0].addlink('live_syrian_tv.html','التلفزيون والإذاعة','Syriatvlogo.png');
+	
+	sectionlist[1].addlink('syria_embassy.html','دليل السفارات السورية','Syria_coat_of_arms.png');
+	sectionlist[1].addlink('counsular_services_outside.html','دليل الخدمات القنصلية','moex.png');
+	sectionlist[1].addlink('military_service.html','شؤون التجنيد','Syria_Armed_Forces_Emblem.png');
+	sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم','syrians_abroad.png');
+	
+	sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا','syria_phone.png');
+	sectionlist[2].addlink('directory.html','دليل المواقع السورية','sy_tld_logo.png');
+	sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال','syrecon.png');
+	sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات','daam.png');
+	
+	sectionlist[3].addlink('student_affairs.html','الطلاب المغتربين','students.png');
+	sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
+	sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال','colors.png');
+	
+	sectionlist[4].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
+	sectionlist[4].addlink('media_resources.html','أغاني وتسجيلات','play.png');
+	
+	sectionlist[5].addlink('whatsnew.html','ما الجديد');
+	sectionlist[5].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
+	sectionlist[5].addlink('help.html','المساعدة والشروحات');
+	sectionlist[5].addlink('about.html','عن التطبيق');
 }
-
 
 function checkEmail(emailAddress) {
 	  var sQtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
@@ -419,23 +405,27 @@ function validateContactForm(){
 	return(valid);
 }
 
-
+function injectFooter(){
+	$(".pagefooter").html(
+			'      <div role="navigation" class="ui-navbar" data-role="navbar" data-iconpos="right">' +
+		'        <ul class="ui-grid-c">' +
+		'	        <li class="ui-block-a"><a class="ui-link ui-btn ui-icon-bullets ui-btn-icon-right" data-ajax="false" href="options.html" data-icon="bullets">خيارات</a></li>' +
+		'	        <li class="ui-block-b"><a class="ui-link ui-btn ui-icon-home ui-btn-icon-right" rel="external" data-icon="home" href="http://syrians.alayham.com">الموقع</a></li>' +
+		'	        <li class="ui-block-c"><a class="ui-link ui-btn ui-icon-action ui-btn-icon-right" rel="external" data-icon="action" href="https://m.facebook.com/groups/syrianexpats/">المجموعة</a></li>' +
+		'	        <li class="ui-block-d"><a class="ui-link ui-btn ui-icon-share ui-btn-icon-right" href="" data-icon="share" onclick="syrians_share_app(); return false;">مشاركة</a></li> ' +
+		'        </ul>' +
+		'      </div>');
+	$('.pagefooter').toolbar( { "role": "footer", "tapToggle": "true" , "position" : "fixed", "theme": "a"}).toolbar("refresh");
+	
+}
+/*
+function injectBackButton(){
+	var btnhome= new backhome(); 
+	$(".withback").prepend(btnhome.render());
+}
+*/
 $(document).ready(function(){
-	$('[data-role=page]').prepend(
-	
-	);
-	
-	$('[data-role=page]').append(
-	'<div class="pagefooter" data-role="footer">' +
-	'      <div role="navigation" class="ui-navbar" data-role="navbar" data-iconpos="right">' +
-'        <ul class="ui-grid-c">' +
-'	        <li class="ui-block-a"><a class="ui-link ui-btn ui-icon-bullets ui-btn-icon-right" data-ajax="false" href="options.html" data-icon="bullets">خيارات</a></li>' +
-'	        <li class="ui-block-b"><a class="ui-link ui-btn ui-icon-home ui-btn-icon-right" rel="external" data-icon="home" href="http://syrians.alayham.com">الموقع</a></li>' +
-'	        <li class="ui-block-c"><a class="ui-link ui-btn ui-icon-action ui-btn-icon-right" rel="external" data-icon="action" href="https://m.facebook.com/groups/syrianexpats/">المجموعة</a></li>' +
-'	        <li class="ui-block-d"><a class="ui-link ui-btn ui-icon-share ui-btn-icon-right" href="" data-icon="share" onclick="syrians_share_app(); return false;">مشاركة</a></li> ' +
-'        </ul>' +
-'      </div></div>');
-	$('.pagefooter').toolbar( { "role": "footer", "tapToggle": "true" , "position" : "fixed", "theme": "a"});
+	injectFooter();
 	$('.linkvisibility').on(clickEvent(),function(){
 		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
 	});
@@ -454,18 +444,6 @@ $(document).ready(function(){
 	    }
 	    window.open(targetURL, "_system");
 
-	});
-	$(".mediaitem").on(clickEvent(),function(ev){
-		ev.preventDefault();
-		$("#audioplayer").attr("src",$(this).attr("href"));
-		$("#audioplayer").trigger("play");
-		$("#nowplaying").text($(this).text());
-	    if(gaPlugin){
-	    	gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Media", "Play", $(this).text());
-	    }else{
-	  	  logmessage("gaPlugin Not found");
-	    }
-		return(false);
 	});
 	$('.savedoption').change(function(){
 		localStorage.setItem("option" + $(this).attr('id'),($(this).is(':checked') ? 1 : 0));
@@ -501,48 +479,20 @@ $(document).ready(function(){
 			$(this).prop('checked',true);
 		}
 	});
-    $("#sendmessage").on("click",function(e){
-	    	e.preventDefault();
-	    	if(validateContactForm()){
-			  InitParse();
-			  MessageObject = Parse.Object.extend("Contact_message");
-			  var message = new MessageObject;
-				 message.save({
-					 Name: $("#contactname").val(),
-					 Email: $("#contactemail").val(),
-					 Message_Text: $("#contacttext").val(),
-				 },{
-					 success: function(){
-						 logmessage("Sent a contact message");
-						 $("#messageresult").html("تم إرسال الرسالة بنجاح. شكرا لك");
-						 $("#contacttext").val("");
-					 },
-					 error: function(){
-				     logmessage("Failed to send a contact message");
-				     $("#messageresult").html("فشل إرسال الرسالة. الرجاء التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى");
-					 }
-				 });
-	    	}else{
-		      $("#messageresult").append("<p>لم يتم إرسال الرسالة</p>");		  
-	    	}
-	  });
 
     $( ":mobile-pagecontainer" ).on( "pagecontainerbeforechange", function( event, ui ) {
     		//pagetimer = new Date();
-	    	$.mobile.loading( "show" );    	
+	    	//$.mobile.loading( "show" );    	
     	});
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
+    	injectFooter();
     	//var newtimer = new Date();
     	//var duration = newtimer.valueOf() - pagetimer.valueOf();
     	//alert(duration);
-    	$.mobile.loading( "hide" );
+    	//$.mobile.loading( "hide" );
 
 	});
-	
-    $('#appversion').load('includes/version.txt');
-    $('#latestappversion').load('http://syrians.alayham.com/includes/version.php');
-
 });
 
 $("<link/>", {

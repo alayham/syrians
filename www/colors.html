@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+
+<link rel="shortcut icon" href="http://www.alayham.com/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="generator" content="Eclipse Luna, Supported by EGHNA (http://www.eghna.com)" />
+<link rel="image_src" href="http://syrians.alayham.com/images/flag.jpg" />
+<link rel="publisher" href="http://www.eghna.com" />
+<link rel="author" href="http://www.alayham.com" />
+
+<meta property="fb:admins" content="532377104" />
+<meta property="fb:app_id" content="306540782743883" />
+<meta property="og:site_name" content="دليل المغتربين السوريين" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.alayham.com/" />
+<meta property="og:image" content="http://syrians.alayham.com/images/flag.jpg" />
+
+<link rel="canonical" href="http://syrians.alayham.com/colors.html" />
+<link rel="shortlink" href="http://syrians.alayham.com/colors.html" />
+<meta property="og:title" content="تعليم الألوان للأطفال" />
+<meta property="og:description" content="تعليم الألوان للأطفال" />
+<meta name="description" content="تعليم الألوان للأطفال" />
+<title>تعليم الألوان للأطفال</title>
+
+<script type="text/javascript">
+function onLoad() { document.addEventListener("deviceready", onDeviceReady, false);}
+</script>
+
+<link rel="stylesheet" href="jquery-mobile/themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile.structure-1.4.4.min.css" />
+<script src="jquery-mobile/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<script src="syrians.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+<body onload="onLoad();">
+
+<div data-role="page" id="color_learning">
+  <div data-role="header" class="withback" data-position="fixed">
+    <a class="backbutton" href="#" data-icon="carat-l"  data-role="button" data-rel="back">عودة</a>
+    <h1>تعليم الألوان للأطفال</h1>
+  </div>
+  <div data-role="content" id="colorspace">    
+		<select id="colorselector">
+		  <option value="red" checked="checked">Red أحمر</option>
+		  <option value="orange">orange برتقالي</option>
+		  <option value="yellow">Yellow أصفر</option>
+		  <option value="green">Green أخضر</option>
+		  <option value="blue">Blue أزرق</option>
+		  <option value="indigo">Indido نيلي</option>
+		  <option value="violet">Violet بنفسجي</option>
+		  <option value="white">White أبيض</option>
+		  <option value="black">Black أسود</option>
+		  <option value="brown">Brown بنّي</option>
+		  <option value="cyan">Cyan سماوي</option>
+		  <option value="fuchsia">Fucshia فوشيا</option>
+		  <option value="gray">Gray رمادي</option>
+		  <option value="magenta">Magenta أرجواني</option>
+		  <option value="maroon">Maroon كستنائي</option>
+		  <option value="purple">Purple وردي</option>
+		  <option value="silver">Silver فضي</option>
+		  <option value="gold">Gold ذهبي</option>
+		</select>
+  </div>
+
+<script type="text/javascript">
+$( "#colorselector" ).on("change",function() {
+  $( "#color_learning" ).css('background-color', this.value);
+});
+</script>
+
+  <div class="pagefooter" data-role="footer"></div> 
+
+</div>
+
+</body>
+</html>

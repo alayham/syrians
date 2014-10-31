@@ -171,10 +171,11 @@ div.ngologo{
 audio#audioplayer{
 	width:100%;
 }
+/*
 body.offline audio.upstream{
 	disabled: true;
 }
-
+*/
 
 @media (min-width:35em){
 	div.ngologo{
