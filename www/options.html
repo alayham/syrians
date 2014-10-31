@@ -73,7 +73,7 @@ var themelist = [
   <div data-role="content">    
     <form>
       <div data-role="collapsible" data-collapsed="false" data-inset="false">
-      <legend>شكل التطبيق</legend>
+      <h3>شكل التطبيق</h3>
       <div data-role="controlgroup" data-mini="true">
       <script type="text/javascript">
 	      for (i = 0; i < themelist.length; i++) {
@@ -83,9 +83,11 @@ var themelist = [
       </div>
       </div>
       <div data-role="collapsible" data-collapsed="true" data-inset="false">
-        <legend>خيارات الصفحة الأولى</legend>
+        <h3>خيارات الصفحة الأولى</h3>
+        <p>يمكنك إخفاء الأقسام غير المرغوبة من التطبيق من هنا، وسيتم حفظ خياراتك تلقائيا واعتمادها عند تشغيل التطبيق للمرة القادة.</p>
         <div data-role="controlgroup" data-mini="true">
 		      <script type="text/javascript">
+		        initSections()
 		        for (i = 0; i < sectionlist.length; i++) {
 		        	if(sectionlist[i])
 		        		  document.write( sectionlist[i].renderoption() );
@@ -95,14 +97,15 @@ var themelist = [
         </div>
       </div>
       <div data-role="collapsible" data-collapsed="true" data-inset="false">
-        <legend>خيارات العرض</legend>
+        <h3>خيارات العرض</h3>
         <div class="collapsiblecontent">
+          <p>موقع سانا يعتمد طريقة غريبة لكتابة الأرقام وفيها يستبدل الفاصلة العشرية بحرف الراء. <a href="http://www.alayham.com/node/3980" rel="external">المزيد من المعلومات</a></p>
           <input type="checkbox" id="fixsana" class="savedoption" />
-          <label for="fixsana">تصحيح طريقة عرض الأخبار في موقع سانا في التحديثات القادمة</label>
+          <label for="fixsana">تصحيح طريقة عرض الأرقام في موقع سانا في التحديثات القادمة</label>
         </div>
       </div>
       <div data-role="collapsible" data-inset="false">
-        <legend>إعادة ضبط التطبيق</legend>
+        <h3>إعادة ضبط التطبيق</h3>
         <div class="collapsiblecontent">
           <p>يؤدي نقر الزر التالي إلى مسح كل بيانات التطبيق المخزنة على جهازك والعودة إلى الصفحة الرئيسية كما لو أن التطبيق يعمل لأول مرة</p>
           <a href="index.html" data-ajax="false" data-role="button" data-icon="home" onClick="localStorage.clear();">إعادة ضبط التطبيق</a>
