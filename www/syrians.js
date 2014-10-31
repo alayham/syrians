@@ -70,10 +70,12 @@ function InitParse(){
 	if(!ParseInitialized){
 		var PARSE_APP = "2G96h8o7oIjVIw23DDSkuw7QkwwAVPqViSwUamHJ";
 		var PARSE_JS = "1OPOeESsXbA2EtgiwjNm8KFeM8zohigBuEYoEQ4Y";
-	    Parse.initialize(PARSE_APP, PARSE_JS);
-	    ParseInitialized = true;
+		Parse.initialize(PARSE_APP, PARSE_JS);
+		ParseInitialized = true;
 	}
 }
+
+
 
 function onDeviceReady() {
 	logmessage("Device Ready");

@@ -20,11 +20,10 @@
 <link rel="canonical" href="http://syrians.alayham.com/contact.html" />
 <link rel="shortlink" href="http://syrians.alayham.com/contact.html" />
 <meta property="og:title" content="الاتصال مع مطور التطبيق" />
-<meta property="og:description" content="الاتصال مع مطور التطبيق">
-<meta name="description" content="الاتصال مع مطور التطبيق">
+<meta property="og:description" content="الاتصال مع مطور التطبيق" />
+<meta name="description" content="الاتصال مع مطور التطبيق" />
 <title>الاتصال مع مطور دليل المغتربين السوريين</title>
 
-<script src="parse-1.3.0.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 function onLoad() { document.addEventListener("deviceready", onDeviceReady, false);}
 </script>
@@ -59,11 +58,11 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
     
  
  <script type="text/javascript">
-
 $(document).ready(function(){
-    $("#sendmessage").on("click",function(e){
-        e.preventDefault();
-        if(validateContactForm()){
+
+	$("#sendmessage").on("click",function(e){
+      e.preventDefault();
+      if(validateContactForm()){
         InitParse();
         MessageObject = Parse.Object.extend("Contact_message");
         var message = new MessageObject;
@@ -82,9 +81,9 @@ $(document).ready(function(){
              $("#messageresult").html("فشل إرسال الرسالة. الرجاء التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى");
            }
          });
-        }else{
+      }else{
           $("#messageresult").append("لم يتم إرسال الرسالة<br />");      
-        }
+      }
     });
 });
 
