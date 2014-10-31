@@ -41,24 +41,27 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
   	<div data-role="header" data-position="fixed">
     	<h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
   	</div>
-  	<div data-role="content">
-      <script type="text/javascript">
-      initSections();
-         var homehtml = "";
-         for(secnum=0;secnum<sectionlist.length;secnum++){
-        	 if(sectionlist[secnum])
-        		  homehtml += sectionlist[secnum].rendersection();
-         }
-         if(homehtml.length > 0){
-        	 document.write(homehtml);
-         }else{
-        	 document.write('<h2>الصفحة الأولى فارغة</h2>');
-           document.write('<p>يمكنك اختيار مكونات الصفحة الأولى التي ترغب بها من صفحة الخيارات</p>');
-           document.write('<a data-role="button" data-icon="bullets" data-ajax="false" href="options.html">الخيارات</a>');
-         }
-       </script>      
-		</div> 
+  	<div data-role="content" id="homelinks">
+ 		</div> 
   <div class="pagefooter" data-role="footer"></div> 
+  
+   <script type="text/javascript">
+   $(document).ready(function(){
+	   initSections();
+     var homehtml = "";
+     for(secnum=0;secnum<sectionlist.length;secnum++){
+       if(sectionlist[secnum])
+          homehtml += sectionlist[secnum].rendersection();
+     }
+     if(!homehtml.length > 0){
+       homehtml = '<h2>الصفحة الأولى فارغة</h2>';
+       homehtml += '<p>يمكنك اختيار مكونات الصفحة الأولى التي ترغب بها من صفحة الخيارات</p>';
+       homehtml += '<a data-role="button" data-icon="bullets" data-ajax="false" href="options.html">الخيارات</a>';
+     }
+     $("#homelinks").html(homehtml).enhanceWithin();
+    });
+   </script>
+  
  </div>
 </body>
 </html>
