@@ -7,6 +7,8 @@ var ParseInitialized = false;
 var gaPlugin;
 var pagetimer;
 var sectionlist = [];
+var themelist = [];
+var translist = [];
 
 function clickEvent(){
 	return( onAndroid ? "tap" : "click" );
@@ -19,6 +21,9 @@ function logmessage(msg){
 
 if (!localStorage.getItem('apptheme')){
   localStorage.setItem('apptheme','syria');
+}
+if (!localStorage.getItem('hometrans')){
+  localStorage.setItem('hometrans','flip');
 }
 
 function checkConnection(){
@@ -75,6 +80,76 @@ function InitParse(){
 	}
 }
 
+function theme(themeid,themetitle){
+	this.id=themeid;
+	this.title=themetitle;
+	if(localStorage.getItem('apptheme') == themeid){
+		this.selected = " checked";
+	}else{
+		this.selected = "";
+	}
+	this.render=function(){
+		return(
+			'<label for="' + this.id + '">' + 
+			this.title + 
+			'<input type="radio" name="apptheme" value="' + this.id + '" id="' + this.id + '" onChange="updatetheme();"' + this.selected + ' />' +
+			'</label>');
+	}	
+}
+function hometransition(transid,transtitle){
+	  this.id=transid;
+	  this.title=transtitle;
+	  if(localStorage.getItem('hometrans') == transid){
+	    this.selected = " checked";
+	  }else{
+	    this.selected = "";
+	  }
+	  this.render=function(){
+	    return(
+	      '<label for="trans' + this.id + '">' + 
+	      this.title + 
+	      '<input type="radio" name="hometrans" value="' + this.id + '" id="trans' + this.id + '" onChange="updatetrans();"' + this.selected + ' />' +
+	      '</label>');
+	  } 
+	}
+
+
+
+function initOptions(){
+	themelist = [
+		new theme("syria", "التصميم الافتراضي"),
+		new theme("shadi", "تصميم شادي"),
+		new theme("mazen", "تصميم مازن"),
+		new theme("nadia", "تصميم ناديا"),
+		new theme("samer", "تصميم سامر"),
+		new theme("sami", "تصميم سامي")
+	];
+	
+	translist = [
+	  new hometransition("none","None"),        
+	  new hometransition("fade","Fade"),        
+	  new hometransition("pop","Pop"),        
+	  new hometransition("flip","Flip (default)"),        
+	  new hometransition("turn","Turn"),        
+	  new hometransition("flow","Flow"),        
+	  new hometransition("slidefade","Slide Fade"),        
+	  new hometransition("slide","Slide"),        
+	  new hometransition("slideup","Slide UP"),        
+	  new hometransition("slidedown","Slide Down"),        
+	]
+	
+}
+
+
+function updatetheme(){
+	localStorage.setItem('apptheme',$( "input:radio[name=apptheme]:checked" ).val());
+	location.reload();
+}
+
+function updatetrans(){
+	localStorage.setItem('hometrans',$( "input:radio[name=hometrans]:checked" ).val());	
+	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
+}
 
 
 function onDeviceReady() {
@@ -239,11 +314,6 @@ function lcCopy(tagid){
 }
 
 
-function updatetheme(){
-	localStorage.setItem('apptheme',$( "input:radio[name=apptheme]:checked" ).val());
-	location.reload();
-}
-
 function homesection(sectionid,sectiontitle){
 	this.id=sectionid;
 	this.title=sectiontitle;
@@ -313,7 +383,7 @@ function homesection(sectionid,sectiontitle){
 			if(localStorage.getItem(this.links[i][2]) == 0){
 				
 			}else{
-				txt += '<li><a class="homelink" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"true")  +  '" href="' + this.links[i][0] +  '" data-transition="flip">'  + 
+				txt += '<li><a class="homelink" data-ajax="' + (this.links[i][0].substring(0,1) == "#" ? "true":"true")  +  '" href="' + this.links[i][0] +  '">'  + 
 						'<div class="linkimage"><img src="images/' + this.links[i][3] + '" title="الانتقال إلى قسم ' +  this.links[i][1] + '" /></div>' +
 						'<div class="linktext">' + this.links[i][1] + '</div>' +
 						'</a></li>'
@@ -426,15 +496,48 @@ function injectBackButton(){
 	$(".withback").prepend(btnhome.render());
 }
 */
+
+function injectlocalcommands(){
+	
+    $(".localcommands").each(function(){
+        var hostElement = $(this).children(".ui-collapsible-content");
+        var elementID = "";
+        if($(this).prop("id")){
+          elementID = $(this).prop("id");
+        }else{
+          return(true); //Do not work on collapsibles that don't have a uuid
+          elementID = "lc" + Math.floor((Math.random() * 100000000) + 1);
+          $(this).attr("id",elementID);
+        }
+        $("<div/>",{"class": "lc nocopy"}).append($("<a/>",{
+          "class" : "ui-link ui-btn ui-icon-share ui-btn-icon-notext ui-btn-inline ui-corner-all",
+          "href" : "#",
+        }).text("مشاركة").on(clickEvent(),function(){lcShare(elementID); return(false);})).append($("<a/>",{
+          "class" : "ui-link ui-btn ui-icon-clipboard ui-btn-icon-notext ui-btn-inline ui-corner-all",
+          "href" : "#",
+        }).text("نسخ").on(clickEvent(),function(){lcCopy(elementID); return(false);})).prependTo(hostElement);
+        
+      });
+    
+}
+
+function preparefilters(){
+	$('.jqmfilter').blur(function(){
+		localStorage.setItem($(this).attr("id"),$(this).val())
+		
+	});
+	$('.jqmfilter').each(function(){
+		$(this).val( localStorage.getItem($(this).attr("id")));
+	});	
+}
+
+$(document).on("mobileinit", function(){
+	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
+	$.mobile.page.prototype.options.addBackBtn = true;
+});
+
 $(document).ready(function(){
 	injectFooter();
-	$('.linkvisibility').on(clickEvent(),function(){
-		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
-	});
-	$('.sectionvisibility').change(function(){
-		localStorage.setItem($(this).attr('id'),($(this).is(':checked') ? 1 : 0));
-		$('#' + $(this).attr('id') + "sublinks").toggle();
-	});
 	$(document).on(clickEvent(), '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
@@ -447,56 +550,20 @@ $(document).ready(function(){
 	    window.open(targetURL, "_system");
 
 	});
-	$('.savedoption').change(function(){
-		localStorage.setItem("option" + $(this).attr('id'),($(this).is(':checked') ? 1 : 0));
-	});
-	$('.jqmfilter').blur(function(){
-		localStorage.setItem($(this).attr("id"),$(this).val())
-		
-	});
-	$('.jqmfilter').each(function(){
-		$(this).val( localStorage.getItem($(this).attr("id")));
-	});
-	$(".localcommands").each(function(){
-		var hostElement = $(this).children(".ui-collapsible-content");
-		var elementID = "";
-		if($(this).prop("id")){
-			elementID = $(this).prop("id");
-		}else{
-			return(true); //Do not work on collapsibles that don't have a uuid
-			elementID = "lc" + Math.floor((Math.random() * 100000000) + 1);
-			$(this).attr("id",elementID);
-		}
-		$("<div/>",{"class": "lc nocopy"}).append($("<a/>",{
-			"class" : "ui-link ui-btn ui-icon-share ui-btn-icon-notext ui-btn-inline ui-corner-all",
-			"href" : "#",
-		}).text("مشاركة").on(clickEvent(),function(){lcShare(elementID); return(false);})).append($("<a/>",{
-			"class" : "ui-link ui-btn ui-icon-clipboard ui-btn-icon-notext ui-btn-inline ui-corner-all",
-			"href" : "#",
-		}).text("نسخ").on(clickEvent(),function(){lcCopy(elementID); return(false);})).prependTo(hostElement);
-		
-	});
-	$('.savedoption').each(function(){
-		if(localStorage.getItem("option" + $(this).attr("id")) == 1){
-			$(this).prop('checked',true);
-		}
-	});
 
     $( ":mobile-pagecontainer" ).on( "pagecontainerbeforechange", function( event, ui ) {
-    		//pagetimer = new Date();
-	    	//$.mobile.loading( "show" );    	
-    	});
+
+    });
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
-    	//var newtimer = new Date();
-    	//var duration = newtimer.valueOf() - pagetimer.valueOf();
-    	//alert(duration);
-    	//$.mobile.loading( "hide" );
 
 	});
     $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
     	injectFooter();
-	});
+    	injectlocalcommands();
+    	preparefilters();
+    	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
+    });
 
 });
 
