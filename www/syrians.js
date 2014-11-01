@@ -289,7 +289,7 @@ function lcShare(tagid){
   element.find(".embassy_address").each(function(){$(this).text("Address: " + $(this).text());});
 		  
   var txt = document.title + "\n" + element.text().replace(/([ \t])+/g, " ");
-  //console.log(txt);
+  console.log(txt);
   if(onAndroid){
 	navigator.share( txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
   }	
@@ -418,6 +418,7 @@ function initSections(){
 	sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم','syrians_abroad.png');
 	
 	sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا','syria_phone.png');
+	sectionlist[2].addlink('syriaair.html','رحلات السورية للطيران');
 	sectionlist[2].addlink('directory.html','دليل المواقع السورية','sy_tld_logo.png');
 	sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال','syrecon.png');
 	sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات','daam.png');
