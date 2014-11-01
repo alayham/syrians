@@ -7,6 +7,10 @@
   text-align:right;		
 }
 
+.rtl .ui-table th,
+.rtl .ui-table td{
+	text-align:right;
+}
 .ui-input-text input, .ui-input-search input {
 	text-align:right;
 }
