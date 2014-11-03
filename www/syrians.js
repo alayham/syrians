@@ -491,13 +491,23 @@ function injectFooter(){
 	$('.pagefooter').toolbar( { "role": "footer", "tapToggle": "true" , "position" : "fixed", "theme": "a"}).toolbar("refresh");
 	
 }
-/*
 function injectBackButton(){
-	var btnhome= new backhome(); 
-	$(".withback").prepend(btnhome.render());
+	$("<a/>",{
+		"href": "#",
+		"class": "backbutton ui-link ui-btn ui-icon-back ui-btn-icon-notext ui-btn-left ui-corner-all",
+		"data-rel": "back",
+		"click": function(e){
+			e.preventDefault();
+			parent.history.back();
+		}
+	}).text("back").appendTo($(".ui-page .ui-header"));
+//	var btnhome= new backhome(); 
+//	$(".withback").prepend(btnhome.render());
 }
-*/
 
+function injectMenuButton(){
+	$(".ui-header").append('<a class="ui-link ui-btn-right ui-btn ui-shadow ui-icon-bars ui-btn-icon-notext ui-corner-all" data-role="button" href="#rightpanel">القائمة</a>');
+}
 function injectlocalcommands(){
 	
     $(".localcommands").each(function(){
@@ -539,6 +549,7 @@ $(document).on("mobileinit", function(){
 
 $(document).ready(function(){
 	injectFooter();
+	injectMenuButton();
 	$(document).on(clickEvent(), '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
@@ -561,10 +572,13 @@ $(document).ready(function(){
 	});
     $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
     	injectFooter();
+    	injectMenuButton();
+    	injectBackButton();
     	injectlocalcommands();
     	preparefilters();
     	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
     });
+	$( "body>[data-role='panel']" ).panel();
 
 });
 

@@ -175,6 +175,11 @@ div.ngologo{
 audio#audioplayer{
 	width:100%;
 }
+
+#home .backbutton{
+	display:none;
+}
+
 /*
 body.offline audio.upstream{
 	disabled: true;
