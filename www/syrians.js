@@ -551,6 +551,17 @@ $(document).ready(function(){
 	//injectFooter();
 	injectMenuButton();
 	injectBackButton();
+	$(window).on("swipeleft", function (e) {
+		e.preventDefault();
+		console.log("swipeleft");
+		$("rightpanel").panel("open");	
+	});
+	$(window).on("swiperight", function (e) {
+		e.preventDefault();
+		$("rightpanel").panel("close");		
+	});
+	
+
 	$(document).on(clickEvent(), '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
