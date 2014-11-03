@@ -548,8 +548,9 @@ $(document).on("mobileinit", function(){
 });
 
 $(document).ready(function(){
-	injectFooter();
+	//injectFooter();
 	injectMenuButton();
+	injectBackButton();
 	$(document).on(clickEvent(), '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
@@ -571,14 +572,14 @@ $(document).ready(function(){
 
 	});
     $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
-    	injectFooter();
+    	//injectFooter();
     	injectMenuButton();
     	injectBackButton();
     	injectlocalcommands();
     	preparefilters();
     	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
     });
-	$( "body>[data-role='panel']" ).panel();
+	$( "body>[data-role='panel']" ).panel().enhanceWithin();
 
 });
 

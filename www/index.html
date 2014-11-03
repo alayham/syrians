@@ -46,7 +46,6 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
   	<div data-role="content" id="homelinks">
  		</div> 
   <div class="pagefooter" data-role="footer"></div> 
-  
    <script type="text/javascript">
    $(document).ready(function(){
 	   initSections();
@@ -63,13 +62,18 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
      $("#homelinks").html(homehtml).enhanceWithin();
     });
    </script>
-  
 </div>
 
 <div id="rightpanel" data-role="panel" data-position="right" data-display="overlay" data-swipe-close="true" data-theme="a">
   <div data-role="header">
-    <h3>خيارات التطبيق</h3>
+    <h3>القائمة</h3>
   </div>  
+  <div data-role="controlgroup">
+    <a data-role="button" data-icon="share" onclick="syrians_share_app(); return false;">مشاركة</a>
+    <a data-role="button" data-icon="user" rel="external" href="https://m.facebook.com/groups/syrianexpats/">الدعم الفني</a>
+    <a data-role="button" data-icon="cloud" rel="external" href="http://syrians.alayham.com">نسخة الويب</a>
+    <a data-role="button" data-icon="bullets" data-ajax="false" href="options.html">الخيارات</a>
+  </div>
 </div>
 
 </body>
