@@ -601,7 +601,7 @@ $(document).ready(function(){
 	$( "body>[data-role='panel']" ).panel().enhanceWithin();
 
 });
-$( document ).on( "swipeleft swiperight", function( e ) {
+$( document ).on( "swipeleft swiperight", '.ui-page', function( e ) {
 	console.log("SWIPE");
     if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
         if ( e.type === "swipeleft" ) {
