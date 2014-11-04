@@ -590,7 +590,7 @@ $(document).ready(function(){
 
 });
 
-$( document ).on( "sswiperight", '.ui-page', function( e ) {
+$( document ).on( "swiperight", '.ui-page', function( e ) {
     if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
        	$( "#rightpanel" ).panel( "open" );
     }
