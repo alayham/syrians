@@ -96,6 +96,12 @@ function theme(themeid,themetitle){
 			'</label>');
 	}	
 }
+
+function closepanel(){
+	$("#rightpanel").panel("close");
+	return(false);
+}
+
 function hometransition(transid,transtitle){
 	  this.id=transid;
 	  this.title=transtitle;
@@ -551,16 +557,18 @@ $(document).ready(function(){
 	//injectFooter();
 	injectMenuButton();
 	injectBackButton();
+/*
 	$(window).on("swipeleft", function (e) {
-		e.preventDefault();
+		//e.preventDefault();
 		console.log("swipeleft");
-		$("rightpanel").panel("open");	
+		$("#rightpanel").panel("open");	
 	});
 	$(window).on("swiperight", function (e) {
-		e.preventDefault();
-		$("rightpanel").panel("close");		
+		//e.preventDefault();
+		console.log("swiperight");
+		$("#rightpanel").panel("close");		
 	});
-	
+*/	
 
 	$(document).on(clickEvent(), '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
@@ -593,7 +601,16 @@ $(document).ready(function(){
 	$( "body>[data-role='panel']" ).panel().enhanceWithin();
 
 });
-
+$( document ).on( "swipeleft swiperight", function( e ) {
+	console.log("SWIPE");
+    if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
+        if ( e.type === "swipeleft" ) {
+            $( "#rightpanel" ).panel( "open" );
+        } else if ( e.type === "swiperight" ) {
+            $( "#leftpanel" ).panel( "open" );
+       	}
+    }
+});
 $("<link/>", {
      rel: "stylesheet",
      type: "text/css",
