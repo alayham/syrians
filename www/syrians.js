@@ -512,7 +512,7 @@ function injectBackButton(){
 }
 
 function injectMenuButton(){
-	$(".ui-header").append('<a class="ui-link ui-btn-right ui-btn ui-shadow ui-icon-bars ui-btn-icon-notext ui-corner-all" data-role="button" href="#rightpanel">القائمة</a>');
+	$(".ui-page .ui-header").append('<a class="ui-link ui-btn-right ui-btn ui-shadow ui-icon-bars ui-btn-icon-notext ui-corner-all" data-role="button" href="#rightpanel">القائمة</a>');
 }
 function injectlocalcommands(){
 	
@@ -557,19 +557,6 @@ $(document).ready(function(){
 	//injectFooter();
 	injectMenuButton();
 	injectBackButton();
-/*
-	$(window).on("swipeleft", function (e) {
-		//e.preventDefault();
-		console.log("swipeleft");
-		$("#rightpanel").panel("open");	
-	});
-	$(window).on("swiperight", function (e) {
-		//e.preventDefault();
-		console.log("swiperight");
-		$("#rightpanel").panel("close");		
-	});
-*/	
-
 	$(document).on(clickEvent(), '[rel="external"],.linksource', function (e) {
 	    e.preventDefault();
 	    var targetURL = $(this).attr("href");
@@ -597,20 +584,20 @@ $(document).ready(function(){
     	injectlocalcommands();
     	preparefilters();
     	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
+
     });
 	$( "body>[data-role='panel']" ).panel().enhanceWithin();
 
 });
-$( document ).on( "swipeleft swiperight", '.ui-page', function( e ) {
-	console.log("SWIPE");
+
+$( document ).on( "sswiperight", '.ui-page', function( e ) {
     if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-        if ( e.type === "swipeleft" ) {
-            $( "#rightpanel" ).panel( "open" );
-        } else if ( e.type === "swiperight" ) {
-            $( "#leftpanel" ).panel( "open" );
-       	}
+       	$( "#rightpanel" ).panel( "open" );
     }
 });
+
+
+
 $("<link/>", {
      rel: "stylesheet",
      type: "text/css",
