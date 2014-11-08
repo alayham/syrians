@@ -569,6 +569,7 @@ $(document).ready(function(){
 	    window.open(targetURL, "_system");
 
 	});
+
     $( ":mobile-pagecontainer" ).on( "pagecontainerbeforechange", function( event, ui ) {
 
     });
@@ -582,7 +583,6 @@ $(document).ready(function(){
     	injectBackButton();
     	injectlocalcommands();
     	preparefilters();
-    	//$('[data-role=page]').addClass("_ezswipe");
     	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
 
     });
@@ -590,7 +590,7 @@ $(document).ready(function(){
 
 });
 
-$( '._ezswipe' ).on( "swipeLeft", function( e ) {
+$( document ).on( "swipeleft", '.ui-page', function( e ) {
     if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
        	$( "#rightpanel" ).panel( "open" );
     }
