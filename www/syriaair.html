@@ -32,6 +32,7 @@
 <link rel="stylesheet" type="text/css" href="styles.css" />
 
 </head>
+
 <body>
 
 <div data-role="page" id="syriaair">
@@ -40,105 +41,13 @@
   </div>
   <div data-role="content">
     <form>
-      <input data-type="search" id="syriaair_filter" class="jqmfilter" type="text" />
+      <input data-type="search" id="syriaair_filter" class="jqmfilter" type="text">
     </form>
     <div class="rtl" data-filter="true" data-input="#syriaair_filter">
       <div id="2f0afb7d-2549-1721-79d4-4ba44a04f448" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة دبي</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
-            <tr>
-              <th data-priority="persist"> من&nbsp;</th>
-              <th data-priority="persist"> عبر&nbsp;</th>
-              <th data-priority="persist"> إلى&nbsp;</th>
-              <th data-priority="persist"> الرحلة&nbsp;</th>
-              <th data-priority="persist"> اليوم&nbsp;</th>
-              <th data-priority="persist"> الإقلاع&nbsp;</th>
-              <th data-priority="persist"> الوصول&nbsp;</th>              
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>دبي</td>
-              <td></td>
-              <td>السبت</td>
-              <td>06:45</td>
-              <td></td>            
-            </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>دبي</td>
-              <td></td>
-              <td>الاثنين</td>
-              <td>10:05</td>
-              <td></td>            
-            </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>دبي</td>
-              <td></td>
-              <td>الأربعاء</td>
-              <td>11:10</td>
-              <td></td>            
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div id="64e3d87d-5c93-ecb8-a3cf-d448e091335f" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
-        <h3>محطة أبو ظبي</h3>
-        <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
-            <tr>
-              <th data-priority="persist"> من&nbsp;</th>
-              <th data-priority="persist"> عبر&nbsp;</th>
-              <th data-priority="persist"> إلى&nbsp;</th>
-              <th data-priority="persist"> الرحلة&nbsp;</th>
-              <th data-priority="persist"> اليوم&nbsp;</th>
-              <th data-priority="persist"> الإقلاع&nbsp;</th>
-              <th data-priority="persist"> الوصول&nbsp;</th>              
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>أبو ظبي</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>09:05</td>
-              <td></td>            
-            </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>أبو ظبي</td>
-              <td></td>
-              <td>الثلاثاء</td>
-              <td>09:05</td>
-              <td></td>            
-            </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td>دمشق</td>
-              <td>أبو ظبي</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>19:05</td>
-              <td></td>            
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div id="a549125f-0846-c2f6-ad0d-d67fa1c39a17" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
-        <h3>محطة الشارقة</h3>
-        <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
           <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
@@ -147,36 +56,241 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الشارقة</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>09:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دبي</td>
+              <td class="flight-number">RB515</td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">06:45</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:55</td>            
             </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>الشارقة</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>09:05</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">دبي</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">12:55</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">14:20</td>            
             </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دبي</td>
+              <td class="flight-number">RB515</td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">10:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">15:00</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">دبي</td>
+              <td class="flight-via">دمشق</td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">16:00</td>
+              <td class="flight-via-arrival">17:10</td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:25</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دبي</td>
+              <td class="flight-number">RB515</td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">11:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">15:55</td>            
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="64e3d87d-5c93-ecb8-a3cf-d448e091335f" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
+        <h3>محطة أبو ظبي</h3>
+        <h3>رحلات البرنامج الشتوي 2014-2015</h3>
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الشارقة</td>
-              <td></td>
-              <td>الجمعة</td>
-              <td>09:05</td>
-              <td></td>            
+              <th data-priority="persist"> من&nbsp;</th>
+              <th data-priority="persist"> عبر&nbsp;</th>
+              <th data-priority="persist"> إلى&nbsp;</th>
+              <th data-priority="persist"> الرحلة&nbsp;</th>
+              <th data-priority="persist"> اليوم&nbsp;</th>
+              <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
+              <th data-priority="persist"> الوصول&nbsp;</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">أبو ظبي</td>
+              <td class="flight-number">RB503</td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:50</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">أبو ظبي</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">14:50</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">16:25</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">أبو ظبي</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">12:15</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:55</td>            
+            </tr>
+
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">أبو ظبي</td>
+              <td class="flight-number">RB503</td>
+              <td class="flight-day">الثلاثاء</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">14:00</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">أبو ظبي</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الثلاثاء</td>
+              <td class="flight-from-departure">15:00</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">16:25</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via">دمشق</td>
+              <td class="flight-to">أبو ظبي</td>
+              <td class="flight-number">RB503</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">19:05</td>
+              <td class="flight-via-arrival">20:25</td>
+              <td class="flight-via-departure">21:05</td>
+              <td class="flight-to-arrival">+01:50</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">أبو ظبي</td>
+              <td class="flight-via">اللاذقية</td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">02:50</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">06:10</td>            
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="a549125f-0846-c2f6-ad0d-d67fa1c39a17" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
+        <h3>محطة الشارقة</h3>
+        <h3>رحلات البرنامج الشتوي 2014-2015</h3>
+      <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
+            <tr>
+              <th data-priority="persist"> من&nbsp;</th>
+              <th data-priority="persist"> عبر&nbsp;</th>
+              <th data-priority="persist"> إلى&nbsp;</th>
+              <th data-priority="persist"> الرحلة&nbsp;</th>
+              <th data-priority="persist"> اليوم&nbsp;</th>
+              <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
+              <th data-priority="persist"> الوصول&nbsp;</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الشارقة</td>
+              <td class="flight-number">RB501</td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">14:00</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الشارقة</td>
+              <td class="flight-number">RB501</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">14:10</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">الشارقة</td>
+              <td class="flight-via">دمشق</td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">15:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">18:45</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الشارقة</td>
+              <td class="flight-number">RB501</td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">14:00</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">الشارقة</td>
+              <td class="flight-via">دمشق</td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">15:00</td>
+              <td class="flight-via-arrival">16:20</td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:25</td>            
             </tr>
           </tbody>
         </table>
@@ -185,8 +299,8 @@
       <div id="b297b1fa-9753-f5b2-dd5a-3d14aba020da" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة الرياض</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -194,18 +308,44 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>الرياض</td>
-              <td></td>
-              <td>الاثنين</td>
-              <td>08:10</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الرياض</td>
+              <td class="flight-number">RB389</td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">08:20</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:15</td>
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الرياض</td>
+              <td class="flight-number">RB389</td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">08:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:15</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الرياض</td>
+              <td class="flight-number">RB389</td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">08:20</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:15</td>
             </tr>
           </tbody>
         </table>
@@ -216,8 +356,8 @@
       <div id="53d031d4-f681-2ffc-2d37-69310ca7b176" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة جدة</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -225,45 +365,99 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>جدة</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>10:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">جدة</td>
+              <td class="flight-number">RB381</td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">10:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:10</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td>اللاذقية</td>
-              <td>جدة</td>
-              <td></td>
-              <td>الثلاثاء</td>
-              <td>12:10</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">جدة</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">14:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">15:35</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>جدة</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>10:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via">اللاذقية</td>
+              <td class="flight-to">جدة</td>
+              <td class="flight-number">RB381</td>
+              <td class="flight-day">الثلاثاء</td>
+              <td class="flight-from-departure">10:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure">12:10</td>
+              <td class="flight-to-arrival">15:30</td>            
             </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>جدة</td>
-              <td></td>
-              <td>الجمعة</td>
-              <td>10:05</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">جدة</td>
+              <td class="flight-via">اللاذقية</td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الثلاثاء</td>
+              <td class="flight-from-departure">16:30</td>
+              <td class="flight-via-arrival">18:05</td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">20:50</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">جدة</td>
+              <td class="flight-number">RB381</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">10:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:10</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">جدة</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">14:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">15:35</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">جدة</td>
+              <td class="flight-number">RB381</td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">10:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:25</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">جدة</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">14:25</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">16:00</td>            
             </tr>
           </tbody>
         </table>
@@ -271,8 +465,8 @@
       <div id="84292a11-ad6d-43d2-1613-a64ad055c1bd" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة الكويت</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -280,63 +474,110 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الكويت</td>
-              <td></td>
-              <td>السبت</td>
-              <td>09:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الكويت</td>
+              <td class="flight-number">RB341</td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">12:00</td>            
             </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>الكويت</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>08:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الكويت</td>
+              <td class="flight-number">RB341</td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">08:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:10</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الكويت</td>
-              <td></td>
-              <td>الاثنين</td>
-              <td>09:05</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">الكويت</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">12:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:50</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الكويت</td>
-              <td></td>
-              <td>الثلاثاء</td>
-              <td>16:35</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الكويت</td>
+              <td class="flight-number">RB341</td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">12:00</td>            
             </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td>القامشلي</td>
-              <td>الكويت</td>
-              <td></td>
-              <td>الأربعاء</td>
-              <td>09:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الكويت</td>
+              <td class="flight-number">RB341</td>
+              <td class="flight-day">الثلاثاء</td>
+              <td class="flight-from-departure">16:35</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:30</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الكويت</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>09:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via">القامشلي</td>
+              <td class="flight-to">الكويت</td>
+              <td class="flight-number">RB341</td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">14:30</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">الكويت</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">15:30</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">17:15</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الكويت</td>
+              <td class="flight-number">RB341</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">09:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">12:00</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">الكويت</td>
+              <td class="flight-via">دمشق</td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">13:00</td>
+              <td class="flight-via-arrival">14:24</td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">16:05</td>            
             </tr>
           </tbody>
         </table>
@@ -344,8 +585,8 @@
       <div id="75eb0887-8f20-245b-4809-15fe92b91116" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة عمّان</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -353,27 +594,55 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>عمان</td>
-              <td></td>
-              <td>الاثنين</td>
-              <td>12:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">عمان</td>
+              <td class="flight-number">RB565</td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">12:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:05</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>عمان</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>16:05</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">عمان</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">14:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">15:05</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">عمان</td>
+              <td class="flight-number">RB565</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">16:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">17:05</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">عمان</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">18:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:05</td>            
             </tr>
           </tbody>
         </table>
@@ -381,8 +650,8 @@
       <div id="d8213bf6-fd86-d2f3-a2f8-b9fa33d55c5a" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة طهران</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+      <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -390,18 +659,33 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>طهران</td>
-              <td></td>
-              <td>الأربعاء</td>
-              <td>14:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">طهران</td>
+              <td class="flight-number">RB373</td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">14:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">17:45</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">طهران</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">18:45</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:50</td>            
             </tr>
           </tbody>
         </table>
@@ -409,8 +693,8 @@
       <div id="4d9e13f2-874b-cca9-2c49-796ab6965b04" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة النجف</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -418,27 +702,33 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>النجف</td>
-              <td></td>
-              <td>السبت</td>
-              <td>17:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">النجف</td>
+              <td class="flight-number">RB533</td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">17:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:20</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>النجف</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>17:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">النجف</td>
+              <td class="flight-number">RB533</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">17:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:20</td>            
             </tr>
           </tbody>
         </table>
@@ -446,8 +736,8 @@
       <div id="eb1559bd-66cc-7626-2349-eef638245f43" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة بغداد</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -455,27 +745,33 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>بغداد</td>
-              <td></td>
-              <td>الاثنين</td>
-              <td>17:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">بغداد</td>
+              <td class="flight-number">RB531</td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">17:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:15</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>بغداد</td>
-              <td></td>
-              <td>الجمعة</td>
-              <td>17:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">بغداد</td>
+              <td class="flight-number">RB531</td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">17:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">19:15</td>            
             </tr>
           </tbody>
         </table>
@@ -483,8 +779,8 @@
       <div id="a7ef2393-dc0a-842b-1cc4-d98f9eb26337" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة الخرطوم</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -492,18 +788,33 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الخرطوم</td>
-              <td></td>
-              <td>الجمعة</td>
-              <td>20:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الخرطوم</td>
+              <td class="flight-number">RB395</td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">20:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">+00:10</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">الخرطوم</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">01:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">03:10</td>            
             </tr>
           </tbody>
         </table>
@@ -511,8 +822,8 @@
       <div id="faed4349-2aa1-d1c5-7ee5-b133e8e01446" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة الجزائر</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -520,27 +831,55 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الجزائر</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>20:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الجزائر</td>
+              <td class="flight-number">RB353</td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">20:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">+00:10</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>الجزائر</td>
-              <td></td>
-              <td>الأربعاء</td>
-              <td>20:05</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">الجزائر</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure">01:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">06:25</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الجزائر</td>
+              <td class="flight-number">RB353</td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">20:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">+00:10</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">الجزائر</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">01:10</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">06:25</td>            
             </tr>
           </tbody>
         </table>
@@ -548,8 +887,8 @@
       <div id="1b8cf167-44c6-5514-f65e-20884692ada1" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة القاهرة</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -557,36 +896,77 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>القاهرة</td>
-              <td></td>
-              <td>السبت</td>
-              <td>11:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">القاهرة</td>
+              <td class="flight-number">RB201</td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">11:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">12:45</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>القاهرة</td>
-              <td></td>
-              <td>الثلاثاء</td>
-              <td>11:05</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">القاهرة</td>
+              <td class="flight-via">اللاذقية</td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">13:45</td>
+              <td class="flight-via-arrival">15:15</td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">17:15</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td>اللاذقية</td>
-              <td>القاهرة</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>13:10</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">القاهرة</td>
+              <td class="flight-number">RB201</td>
+              <td class="flight-day">الثلاثاء</td>
+              <td class="flight-from-departure">11:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">12:50</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">القاهرة</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الثلاثاء</td>
+              <td class="flight-from-departure">13:50</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">15:35</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via">اللاذقية</td>
+              <td class="flight-to">القاهرة</td>
+              <td class="flight-number">RB201</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">11:05</td>
+              <td class="flight-via-arrival">12:05</td>
+              <td class="flight-via-departure">13:10</td>
+              <td class="flight-to-arrival">14:35</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">القاهرة</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">15:35</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">17:25</td>            
             </tr>
           </tbody>
         </table>
@@ -594,8 +974,8 @@
       <div id="a127958d-6c41-23bd-bdcb-645c6455b2e8" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة موسكو</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -603,18 +983,22 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>اللاذقية</td>
-              <td>دمشق</td>
-              <td>موسكو</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>15:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via">دمشق</td>
+              <td class="flight-to">موسكو</td>
+              <td class="flight-number">RB441</td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">15:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">+00:10</td>            
             </tr>
           </tbody>
         </table>
@@ -622,8 +1006,8 @@
       <div id="78e5cd50-5279-b806-d064-d2149242dbee" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3>محطة بيروت</h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
-          <thead class="nocopy">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
               <th data-priority="persist"> عبر&nbsp;</th>
@@ -631,63 +1015,99 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>بيروت</td>
-              <td></td>
-              <td>السبت</td>
-              <td>08:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">بيروت</td>
+              <td class="flight-number">RB181</td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">08:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">09:05</td>            
             </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>بيروت</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>10:15</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">بيروت</td>
+              <td class="flight-via">دمشق</td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">السبت</td>
+              <td class="flight-from-departure">10:05</td>
+              <td class="flight-via-arrival">11:15</td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">14:05</td>            
             </tr>
-            <tr>
-              <td>بيروت</td>
-              <td></td>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>الأحد</td>
-              <td>12:00</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">بيروت</td>
+              <td class="flight-number">RB181</td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">10:15</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:00</td>            
             </tr>
-            <tr>
-              <td>دمشق</td>
-              <td></td>
-              <td>بيروت</td>
-              <td></td>
-              <td>الأربعاء</td>
-              <td>08:05</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">بيروت</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الأحد</td>
+              <td class="flight-from-departure">12:00</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:05</td>            
             </tr>
-            <tr>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>بيروت</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>10:15</td>
-              <td></td>            
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">بيروت</td>
+              <td class="flight-number">RB181</td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">08:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">09:05</td>            
             </tr>
-            <tr>
-              <td>بيروت</td>
-              <td></td>
-              <td>اللاذقية</td>
-              <td></td>
-              <td>الخميس</td>
-              <td>10:00</td>
-              <td></td>            
+            <tr class="flight inbound">
+              <td class="flight-from">بيروت</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الأربعاء</td>
+              <td class="flight-from-departure">10:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:15</td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">بيروت</td>
+              <td class="flight-number">RB181</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">10:15</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">11:00</td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">بيروت</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">اللاذقية</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure">12:00</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">13:05</td>            
             </tr>
           </tbody>
         </table>
@@ -695,6 +1115,60 @@
         <h4>مكتب العطار للسياحة والسفر</h4>
         <p>السيد راشد العطار</p>
         <a class="ltr" data-role="button" data-inline="true" data-icon="phone" href="tel:+9613388018">(961) (3) 388 018</a>
+      </div>
+      <div id="a5566215-020c-4f73-1d4a-248479d96cb5" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
+        <h3>محطة الدوحة</h3>
+        <h3>رحلات البرنامج الشتوي 2014-2015</h3>
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead class="nocopy">
+            <tr>
+              <th data-priority="persist"> من&nbsp;</th>
+              <th data-priority="persist"> عبر&nbsp;</th>
+              <th data-priority="persist"> إلى&nbsp;</th>
+              <th data-priority="persist"> الرحلة&nbsp;</th>
+              <th data-priority="persist"> اليوم&nbsp;</th>
+              <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
+              <th data-priority="persist"> الوصول&nbsp;</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="flight outbound">
+              <td class="flight-from">اللاذقية</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الدوحة</td>
+              <td class="flight-number">RB521</td>
+              <td class="flight-day">الاثنين</td>
+              <td class="flight-from-departure"></td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival"></td>            
+            </tr>
+            <tr class="flight outbound">
+              <td class="flight-from">دمشق</td>
+              <td class="flight-via"></td>
+              <td class="flight-to">الدوحة</td>
+              <td class="flight-number">RB521</td>
+              <td class="flight-day">الخميس</td>
+              <td class="flight-from-departure"></td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival"></td>            
+            </tr>
+            <tr class="flight inbound">
+              <td class="flight-from">الدوحة</td>
+              <td class="flight-via">اللاذقية</td>
+              <td class="flight-to">دمشق</td>
+              <td class="flight-number"></td>
+              <td class="flight-day">الجمعة</td>
+              <td class="flight-from-departure">16:05</td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival">20:00</td>            
+            </tr>
+          </tbody>
+        </table>
       </div>
   
   
@@ -730,7 +1204,7 @@
       <div id="" class="syriaairstation localcommands" data-role="collapsible" data-inset="false">
         <h3></h3>
         <h3>رحلات البرنامج الشتوي 2014-2015</h3>
-        <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
+        <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
           <thead class="nocopy">
             <tr>
               <th data-priority="persist"> من&nbsp;</th>
@@ -739,18 +1213,22 @@
               <th data-priority="persist"> الرحلة&nbsp;</th>
               <th data-priority="persist"> اليوم&nbsp;</th>
               <th data-priority="persist"> الإقلاع&nbsp;</th>
+              <th data-priority="persist"> وصول العبور&nbsp;</th>
+              <th data-priority="persist"> إقلاع العبور&nbsp;</th>
               <th data-priority="persist"> الوصول&nbsp;</th>              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>            
+            <tr class="flight">
+              <td class="flight-from"></td>
+              <td class="flight-via"></td>
+              <td class="flight-to"></td>
+              <td class="flight-number"></td>
+              <td class="flight-day"></td>
+              <td class="flight-from-departure"></td>
+              <td class="flight-via-arrival"></td>
+              <td class="flight-via-departure"></td>
+              <td class="flight-to-arrival"></td>            
             </tr>
           </tbody>
         </table>
@@ -760,5 +1238,11 @@
 
  -->
 
+
+
+
+
+
 </body>
+
 </html>
