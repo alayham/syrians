@@ -582,7 +582,7 @@ $(document).ready(function(){
     	injectBackButton();
     	injectlocalcommands();
     	preparefilters();
-    	$('.ui-page').addClass("_ezswipe");
+    	$('[data-role=page]').addClass("_ezswipe");
     	$.mobile.defaultPageTransition = localStorage.getItem('hometrans');
 
     });
