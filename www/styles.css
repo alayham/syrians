@@ -180,6 +180,9 @@ audio#audioplayer{
 	display:none;
 }
 
+.ui-panel-inner{padding:0px;}
+.ui-panel .ui-header{border:0}
+.ui-panel .ui-controlgroup, fieldset.ui-controlgroup{margin:1em 0em}
 /*
 body.offline audio.upstream{
 	disabled: true;
