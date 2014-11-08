@@ -590,7 +590,7 @@ $(document).ready(function(){
 
 });
 
-$( document ).on( "swipeLeft", '._ezswipe', function( e ) {
+$( '._ezswipe' ).on( "swipeLeft", function( e ) {
     if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
        	$( "#rightpanel" ).panel( "open" );
     }
