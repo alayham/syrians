@@ -27,7 +27,9 @@
 	content:" ";
 	clear:both;
 }
-
+.ui-loading .ui-loader {
+    display: none;
+}
 .ui-grid-a .ui-block-a,
 .ui-grid-a .ui-block-b{
 	padding:1em;
