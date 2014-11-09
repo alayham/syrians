@@ -9,7 +9,7 @@ var pagetimer;
 var sectionlist = [];
 var themelist = [];
 var translist = [];
-
+var hammer;
 function clickEvent(){
 	return( onAndroid ? "tap" : "click" );
 }
@@ -554,6 +554,18 @@ $(document).on("mobileinit", function(){
 });
 
 $(document).ready(function(){
+	hammer = new Hammer(document.getElementsByTagName("body")[0]);
+	hammer.on("panleft panright", function(ev) {
+	    if ( ev.type === "panleft" && $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
+		    $( "#rightpanel" ).panel( "open" );
+		}else{
+		    if ( ev.type === "panright" && $( ".ui-page-active" ).jqmData( "panel" ) === "open" ) {
+			    $( "#rightpanel" ).panel( "close" );
+		
+			}
+		}
+	});
+
 	//injectFooter();
 	injectMenuButton();
 	injectBackButton();
