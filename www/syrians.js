@@ -555,6 +555,13 @@ $(document).on("mobileinit", function(){
 
 $(document).ready(function(){
 	hammer = new Hammer(document.getElementsByTagName("body")[0]);
+	hammer.get('tap').set({ enable: false });
+	hammer.get('doubletap').set({ enable: false });
+	hammer.get('press').set({ enable: false });
+	hammer.get('swipe').set({ enable: false });
+	hammer.get('pinch').set({ enable: false });
+	hammer.get('rotate').set({ enable: false });
+
 	hammer.on("panleft panright", function(ev) {
 	    if ( ev.type === "panleft" && $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
 		    $( "#rightpanel" ).panel( "open" );
