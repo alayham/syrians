@@ -431,6 +431,7 @@ function initSections(){
 	
 	sectionlist[3].addlink('student_affairs.html','الطلاب المغتربين','students.png');
 	sectionlist[3].addlink('schoolbag.html','الحقيبة الالكترونية للكتب المدرسية','syria_ecurricula.png');
+	sectionlist[3].addlink('media_kids.html','أغاني وقصص أطفال');
 	sectionlist[3].addlink('colors.html','تعليم الألوان للأطفال','colors.png');
 	
 	sectionlist[4].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
