@@ -63,11 +63,10 @@
 
 <script type="text/javascript">
 $( "#colorselector" ).on("change",function() {
-  $( "#color_learning" ).css('background-color', this.value);
+  $( "#color_learning, #color_learning .ui-panel-wrapper" ).css('background-color', this.value);
 });
 </script>
 
-  <div class="pagefooter" data-role="footer"></div> 
 
 </div>
 
