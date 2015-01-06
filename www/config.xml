@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.alayham.syrians"
-        version   = "0.5.7">
+        version   = "0.5.8">
 
     <name>دليل المغتربين السوريين</name>
 
@@ -56,7 +56,7 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="nl.madebymark.share" />
     <gap:plugin name="com.verso.cordova.clipboard" />
-    <gap:plugin name="com.adobe.plugins.gaplugin" />	
+    <gap:plugin name="com.analytics.google" source="plugins.cordova.io" />	
     <gap:plugin name="org.apache.cordova.device" />
 
     <!-- Define app icon for each platform. -->

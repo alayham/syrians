@@ -1,6 +1,5 @@
 var toast;
 var tracking = false;
-var pagename = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
 var onAndroid = navigator.userAgent.match(/Android/i);
 var refreshInterval= 1000 * 60 * 30;
 var ParseInitialized = false;
@@ -10,13 +9,16 @@ var sectionlist = [];
 var themelist = [];
 var translist = [];
 var hammer;
+
+function pagename(){
+	return(window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1));
+}
 function clickEvent(){
 	return( onAndroid ? "tap" : "click" );
 }
 
 function logmessage(msg){
 	console.log(msg);
-	//sessionStorage.setItem("loger",pagename + ": " + msg + "\n" + sessionStorage.getItem("loger"));
 }
 
 if (!localStorage.getItem('apptheme')){
@@ -29,37 +31,6 @@ if (!localStorage.getItem('hometrans')){
 function checkConnection(){
 	return(!(navigator.connection.type === Connection.UNKNOWN &&
 		     navigator.connection.type === Connection.NONE));
-}
-
-function gaInitSuccess(){
-	logmessage("GA Initialized");
-    gaPlugin.setVariable( gaSetVarSuccess, gaSetVarFailed, 1, localStorage.getItem('apptheme'));
-    gaPlugin.trackPage( gaTrackSuccess, gaTrackFailed, pagename);
-}
-
-function gaInitError(){
-	logmessage("GA Init Failed")
-}
-
-function gaTrackSuccess(){
-	logmessage("GA Tracking Success");
-}
-function gaTrackFailed(){
-	logmessage("GA Tracking failed");
-}
-
-function gaSetVarSuccess(){
-	logmessage("GA Setvar Success");
-}
-
-function gaSetVarFailed(){
-	logmessage("GA Setvar failed");
-}
-function gaEventSuccess(){
-	logmessage("Tracking Event Succeeded");
-}
-function gaEventFailed(){
-	logmessage("Tracking Event Failed");
 }
 
 function onOnline(){
@@ -177,9 +148,9 @@ function onDeviceReady() {
         sessionStorage.setItem("device", device.model + "-" + device.uuid);
         logmessage("Device ID: " + sessionStorage.getItem("device"));
     }
-    gaPlugin = window.plugins.gaPlugin;
+    gaPlugin = window.analytics;
     if(gaPlugin){
-        gaPlugin.init(gaInitSuccess, gaInitError, "UA-55575592-1", 10);    	
+        gaPlugin.startTrackerWithId("UA-55575592-1");    	
     }else{
     	logmessage("gaPlugin Not found");
     }
@@ -225,7 +196,7 @@ function fetchItems(newspage){
               newspage.items=JSON.parse(jsontxt);
               localStorage.setItem(newspage.tag + 'refreshdate', refreshDate.valueOf());
               if(gaPlugin){
-            	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "Network", "News", "refresh", pagename);
+            	  gaPlugin.trackEvent( "Network", "News", "refresh", pagename());
               }else{
             	  logmessage("gaPlugin Not found");
               }
@@ -275,7 +246,7 @@ function backhome(){
 function syrians_share_app(){
 	navigator.share('أدعوك للاطلاع على دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');
     if(gaPlugin){
-    	gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Share", "App", pagename);
+    	gaPlugin.trackEvent( "User", "Share", "App", pagename());
     }else{
   	  logmessage("gaPlugin Not found");
     }
@@ -300,7 +271,7 @@ function lcShare(tagid){
 	navigator.share( txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
   }	
   if(gaPlugin){
-	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Share", "Content", tagid);
+	  gaPlugin.trackEvent( "User", "Share", "Content", tagid);
   }else{
 	  logmessage("gaPlugin Not found");
   }
@@ -313,7 +284,7 @@ function lcCopy(tagid){
 	  window.plugins.clipboard.copy(txt);	
   }	
   if(gaPlugin){
-	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Copy", "Content", tagid);	  
+	  gaPlugin.trackEvent( "User", "Copy", "Content", tagid);	  
   }else{
 	  logmessage("gaPlugin Not found");
   }
@@ -405,7 +376,6 @@ function updatesections(){
   	}      
 }
 function initSections(){
-	
 	sectionlist[0]=	new homesection("news", "الأخبار والإعلام");
 	sectionlist[1]=	new homesection("intheworld", "السوريون في العالم");
 	sectionlist[2]=	new homesection("connectsyria", "التواصل مع سوريا");
@@ -563,7 +533,7 @@ $(document).ready(function(){
 	    var targetURL = $(this).attr("href");
 	    
 	    if(gaPlugin){
-	  	  gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Click", "link", targetURL);
+	  	  gaPlugin.trackEvent( "User", "Click", "link", targetURL);
 	    }else{
 	  	  logmessage("gaPlugin Not found");
 	    }
@@ -576,7 +546,7 @@ $(document).ready(function(){
     });
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
-
+	    if(gaPlugin)  gaPlugin.trackView( pagename() );
 	});
     $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
     	//injectFooter();
