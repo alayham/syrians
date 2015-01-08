@@ -151,9 +151,10 @@ function onDeviceReady() {
     }
     gaPlugin = window.analytics;
     if(gaPlugin){
-        gaPlugin.startTrackerWithId("UA-55575592-1");    	
+        gaPlugin.startTrackerWithId("UA-55575592-1");  
+        logmessage("Analytics Connected")
     }else{
-    	logmessage("gaPlugin Not found");
+    	logmessage("Analytics not Connected. Plugin not loaded!!");
     }
 }
 
