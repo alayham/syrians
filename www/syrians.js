@@ -549,7 +549,11 @@ $(document).ready(function(){
     });
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
-	    if(gaPlugin)  gaPlugin.trackView( pagename() );
+	    if(gaPlugin) { 
+	    	gaPlugin.trackView( pagename() );
+	    }else{
+		  	  logmessage("gaPlugin Not found, Screen view not tracked");	    	
+	    }
 	});
     $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
     	//injectFooter();
