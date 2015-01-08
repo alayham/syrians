@@ -550,9 +550,10 @@ $(document).ready(function(){
 	
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
 	    if(gaPlugin) { 
-	    	gaPlugin.trackView( pagename() );
+	      gaPlugin.trackView( pagename() );
+		  logmessage("Tracked screen: " + pagename());	    	
 	    }else{
-		  	  logmessage("gaPlugin Not found, Screen view not tracked");	    	
+		  logmessage("gaPlugin Not found, Screen view not tracked");	    	
 	    }
 	});
     $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
