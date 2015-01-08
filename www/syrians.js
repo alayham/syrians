@@ -19,6 +19,7 @@ function clickEvent(){
 
 function logmessage(msg){
 	console.log(msg);
+	sessionStorage.setItem("messagelog", sessionStorage.getItem("messagelog") + "<br />" + msg)
 }
 
 if (!localStorage.getItem('apptheme')){
