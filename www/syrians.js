@@ -131,8 +131,16 @@ function updatetrans(){
 
 
 function onDeviceReady() {
+    gaPlugin = window.analytics;
+    if(gaPlugin){
+        gaPlugin.startTrackerWithId("UA-55575592-1");  
+        logmessage("Analytics Connected")
+    }else{
+    	logmessage("Analytics not Connected. Plugin not loaded!!");
+    }
 	logmessage("Device Ready");
-	onAndroid = true;
+
+    onAndroid = true;
     $(document).on("online", onOnline);
     $(document).on("offline", onOffline);
     if(checkConnection()) {
@@ -148,13 +156,6 @@ function onDeviceReady() {
         logmessage("Version: " + device.version);
         sessionStorage.setItem("device", device.model + "-" + device.uuid);
         logmessage("Device ID: " + sessionStorage.getItem("device"));
-    }
-    gaPlugin = window.analytics;
-    if(gaPlugin){
-        gaPlugin.startTrackerWithId("UA-55575592-1");  
-        logmessage("Analytics Connected")
-    }else{
-    	logmessage("Analytics not Connected. Plugin not loaded!!");
     }
 }
 
