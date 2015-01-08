@@ -178,6 +178,10 @@ function shownews(newspage){
   var i=0;
   if(newspage.items){
     logmessage("Rendering news items for " + newspage.tag);
+    if(gaPlugin){
+  	  gaPlugin.trackEvent( "News", "list", pagename(), 1 );
+    }
+    
     for(i=0;i<newspage.items.length;i++){
       txt += '<li><a rel="external" data-ajax="false" href="' + newspage.items[i].link  + '"><h3>' + newspage.items[i].title + '</h3>' + ( newspage.items[i].description == null ? '<div class="newsdate">' + newspage.items[i]["y:published"].day + "<br />" + newspage.items[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + newspage.items[i]["y:published"].day + "<br />" + newspage.items[i]["y:published"].month_name + '</div><p>' + newspage.items[i].description + '</p>') + '</a></li>';
     }
@@ -199,9 +203,7 @@ function fetchItems(newspage){
               newspage.items=JSON.parse(jsontxt);
               localStorage.setItem(newspage.tag + 'refreshdate', refreshDate.valueOf());
               if(gaPlugin){
-            	  gaPlugin.trackEvent( "Network", "News", "refresh", pagename());
-              }else{
-            	  logmessage("gaPlugin Not found");
+            	  gaPlugin.trackEvent( "News", "fetch", pagename(), 1 );
               }
 
             }else{
@@ -221,8 +223,9 @@ function loadItems(newspage){
 	  
   }
   if(!refreshDate || now.valueOf() - refreshDate.valueOf() >= refreshInterval ){
-	  logmessage("Cached data for " + newspage.tag + " is old, trying to fetch new data");
+	logmessage("Cached data for " + newspage.tag + " is old, trying to fetch new data");
   	fetchItems(newspage);
+	gaPlugin.trackEvent( "Fetch", "News", newspage, 1);
   }else{
     var jsontxt = localStorage.getItem(newspage.tag + 'Items');
     if (jsontxt == null){
@@ -249,9 +252,7 @@ function backhome(){
 function syrians_share_app(){
 	navigator.share('أدعوك للاطلاع على دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');
     if(gaPlugin){
-    	gaPlugin.trackEvent( "User", "Share", "App", pagename());
-    }else{
-  	  logmessage("gaPlugin Not found");
+    	gaPlugin.trackEvent( "Share", "App", pagename(), 10);
     }
 
 }
@@ -274,9 +275,7 @@ function lcShare(tagid){
 	navigator.share( txt + "\n" + 'من دليل المغتربين السوريين https://play.google.com/store/apps/details?id=com.alayham.syrians');	
   }	
   if(gaPlugin){
-	  gaPlugin.trackEvent( "User", "Share", "Content", tagid);
-  }else{
-	  logmessage("gaPlugin Not found");
+	  gaPlugin.trackEvent( "Share", "Content", tagid, 5);
   }
 }
 function lcCopy(tagid){
@@ -287,9 +286,7 @@ function lcCopy(tagid){
 	  window.plugins.clipboard.copy(txt);	
   }	
   if(gaPlugin){
-	  gaPlugin.trackEvent( "User", "Copy", "Content", tagid);	  
-  }else{
-	  logmessage("gaPlugin Not found");
+	  gaPlugin.trackEvent( "Copy", "Content", tagid, 1);	  
   }
 }
 
@@ -481,8 +478,6 @@ function injectBackButton(){
 			parent.history.back();
 		}
 	}).text("back").appendTo($(".ui-page .ui-header"));
-//	var btnhome= new backhome(); 
-//	$(".withback").prepend(btnhome.render());
 }
 
 function injectMenuButton(){
@@ -536,9 +531,7 @@ $(document).ready(function(){
 	    var targetURL = $(this).attr("href");
 	    
 	    if(gaPlugin){
-	  	  gaPlugin.trackEvent( "User", "Click", "link", targetURL);
-	    }else{
-	  	  logmessage("gaPlugin Not found");
+	  	  gaPlugin.trackEvent( "Click", "ExtLink", targetURL, 1);
 	    }
 	    window.open(targetURL, "_system");
 
@@ -551,9 +544,6 @@ $(document).ready(function(){
     $( ":mobile-pagecontainer" ).on( "pagecontainerchange", function( event, ui ) {
 	    if(gaPlugin) { 
 	      gaPlugin.trackView( pagename() );
-		  logmessage("Tracked screen: " + pagename());	    	
-	    }else{
-		  logmessage("gaPlugin Not found, Screen view not tracked");	    	
 	    }
 	});
     $( ":mobile-pagecontainer" ).on( "pagecreate", function( event, ui ) {
