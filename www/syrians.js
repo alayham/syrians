@@ -225,7 +225,7 @@ function loadItems(newspage){
   if(!refreshDate || now.valueOf() - refreshDate.valueOf() >= refreshInterval ){
 	logmessage("Cached data for " + newspage.tag + " is old, trying to fetch new data");
   	fetchItems(newspage);
-	gaPlugin.trackEvent( "Fetch", "News", newspage, 1);
+  	if(gaPlugin){gaPlugin.trackEvent( "Fetch", "News", newspage, 1);}
   }else{
     var jsontxt = localStorage.getItem(newspage.tag + 'Items');
     if (jsontxt == null){
