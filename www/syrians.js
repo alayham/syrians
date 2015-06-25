@@ -556,7 +556,16 @@ $(document).ready(function(){
 
     });
 	$( "body>[data-role='panel']" ).panel().enhanceWithin();
-
+	$("form.shamraform").submit(function(e){
+		e.preventDefault();
+		var searchquery = $(this).find(".shamraquery").val().trim();
+		if(searchquery.length > 0){
+		    if(gaPlugin){
+			  	  gaPlugin.trackEvent( "Search", "Shamra", searchquery, 1);
+			}
+			window.open("http://www.syrianwiki.com/search?q=" + encodeURIComponent(searchquery),"_system")
+		}
+	});
 });
 
 $("<link/>", {
