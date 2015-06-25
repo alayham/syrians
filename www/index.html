@@ -44,6 +44,13 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
   	<div data-role="header" data-position="fixed">
     	<h2 title="دليل المغتربين السوريين" class=""> دليل المغتربين السوريين</h2>
   	</div>
+  	<div class="shamrasearch horizontal">
+  	  <form class="shamraform" action="http://www.syrianwiki.com/search" method="get" >
+		     <a class="shamralogo" href="" rel="external">
+		     </a>
+  	     <input class="shamraquery" type="search" name="q" value="" data-mini="true" placeholder="بحث لدى شمرا..." />
+  	  </form>
+  	</div>
   	<div data-role="content" id="homelinks">
  		</div> 
   <div class="pagefooter" data-role="footer"></div> 
@@ -78,6 +85,13 @@ function onLoad() { document.addEventListener("deviceready", onDeviceReady, fals
  -->
     <a data-role="button" data-mini="true" data-icon="cloud" rel="external" href="http://syrians.alayham.com">نسخة الويب</a>
     <a data-role="button" data-mini="true" data-icon="bullets" data-ajax="false" href="options.html">الخيارات</a>
+    <div class="shamrasearch vertical">
+      <form class="shamraform" action="http://www.syrianwiki.com/search" method="get" >
+         <a class="shamralogo" href="" rel="external">
+         </a>
+         <input class="shamraquery" type="search" name="q" value="" data-mini="true" placeholder="بحث لدى شمرا..." />
+      </form>
+    </div>
   </div>
 </div>
 

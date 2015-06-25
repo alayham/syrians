@@ -191,6 +191,39 @@ body.offline audio.upstream{
 }
 */
 
+
+
+.shamrasearch.horizontal{
+	padding: 0 5%;
+}
+
+.shamrasearch.horizontal .shamralogo{
+	float: right;
+	width: 70px;
+	height: 33px;
+	background-image: url("images/shamra_sy_logo_sb.gif");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.shamrasearch.horizontal .ui-input-search{
+	margin-right: 80px;
+}
+
+.shamrasearch.vertical .shamralogo{
+	display: block;
+  width: 100%;
+  height: 33px;
+  margin-top: 1em;
+  background-image: url("images/shamra_sy_logo_sb.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
 @media (min-width:35em){
 	div.ngologo{
 	 float:left;
