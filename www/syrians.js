@@ -563,7 +563,7 @@ $(document).ready(function(){
 		    if(gaPlugin){
 			  	  gaPlugin.trackEvent( "Search", "Shamra", searchquery, 1);
 			}
-			window.open("http://www.syrianwiki.com/search?q=" + encodeURIComponent(searchquery),"_system")
+			window.open("http://www.shamra.sy/search?q=" + encodeURIComponent(searchquery),"_system")
 		}
 	});
 });
