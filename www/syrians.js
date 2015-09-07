@@ -198,7 +198,7 @@ function fetchItems(newspage){
           function(data,status){
             if(status=="success"){
               var refreshDate = new Date();
-              var jsontxt = newspage.process(JSON.stringify(data.value.items));
+              var jsontxt = newspage.process(JSON.stringify(data.items));
               localStorage.setItem(newspage.tag + 'Items',jsontxt);
               newspage.items=JSON.parse(jsontxt);
               localStorage.setItem(newspage.tag + 'refreshdate', refreshDate.valueOf());
@@ -492,8 +492,8 @@ function injectlocalcommands(){
           elementID = $(this).prop("id");
         }else{
           return(true); //Do not work on collapsibles that don't have a uuid
-          elementID = "lc" + Math.floor((Math.random() * 100000000) + 1);
-          $(this).attr("id",elementID);
+          //elementID = "lc" + Math.floor((Math.random() * 100000000) + 1);
+          //$(this).attr("id",elementID);
         }
         $("<div/>",{"class": "lc nocopy"}).append($("<a/>",{
           "class" : "ui-link ui-btn ui-icon-share ui-btn-icon-notext ui-btn-inline ui-corner-all",
