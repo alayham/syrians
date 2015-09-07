@@ -48,7 +48,7 @@
   <div class="pagefooter" data-role="footer"></div> 
 
 <script type="text/javascript">
-var sanaNews=new newssource("http://pipes.yahoo.com/pipes/pipe.run?_id=2ec9c6285235a0b589b40cba3235a097&_render=json","sana",200);
+var sanaNews=new newssource("http://syrianews.alayham.com/exporter/sana-local-news","sana",200);
 if(localStorage.getItem("optionfixsana") == 1){
 	  sanaNews.process = function(s){return(s.replace(/([0-9]+)ر([0-9]+)/mig,'\$2\.\$1'));}
 }

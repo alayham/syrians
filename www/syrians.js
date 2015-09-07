@@ -183,7 +183,7 @@ function shownews(newspage){
     }
     
     for(i=0;i<newspage.items.length;i++){
-      txt += '<li><a rel="external" data-ajax="false" href="' + newspage.items[i].link  + '"><h3>' + newspage.items[i].title + '</h3>' + ( newspage.items[i].description == null ? '<div class="newsdate">' + newspage.items[i]["y:published"].day + "<br />" + newspage.items[i]["y:published"].month_name + '</div>' : '<div class="newsdate">' + newspage.items[i]["y:published"].day + "<br />" + newspage.items[i]["y:published"].month_name + '</div><p>' + newspage.items[i].description + '</p>') + '</a></li>';
+      txt += '<li><a rel="external" data-ajax="false" href="' + newspage.items[i].link  + '"><h3>' + newspage.items[i].title + '</h3>' + ( newspage.items[i].description == null ? '<div class="newsdate">' + newspage.items[i].day + "<br />" + newspage.items[i].month + '</div>' : '<div class="newsdate">' + newspage.items[i].day + "<br />" + newspage.items[i].month + '</div><p>' + newspage.items[i].description + '</p>') + '</a></li>';
     }
   }else{
     logmessage("No News Items to render");
@@ -384,7 +384,7 @@ function initSections(){
 	sectionlist[5]=	new homesection("about", "عن التطبيق");
 	
 	sectionlist[0].addlink('news_sana.html','الأخبار المحلية: سانا','sana.png');
-	sectionlist[0].addlink('news_tishreen.html','الأخبار: جريدة تشرين','tishreen.jpg');
+	//sectionlist[0].addlink('news_tishreen.html','الأخبار: جريدة تشرين','tishreen.jpg');
 	sectionlist[0].addlink('news_sana_politics.html','الأخبار السياسية: سانا','sana.png');
 	sectionlist[0].addlink('live_syrian_tv.html','التلفزيون والإذاعة','Syriatvlogo.png');
 	
