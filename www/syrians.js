@@ -96,6 +96,7 @@ function hometransition(transid,transtitle){
 function initOptions(){
 	themelist = [
 		new theme("syria", "التصميم الافتراضي"),
+		new theme("shamra", "تصميم شمرا"),
 		new theme("shadi", "تصميم شادي"),
 		new theme("mazen", "تصميم مازن"),
 		new theme("nadia", "تصميم ناديا"),
