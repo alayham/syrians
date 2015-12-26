@@ -53,11 +53,11 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
 -->
-    <gap:plugin name="org.apache.cordova.inappbrowser"  source="npm" />
-    <gap:plugin name="nl.madebymark.share"  source="npm" />
-    <gap:plugin name="com.verso.cordova.clipboard"  source="npm" />
-    <gap:plugin name="com.analytics.google" source="npm" />	
-    <gap:plugin name="org.apache.cordova.device"  source="npm" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="nl.madebymark.share" />
+    <gap:plugin name="com.verso.cordova.clipboard" />
+    <gap:plugin name="com.analytics.google" />	
+    <gap:plugin name="org.apache.cordova.device" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
