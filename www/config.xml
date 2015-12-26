@@ -20,7 +20,7 @@
     <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"           value="cli-5.2.0" />      <!-- all: current version of PhoneGap -->
+    <preference name="phonegap-version"           value="3.7.0" />      <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="false" />          <!-- all: hides the status bar at the top of the screen -->
@@ -56,7 +56,7 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="nl.madebymark.share" />
     <gap:plugin name="com.verso.cordova.clipboard" />
-    <gap:plugin name="cordova-plugin-google-analytics" source="npm" />	
+    <gap:plugin name="com.analytics.google" />	
     <gap:plugin name="org.apache.cordova.device" />
 
     <!-- Define app icon for each platform. -->
