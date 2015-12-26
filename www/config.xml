@@ -56,7 +56,7 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="nl.madebymark.share" />
     <gap:plugin name="com.verso.cordova.clipboard" />
-    <gap:plugin name="com.analytics.google" />	
+    <gap:plugin name="cordova-plugin-google-analytics" source="npm" />	
     <gap:plugin name="org.apache.cordova.device" />
 
     <!-- Define app icon for each platform. -->
