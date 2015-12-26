@@ -41,8 +41,8 @@
 
   <div data-role="content">
     <div id="mediaplayer" class="ui-btn">
-      <div id="nowplaying">جميع الوصلات تتطلب اتصالا بالإنترنت وقد لا تعمل بدونه</div>
-      <audio id="audioplayer" autoplay="" controls="" src=""></audio>
+      <div id="nowplayingkids">جميع الوصلات تتطلب اتصالا بالإنترنت وقد لا تعمل بدونه</div>
+      <audio id="audioplayerkids" autoplay="" controls="" src=""></audio>
     </div>
     <div id="753aa8e6-84ab-5775-8f7c-c6e9adf41f59" data-role="collapsible" data-mini="true" data-inset="false" data-collapsed="false">
       <h3>أغاني افتح يا سمسم</h3>
@@ -69,9 +69,10 @@
 $(document).ready(function(){
 	$(".mediaitem").on(clickEvent(),function(ev){
 	   ev.preventDefault();
-	   $("#audioplayer").attr("src",$(this).attr("href"));
-	   $("#audioplayer").trigger("play");
-	   $("#nowplaying").text($(this).text());
+	   $("#audioplayerkids").attr("src",$(this).attr("href"));
+	   $("#audioplayerkids").trigger("play");
+	   $("#nowplayingkids").text($(this).text());
+	   $("audio#audioplayer").trigger("pause");    
 	     if(gaPlugin){
 	       gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Media", "Play", $(this).text());
 	     }else{

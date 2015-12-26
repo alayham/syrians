@@ -166,15 +166,13 @@ div.ngologo{
   clear:both;
 }
 
-#nowplaying{
+#nowplaying,#nowplayingkids{
 	width:100%;
 	text-align:center;
 	font-weight: bold;
 }
-#mediaplayer{
 
-}
-audio#audioplayer{
+audio#audioplayer,audio#audioplayerkids{
 	width:100%;
 }
 

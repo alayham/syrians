@@ -86,6 +86,7 @@ $(document).ready(function(){
 	   $("#audioplayer").attr("src",$(this).attr("href"));
 	   $("#audioplayer").trigger("play");
 	   $("#nowplaying").text($(this).text());
+	   $("#audioplayerkids").trigger("pause");
 	     if(gaPlugin){
 	       gaPlugin.trackEvent( gaEventSuccess, gaEventFailed, "User", "Media", "Play", $(this).text());
 	     }else{
