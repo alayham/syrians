@@ -389,13 +389,14 @@ function initSections(){
 	sectionlist[0].addlink('news_sana_politics.html','الأخبار السياسية: سانا','sana.png');
 	sectionlist[0].addlink('live_syrian_tv.html','التلفزيون والإذاعة','Syriatvlogo.png');
 	
+	sectionlist[1].addlink('moex.html','وزارة الخارجية والمغتربين','moex.png');
 	sectionlist[1].addlink('syria_embassy.html','دليل السفارات السورية','Syria_coat_of_arms.png');
 	sectionlist[1].addlink('counsular_services_outside.html','دليل الخدمات القنصلية','moex.png');
 	sectionlist[1].addlink('military_service.html','شؤون التجنيد','Syria_Armed_Forces_Emblem.png');
 	sectionlist[1].addlink('expat_associations.html','النوادي السورية في العالم','syrians_abroad.png');
 	
 	sectionlist[2].addlink('phones.html','الاتصال هاتفيا مع سوريا','syria_phone.png');
-	sectionlist[2].addlink('syriaair.html','رحلات السورية للطيران','syriaair.png');
+//	sectionlist[2].addlink('syriaair.html','رحلات السورية للطيران','syriaair.png');
 	sectionlist[2].addlink('directory.html','دليل المواقع السورية','sy_tld_logo.png');
 	sectionlist[2].addlink('invest_in_syria.html','دليل الاستثمار والأعمال','syrecon.png');
 	sectionlist[2].addlink('donate_to_syria.html','إرسال التبرعات','daam.png');
