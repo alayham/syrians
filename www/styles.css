@@ -217,8 +217,16 @@ body.offline audio.upstream{
   background-repeat: no-repeat;
 }
 
+.book-intro:after{
+	clear: both;
+	content: "";
+	display: block;
+}
 
-
+.book-intro img{
+	float: right;
+	margin: 0 0 1em 1em;
+}
 
 
 

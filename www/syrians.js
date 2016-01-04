@@ -408,6 +408,8 @@ function initSections(){
 	
 	sectionlist[4].addlink('about_syria.html','معلومات عن سوريا','about_syria.jpg');
 	sectionlist[4].addlink('media_resources.html','أغاني وتسجيلات','play.png');
+	sectionlist[4].addlink('magazines.html','مجلات سورية','magazines.png');
+	sectionlist[4].addlink('children_books.html','كتب أطفال','magazines.png');
 	
 	sectionlist[5].addlink('whatsnew.html','ما الجديد');
 	sectionlist[5].addlink('contact.html','الاتصال مع مطور التطبيق',"contact.png");
@@ -494,8 +496,6 @@ function injectlocalcommands(){
           elementID = $(this).prop("id");
         }else{
           return(true); //Do not work on collapsibles that don't have a uuid
-          //elementID = "lc" + Math.floor((Math.random() * 100000000) + 1);
-          //$(this).attr("id",elementID);
         }
         $("<div/>",{"class": "lc nocopy"}).append($("<a/>",{
           "class" : "ui-link ui-btn ui-icon-share ui-btn-icon-notext ui-btn-inline ui-corner-all",
